@@ -6,22 +6,42 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint && pnpm lint:type-check && pnpm lint:prettier-fix",
+    "lint:eslint-fix": "eslint . --fix",
+    "lint:prettier-fix": "prettier . --write",
+    "lint:type-check": "tsc --noEmit",
+    "fix": "pnpm lint:prettier-fix && pnpm lint:eslint-fix",
+    "preinstall": "npx only-allow pnpm",
+    "prepare": "husky"
   },
   "dependencies": {
+    "next": "15.1.1",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "next": "15.1.1"
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@eslint/eslintrc": "^3",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1",
     "eslint": "^9",
     "eslint-config-next": "15.1.1",
-    "@eslint/eslintrc": "^3"
-  }
+    "eslint-plugin-unused-imports": "^4.1.4",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.2.11",
+    "postcss": "^8",
+    "prettier": "3.4.2",
+    "prettier-plugin-classnames": "^0.7.5",
+    "prettier-plugin-merge": "^0.7.2",
+    "prettier-plugin-tailwindcss": "^0.6.9",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown",
+    "**/*.{ts,tsx}": [
+      "eslint --fix"
+    ]
+  },
+  "packageManager": "pnpm@9.15.0+sha512.3d41f72c9dd7981ba0739217e38201a6bdb2d8a62c5e08f4fe41f6e4873c6d98023bae2415947c062e50cf8be53627b72906493c5b6e49d447f6a63c8058a77e"
 }
