@@ -6,9 +6,10 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint && pnpm lint:type-check && pnpm lint:staged",
+    "lint": "next lint && pnpm lint:type-check && pnpm lint:prettier-fix",
     "lint:eslint-fix": "eslint . --fix",
-    "lint:type-check": "tsc –noEmit",
+    "lint:prettier-fix": "prettier . --write",
+    "lint:type-check": "tsc --noEmit",
     "fix": "pnpm lint:prettier-fix && pnpm lint:eslint-fix",
     "preinstall": "npx only-allow pnpm",
     "prepare": "husky"
@@ -37,6 +38,7 @@
     "typescript": "^5"
   },
   "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown",
     "**/*.{ts,tsx}": [
       "eslint --fix"
     ]
