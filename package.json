@@ -15,9 +15,13 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@svgr/webpack": "^8.1.0",
+    "clsx": "^2.1.1",
+    "nanoid": "^5.0.9",
     "next": "15.1.1",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "tailwind-merge": "^2.5.5"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
