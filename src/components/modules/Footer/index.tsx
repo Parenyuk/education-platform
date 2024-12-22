@@ -1,25 +1,28 @@
 import { companyEmail } from '@/lib/constants/email';
+import { companyLocation } from '@/lib/constants/location';
 import { companyPhone } from '@/lib/constants/phone';
-import Logo from 'public/svg/Logo.svg';
+import ContactLink from '@/src/components/elements/ContactLink';
+import LogoComponent from '@/src/components/elements/LogoComponent';
+import MarkerIcon from 'public/svg/marker.svg';
 import MessageIcon from 'public/svg/message.svg';
 import PhoneIcon from 'public/svg/phone.svg';
 
 const Footer = ({}) => {
   return (
     <footer className='mt-auto'>
-      <div className='container mx-auto bg-red-500'>
+      <div className='container mx-auto '>
         <div>
-          <Logo />
-          <div className='flex'>
+          <LogoComponent />
+          <ContactLink text={companyEmail} className='mt-10'>
             <MessageIcon />
-            <p>{companyEmail}</p>
-          </div>
-          <div className='flex'>
+          </ContactLink>
+          <ContactLink text={companyPhone}>
             <PhoneIcon />
-            <p>{companyPhone}</p>
-          </div>
+          </ContactLink>
+          <ContactLink text={companyLocation}>
+            <MarkerIcon />
+          </ContactLink>
         </div>
-        footer
       </div>
     </footer>
   );
