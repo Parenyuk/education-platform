@@ -47,6 +47,22 @@ export default {
           70: '#B3B3B3',
         },
       },
+      fontSize: {
+        lg: [
+          '1.125rem',
+          {
+            lineHeight: '150%',
+            fontWeight: '600',
+          },
+        ],
+        xl: [
+          '1.25rem',
+          {
+            lineHeight: '150%',
+            fontWeight: '600',
+          },
+        ],
+      },
       screens: {
         '2xl': '1920px',
       },

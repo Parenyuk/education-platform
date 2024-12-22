@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint && pnpm lint:type-check && pnpm lint:prettier-fix",
-    "lint:eslint-fix": "eslint . --fix",
+    "lint:eslint-fix": "eslint src --fix",
     "lint:prettier-fix": "prettier . --write",
     "lint:type-check": "tsc --noEmit",
     "lint-staged": "lint-staged",

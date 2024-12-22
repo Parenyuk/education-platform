@@ -1,4 +1,3 @@
-
 import { footerLinks } from '@/helpers/mockData/footerLinks';
 import { companyEmail } from '@/lib/constants/email';
 import { companyLocation } from '@/lib/constants/location';
@@ -14,7 +13,7 @@ import SocialProfiles from 'src/components/units/SocialProfiles';
 const Footer = ({}) => {
   return (
     <footer className='mt-auto'>
-      <div className='container mx-auto flex'>
+      <div className='container mx-auto flex justify-between'>
         <div>
           <LogoComponent />
           <ContactLink text={companyEmail} className='mt-10'>
@@ -29,8 +28,8 @@ const Footer = ({}) => {
         </div>
         <div className='flex'>
           {footerLinks.map((link) => (
-            <div key={link.id}>
-              <div>{link.name}</div>
+            <div key={link.id} className='mr-6 2xl:mr-8'>
+              <h6 className='text-lg 2xl:text-xl'>{link.name}</h6>
               <div className='flex flex-col'>
                 {link.items.map((item) => (
                   <SimpleLink key={item.id} href={item.href} target='_blank'>
