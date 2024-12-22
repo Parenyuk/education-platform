@@ -7,6 +7,17 @@ export default {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    container: {
+      center: true,
+      padding: {
+        DEFAULT: '1.25rem',
+        sm: '2.5rem',
+        md: '2.5rem',
+        lg: '2.5rem',
+        xl: '0rem',
+        '2xl': '10rem',
+      },
+    },
     extend: {
       colors: {
         orange: {
@@ -35,6 +46,9 @@ export default {
           60: '#98989A',
           70: '#B3B3B3',
         },
+      },
+      screens: {
+        '2xl': '1920px',
       },
     },
   },
