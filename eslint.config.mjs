@@ -27,7 +27,7 @@ const eslintConfig = [
         },
       ],
       'prefer-const': 'warn',
-      'jsx-quotes': ['error', 'prefer-double'],
+      'jsx-quotes': ['error', 'prefer-single'],
       'no-var': 'error',
       'object-shorthand': 'warn',
       'prefer-object-spread': 'error',
