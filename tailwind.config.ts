@@ -48,18 +48,22 @@ export default {
         },
       },
       fontSize: {
+        sm: [
+          '0.875rem',
+          {
+            lineHeight: '150%',
+          },
+        ],
         lg: [
           '1.125rem',
           {
             lineHeight: '150%',
-            fontWeight: '600',
           },
         ],
         xl: [
           '1.25rem',
           {
             lineHeight: '150%',
-            fontWeight: '600',
           },
         ],
       },
