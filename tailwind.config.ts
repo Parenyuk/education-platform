@@ -1,3 +1,4 @@
+import { nextui } from '@nextui-org/react';
 import type { Config } from 'tailwindcss';
 
 export default {
@@ -5,6 +6,7 @@ export default {
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
     container: {
@@ -73,5 +75,20 @@ export default {
       },
     },
   },
-  plugins: [],
+  darkMode: 'class',
+  plugins: [
+    nextui({
+      themes: {
+        light: {
+          colors: {
+            primary: {
+              DEFAULT: '#FF9500',
+              foreground: '#000000',
+            },
+            focus: '#BEF264',
+          },
+        },
+      },
+    }),
+  ],
 } satisfies Config;

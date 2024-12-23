@@ -1,3 +1,5 @@
+import { Button } from '@nextui-org/button';
+
 import { navigationLinks } from '@/helpers/mockData/navigationLinks';
 import LogoComponent from '@/src/components/elements/LogoComponent';
 import SimpleLink from '@/src/components/elements/SimpleLink';
@@ -22,7 +24,10 @@ const Header = ({}) => {
           </div>
         </div>
         <div className='flex items-center justify-center space-x-5'>
-          <div>login</div>
+          <Button variant='light'>Sign Up</Button>
+          <Button radius='sm' color='primary'>
+            Login
+          </Button>
           <div className='flex md:hidden'>
             <MenuIcon />
           </div>
