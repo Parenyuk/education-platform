@@ -69,9 +69,24 @@ export default {
             lineHeight: '150%',
           },
         ],
+        '3xl': [
+          '1.875rem',
+          {
+            lineHeight: '150%',
+          },
+        ],
+        '5xl': [
+          '2.375rem',
+          {
+            lineHeight: '150%',
+          },
+        ],
       },
       screens: {
         '2xl': '1920px',
+      },
+      spacing: {
+        '15': '3.75rem',
       },
     },
   },
@@ -80,11 +95,11 @@ export default {
     nextui({
       themes: {
         light: {
+          extend: 'light',
           colors: {
-            primary: {
-              DEFAULT: '#FF9500',
-              foreground: '#000000',
-            },
+            background: '#F1F1F3',
+            primary: '#FF9500',
+            secondary: '#262626',
             focus: '#BEF264',
           },
         },

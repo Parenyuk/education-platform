@@ -5,3 +5,8 @@
 body {
   overflow-x: hidden;
 }
+
+.auth-slider-container .swiper-button-next::after,
+.auth-slider-container .swiper-button-prev::after {
+  display: none !important;
+}
