@@ -3,7 +3,7 @@ import SimpleLink from '@/src/components/elements/SimpleLink';
 
 const SocialProfiles = () => {
   return (
-    <>
+    <div>
       <h6 className='mb-3.5 mt-10 text-lg font-semibold md:mt-0 2xl:text-xl'>Social Profiles</h6>
       <div className='flex space-x-3.5'>
         {socialProfiles.map((profile) => {
@@ -14,7 +14,7 @@ const SocialProfiles = () => {
           );
         })}
       </div>
-    </>
+    </div>
   );
 };
 
