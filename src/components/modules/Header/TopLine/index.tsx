@@ -1,4 +1,5 @@
-import SimpleLink from '@/src/components/elements/SimpleLink';
+import { Link } from '@nextui-org/link';
+
 import Arrow from 'public/svg/right-arrow.svg';
 
 const TopLine = ({}) => {
@@ -8,9 +9,9 @@ const TopLine = ({}) => {
         md:space-x-6 md:py-3 2xl:mx-8 2xl:py-3.5'
     >
       <p className='text-sm text-white-100 2xl:text-lg'>Free Courses 🌟 Sale Ends Soon, Get It Now</p>
-      <SimpleLink href={'/'}>
+      <Link href={'/'}>
         <Arrow />
-      </SimpleLink>
+      </Link>
     </div>
   );
 };
