@@ -10,6 +10,7 @@ import { SignUpSchema } from '@/lib/types/schema/SignUpSchema';
 import GoogleIcon from '@/public/svg/google.svg';
 import Arrow from '@/src/components/elements/Arrow';
 import FormCheckbox from '@/src/components/elements/formElements/FormCheckbox';
+import FormPasswordInput from '@/src/components/elements/formElements/FormPasswordInput';
 import FormDivider from 'src/components/elements/formElements/FormDivider';
 import FormInput from 'src/components/elements/formElements/FormInput';
 
@@ -44,7 +45,7 @@ const SignUp = ({}) => {
             register={register('email', { required: true })}
             error={errors?.email?.message}
           />
-          <FormInput
+          <FormPasswordInput
             label='Password'
             placeholder='Enter your Password'
             register={register('password', { required: true })}
