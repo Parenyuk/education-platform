@@ -3,25 +3,24 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Button } from '@nextui-org/button';
 import { Link } from '@nextui-org/link';
-import { useForm, SubmitHandler } from 'react-hook-form';
+import { SubmitHandler, useForm } from 'react-hook-form';
 
-import { signUpSchema } from '@/lib/schema/SignUpSchema';
+import { loginSchema } from '@/lib/schema/LoginSchema';
 import { SignUpSchema } from '@/lib/types/schema/SignUpSchema';
 import GoogleIcon from '@/public/svg/google.svg';
 import Arrow from '@/src/components/elements/Arrow';
-import FormCheckbox from '@/src/components/elements/formElements/FormCheckbox';
+import FormDivider from '@/src/components/elements/formElements/FormDivider';
+import FormInput from '@/src/components/elements/formElements/FormInput';
 import FormPasswordInput from '@/src/components/elements/formElements/FormPasswordInput';
-import FormDivider from 'src/components/elements/formElements/FormDivider';
-import FormInput from 'src/components/elements/formElements/FormInput';
 
-const SignUp = ({}) => {
+const Login = ({}) => {
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
   } = useForm<SignUpSchema>({
-    resolver: zodResolver(signUpSchema),
+    resolver: zodResolver(loginSchema),
   });
   const onSubmit: SubmitHandler<SignUpSchema> = (data) => console.log(data);
 
@@ -29,16 +28,10 @@ const SignUp = ({}) => {
 
   return (
     <>
-      <h2 className='mb-2 text-center text-xl font-semibold md:text-5xl 2xl:text-5xl'>Sign Up</h2>
-      <p className='text-center'>Create an account to unlock exclusive features.</p>
+      <h2 className='mb-2 text-center text-xl font-semibold md:text-5xl 2xl:text-5xl'>Login</h2>
+      <p className='text-center'>Welcome back! Please log in to access your account.</p>
       <form onSubmit={handleSubmit(onSubmit)} className='mt-7 flex flex-col md:mt-10 2xl:mt-12'>
         <div className='space-y-12 2xl:space-y-15'>
-          <FormInput
-            label='Full Name'
-            placeholder='Enter your Name'
-            register={register('name', { required: true })}
-            error={errors?.name?.message}
-          />
           <FormInput
             label='Email'
             placeholder='Enter your Email'
@@ -53,29 +46,27 @@ const SignUp = ({}) => {
           />
         </div>
 
-        <FormCheckbox register={register('checkbox', { required: true })} error={errors?.checkbox?.message} />
-
         <Button type='submit' color='primary' className='mt-5 text-white-100'>
           Submit
         </Button>
       </form>
       <FormDivider />
       <Button startContent={<GoogleIcon />} size='lg' className='my-6 min-h-14 w-full' color='default'>
-        Sign Up with Google
+        Login with Google
       </Button>
       <p className='text-center'>
-        Already have an account?{' '}
+        Don’t have an account?{' '}
         <Link
-          href='/login'
+          href='/sign-up'
           showAnchorIcon
           className='underline'
           anchorIcon={<Arrow color={'#262626'} className='-rotate-45' />}
         >
-          Login
+          Sign up
         </Link>
       </p>
     </>
   );
 };
 
-export default SignUp;
+export default Login;
