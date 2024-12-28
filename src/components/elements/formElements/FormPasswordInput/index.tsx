@@ -12,7 +12,7 @@ import InputLabel from '@/src/components/elements/formElements/InputLabel';
 export const EyeSlashFilledIcon = ({ className }: { className: string }) => {
   return (
     <svg
-      ariaHidden='true'
+      aria-hidden='true'
       fill='none'
       focusable='false'
       height='1em'
@@ -48,7 +48,7 @@ export const EyeSlashFilledIcon = ({ className }: { className: string }) => {
 export const EyeFilledIcon = ({ className }: { className: string }) => {
   return (
     <svg
-      ariaHidden='true'
+      aria-hidden='true'
       fill='none'
       focusable='false'
       height='1em'
