@@ -97,6 +97,7 @@ export default {
         light: {
           extend: 'light',
           colors: {
+            default: '#F7F7F8',
             background: '#F1F1F3',
             primary: '#FF9500',
             secondary: '#262626',

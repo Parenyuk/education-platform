@@ -1,4 +1,5 @@
-import SimpleLink from '@/src/components/elements/SimpleLink';
+import { Link } from '@nextui-org/link';
+
 import { navigationLinks } from 'helpers/mockData/navigationLinks';
 
 const LinksBlock = ({}) => {
@@ -9,9 +10,9 @@ const LinksBlock = ({}) => {
           <h6 className='mb-3.5 text-lg font-semibold 2xl:text-xl'>{link.name}</h6>
           <div className='flex flex-col space-y-1.5'>
             {link?.items?.map((item) => (
-              <SimpleLink key={item.id} href={item.href} target='_blank'>
+              <Link key={item.id} href={item.href} color='secondary' target='_blank'>
                 {item.title}
-              </SimpleLink>
+              </Link>
             ))}
           </div>
         </div>

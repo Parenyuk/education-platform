@@ -1,8 +1,8 @@
 import { Button } from '@nextui-org/button';
+import { Link } from '@nextui-org/link';
 
 import { navigationLinks } from '@/helpers/mockData/navigationLinks';
 import LogoComponent from '@/src/components/elements/LogoComponent';
-import SimpleLink from '@/src/components/elements/SimpleLink';
 import TopLine from '@/src/components/modules/Header/TopLine';
 import MenuIcon from 'public/svg/mobile-menu.svg';
 
@@ -16,9 +16,9 @@ const Header = ({}) => {
           <div className='hidden md:flex'>
             {navigationLinks.header.map((link) => {
               return (
-                <SimpleLink key={link.id} href={link.href} className='text-sm md:mr-7 2xl:text-lg'>
+                <Link key={link.id} href={link.href} color='secondary' className='text-sm md:mr-7 2xl:text-lg'>
                   {link.name}
-                </SimpleLink>
+                </Link>
               );
             })}
           </div>
