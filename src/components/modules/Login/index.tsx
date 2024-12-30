@@ -6,6 +6,7 @@ import { Checkbox } from '@nextui-org/checkbox';
 import { Link } from '@nextui-org/link';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
+import { loginAction } from '@/actions/auth/loginAction';
 import { ROUTES } from '@/lib/constants/routes';
 import { loginSchema } from '@/lib/schema/LoginSchema';
 import { LoginSchema } from '@/lib/types/schema/LoginSchema';
@@ -24,7 +25,11 @@ const Login = ({}) => {
   } = useForm<LoginSchema>({
     resolver: zodResolver(loginSchema),
   });
-  const onSubmit: SubmitHandler<LoginSchema> = (data) => console.log(data);
+
+  const onSubmit: SubmitHandler<LoginSchema> = (data) => {
+    console.log('data', data);
+    return loginAction(data);
+  };
 
   console.log(watch('email'));
 
