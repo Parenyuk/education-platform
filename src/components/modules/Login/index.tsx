@@ -1,5 +1,7 @@
 'use client';
 
+import { useState } from 'react';
+
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Button } from '@nextui-org/button';
 import { Checkbox } from '@nextui-org/checkbox';
@@ -9,6 +11,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { loginAction } from '@/actions/auth/loginAction';
 import { ROUTES } from '@/lib/constants/routes';
 import { loginSchema } from '@/lib/schema/LoginSchema';
+import { LoginResponse } from '@/lib/types/actions';
 import { LoginSchema } from '@/lib/types/schema/LoginSchema';
 import GoogleIcon from '@/public/svg/google.svg';
 import Arrow from '@/src/components/elements/Arrow';
@@ -26,9 +29,15 @@ const Login = ({}) => {
     resolver: zodResolver(loginSchema),
   });
 
-  const onSubmit: SubmitHandler<LoginSchema> = (data) => {
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
+  const onSubmit: SubmitHandler<LoginSchema> = async (data) => {
     console.log('data', data);
-    return loginAction(data);
+    setErrorMessage(null);
+    const response: LoginResponse = await loginAction(data);
+    if (!response.success) {
+      setErrorMessage(response.message);
+    }
   };
 
   console.log(watch('email'));
@@ -55,6 +64,8 @@ const Login = ({}) => {
         <Link href={ROUTES.FORGOT_PASSWORD} color='secondary' className='mt-2.5 justify-end 2xl:mt-3.5'>
           Forgot Password?
         </Link>
+
+        <p>{errorMessage}</p>
 
         <Checkbox color='default' className='mt-5' {...register('rememberMe')}>
           Remember me
