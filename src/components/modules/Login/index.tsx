@@ -11,7 +11,6 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { loginAction } from '@/actions/auth/loginAction';
 import { ROUTES } from '@/lib/constants/routes';
 import { loginSchema } from '@/lib/schema/LoginSchema';
-import { LoginResponse } from '@/lib/types/actions';
 import { LoginSchema } from '@/lib/types/schema/LoginSchema';
 import GoogleIcon from '@/public/svg/google.svg';
 import Arrow from '@/src/components/elements/Arrow';
@@ -34,7 +33,7 @@ const Login = ({}) => {
   const onSubmit: SubmitHandler<LoginSchema> = async (data) => {
     console.log('data', data);
     setErrorMessage(null);
-    const response: LoginResponse = await loginAction(data);
+    const response = await loginAction(data);
     if (!response.success) {
       setErrorMessage(response.message);
     }

@@ -6,12 +6,11 @@ import { redirect } from 'next/navigation';
 
 import ZodParseDataAdapter from '@/adapters/zod/ZodParseDataAdapter';
 import { loginSchema } from '@/lib/schema/LoginSchema';
+import { LoginResponse } from '@/lib/types/actions';
 import { LoginSchema } from '@/lib/types/schema/LoginSchema';
 import { createClient } from '@/utils/supabase/server';
 
-export const loginAction = async (formData: LoginSchema) => {
-  console.log('server action', formData);
-
+export const loginAction = async (formData: LoginSchema): Promise<LoginResponse> => {
   const validatedData = ZodParseDataAdapter(loginSchema, formData);
 
   if (validatedData.errors) {
@@ -20,9 +19,7 @@ export const loginAction = async (formData: LoginSchema) => {
 
   const supabase = await createClient();
 
-  const { data, error } = await supabase.auth.signInWithPassword(<SignInWithPasswordCredentials>validatedData.data);
-
-  console.log('lo', data);
+  const { error } = await supabase.auth.signInWithPassword(<SignInWithPasswordCredentials>validatedData.data);
 
   if (error) {
     return { success: false, message: 'An unexpected error occurred. Please try again later.' };
