@@ -9,4 +9,5 @@ export const loginSchema = z.object({
     .regex(/[a-z]/, 'Password must contain at least one lowercase letter.')
     .regex(/\d/, 'Password must contain at least one digit.')
     .regex(/[!@#$%^&*(),.?":{}|<>]/, 'Password must contain at least one special character.'),
+  rememberMe: z.boolean(),
 });

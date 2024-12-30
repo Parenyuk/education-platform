@@ -5,6 +5,7 @@ import { Button } from '@nextui-org/button';
 import { Link } from '@nextui-org/link';
 import { useForm, SubmitHandler } from 'react-hook-form';
 
+import { ROUTES } from '@/lib/constants/routes';
 import { signUpSchema } from '@/lib/schema/SignUpSchema';
 import { SignUpSchema } from '@/lib/types/schema/SignUpSchema';
 import GoogleIcon from '@/public/svg/google.svg';
@@ -51,6 +52,12 @@ const SignUp = ({}) => {
             register={register('password', { required: true })}
             error={errors?.password?.message}
           />
+          <FormPasswordInput
+            label='Confirm Password'
+            placeholder='Enter your Password'
+            register={register('confirmPassword', { required: true })}
+            error={errors?.confirmPassword?.message}
+          />
         </div>
 
         <FormCheckbox register={register('checkbox', { required: true })} error={errors?.checkbox?.message} />
@@ -66,9 +73,10 @@ const SignUp = ({}) => {
       <p className='text-center'>
         Already have an account?{' '}
         <Link
-          href='/login'
+          href={ROUTES.LOGIN}
           showAnchorIcon
           className='underline'
+          color='secondary'
           anchorIcon={<Arrow color={'#262626'} className='-rotate-45' />}
         >
           Login

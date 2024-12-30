@@ -2,11 +2,13 @@
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Button } from '@nextui-org/button';
+import { Checkbox } from '@nextui-org/checkbox';
 import { Link } from '@nextui-org/link';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
+import { ROUTES } from '@/lib/constants/routes';
 import { loginSchema } from '@/lib/schema/LoginSchema';
-import { SignUpSchema } from '@/lib/types/schema/SignUpSchema';
+import { LoginSchema } from '@/lib/types/schema/LoginSchema';
 import GoogleIcon from '@/public/svg/google.svg';
 import Arrow from '@/src/components/elements/Arrow';
 import FormDivider from '@/src/components/elements/formElements/FormDivider';
@@ -19,12 +21,12 @@ const Login = ({}) => {
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm<SignUpSchema>({
+  } = useForm<LoginSchema>({
     resolver: zodResolver(loginSchema),
   });
-  const onSubmit: SubmitHandler<SignUpSchema> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<LoginSchema> = (data) => console.log(data);
 
-  console.log(watch('checkbox'));
+  console.log(watch('email'));
 
   return (
     <>
@@ -45,9 +47,16 @@ const Login = ({}) => {
             error={errors?.password?.message}
           />
         </div>
+        <Link href={ROUTES.FORGOT_PASSWORD} color='secondary' className='mt-2.5 justify-end 2xl:mt-3.5'>
+          Forgot Password?
+        </Link>
+
+        <Checkbox color='default' className='mt-5' {...register('rememberMe')}>
+          Remember me
+        </Checkbox>
 
         <Button type='submit' color='primary' className='mt-5 text-white-100'>
-          Submit
+          Login
         </Button>
       </form>
       <FormDivider />
@@ -57,9 +66,10 @@ const Login = ({}) => {
       <p className='text-center'>
         Don’t have an account?{' '}
         <Link
-          href='/sign-up'
+          href={ROUTES.SIGN_UP}
           showAnchorIcon
           className='underline'
+          color='secondary'
           anchorIcon={<Arrow color={'#262626'} className='-rotate-45' />}
         >
           Sign up

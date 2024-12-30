@@ -11,15 +11,15 @@ const FormCheckbox = ({ error, register }: FormCheckboxProps) => {
     <>
       <Checkbox color='default' className='mt-5' {...register}>
         I agree with{' '}
-        <Link href='#' className='underline'>
+        <Link href='#' className='underline' color='secondary'>
           Terms of Use
         </Link>{' '}
         and{' '}
-        <Link href='#' className='underline'>
+        <Link href='#' className='underline' color='secondary'>
           Privacy Policy
         </Link>
       </Checkbox>
-      {error && <FormError error={error} />}
+      <div className='mt-2 min-h-6'>{error && <FormError error={error} />}</div>
     </>
   );
 };
