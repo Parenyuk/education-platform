@@ -14,6 +14,10 @@ export const loginAction = async (formData: LoginSchema) => {
 
   const validatedData = ZodParseDataAdapter(loginSchema, formData);
 
+  if (validatedData.errors) {
+    return { success: false, message: 'An unexpected error occurred. Please try again later.' };
+  }
+
   const supabase = await createClient();
 
   const { data, error } = await supabase.auth.signInWithPassword(<SignInWithPasswordCredentials>validatedData.data);
