@@ -8,6 +8,7 @@ import { Checkbox } from '@nextui-org/checkbox';
 import { Link } from '@nextui-org/link';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
+import { googleAuth } from '@/actions/auth/GoogleAuth';
 import { loginAction } from '@/actions/auth/loginAction';
 import { ROUTES } from '@/lib/constants/routes';
 import { loginSchema } from '@/lib/schema/LoginSchema';
@@ -40,6 +41,10 @@ const Login = ({}) => {
   };
 
   console.log(watch('email'));
+
+  const onPressHandler = async () => {
+    return await googleAuth();
+  };
 
   return (
     <>
@@ -75,7 +80,13 @@ const Login = ({}) => {
         </Button>
       </form>
       <FormDivider />
-      <Button startContent={<GoogleIcon />} size='lg' className='my-6 min-h-14 w-full' color='default'>
+      <Button
+        onPress={onPressHandler}
+        startContent={<GoogleIcon />}
+        size='lg'
+        className='my-6 min-h-14 w-full'
+        color='default'
+      >
         Login with Google
       </Button>
       <p className='text-center'>

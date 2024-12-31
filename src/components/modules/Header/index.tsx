@@ -7,7 +7,7 @@ import LogoComponent from '@/src/components/elements/LogoComponent';
 import TopLine from '@/src/components/modules/Header/TopLine';
 import MenuIcon from 'public/svg/mobile-menu.svg';
 
-const Header = ({}) => {
+const Header = () => {
   return (
     <header>
       <TopLine />
