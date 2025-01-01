@@ -84,6 +84,7 @@ const eslintConfig = [
           SwitchCase: 1,
         },
       ],
+      '@typescript-eslint/ban-ts-comment': ['error', { 'ts-nocheck': false }],
       'space-infix-ops': 'error',
       'eol-last': 'error',
       'no-whitespace-before-property': 'error',

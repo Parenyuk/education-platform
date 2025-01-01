@@ -11,7 +11,7 @@ import { SignUpSchema } from '@/lib/types/schema/SignUpSchema';
 import { createClient } from '@/utils/supabase/server';
 
 export const signUpAction = async (formData: SignUpSchema) => {
-  const validatedData = ZodParseDataAdapter(signUpSchema, formData);
+  const validatedData = ZodParseDataAdapter<SignUpSchema>(signUpSchema, formData);
 
   if (validatedData.errors) {
     return { success: false, message: 'An unexpected error occurred. Please try again later.' };
@@ -19,7 +19,15 @@ export const signUpAction = async (formData: SignUpSchema) => {
 
   const supabase = await createClient();
 
-  const { error } = await supabase.auth.signUp(<SignUpWithPasswordCredentials>validatedData.data);
+  const { error } = await supabase.auth.signUp(<SignUpWithPasswordCredentials>{
+    email: validatedData.data.email,
+    password: validatedData.data.password,
+    options: {
+      data: {
+        full_name: validatedData.data.name,
+      },
+    },
+  });
 
   if (error) {
     return { success: false, message: 'An unexpected error occurred. Please try again later.' };
