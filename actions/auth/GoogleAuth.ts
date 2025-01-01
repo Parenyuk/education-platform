@@ -10,10 +10,9 @@ export const googleAuth = async () => {
 
   const origin = await headers().get('origin');
 
-  const { data, error } = await supabase.auth.signInWithOAuth({
+  const { data } = await supabase.auth.signInWithOAuth({
     provider: 'google',
     options: {
-      // redirectTo: 'https://fcjzznjdzlmtnndrdsej.supabase.co/auth/v1/callback',
       redirectTo: `${origin}/profile/auth/callback`,
       queryParams: {
         access_type: 'offline',
@@ -21,8 +20,6 @@ export const googleAuth = async () => {
       },
     },
   });
-  console.log('data', data);
-  console.log('error', error);
   if (data.url) {
     redirect(data.url);
   }
