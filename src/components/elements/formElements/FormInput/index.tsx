@@ -7,14 +7,17 @@ import { FormInputProps } from '@/lib/types/components/elements/formElements/For
 import FormError from '@/src/components/elements/formElements/FormError';
 import InputLabel from '@/src/components/elements/formElements/InputLabel';
 
-const FormInput = ({ label, placeholder, register, error }: FormInputProps) => {
+const FormInput = ({ label, placeholder, register, error, classNames }: FormInputProps) => {
   return (
     <>
       <Input
         label={<InputLabel label={label} error={!!error} />}
         labelPlacement='outside'
         placeholder={placeholder}
-        className={cn({ 'text-red-500': !!error })}
+        classNames={{
+          base: cn({ 'text-red-500': !!error }),
+          ...classNames,
+        }}
         {...register}
       />
       {error && <FormError error={error} />}
