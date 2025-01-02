@@ -1,11 +1,15 @@
 'use client';
 
+import { useState } from 'react';
+
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Button } from '@nextui-org/button';
 import { Checkbox } from '@nextui-org/checkbox';
 import { Link } from '@nextui-org/link';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
+import { googleAuth } from '@/actions/auth/GoogleAuth';
+import { loginAction } from '@/actions/auth/loginAction';
 import { ROUTES } from '@/lib/constants/routes';
 import { loginSchema } from '@/lib/schema/LoginSchema';
 import { LoginSchema } from '@/lib/types/schema/LoginSchema';
@@ -24,9 +28,23 @@ const Login = ({}) => {
   } = useForm<LoginSchema>({
     resolver: zodResolver(loginSchema),
   });
-  const onSubmit: SubmitHandler<LoginSchema> = (data) => console.log(data);
+
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
+  const onSubmit: SubmitHandler<LoginSchema> = async (data) => {
+    console.log('data', data);
+    setErrorMessage(null);
+    const response = await loginAction(data);
+    if (!response.success) {
+      setErrorMessage(response.message);
+    }
+  };
 
   console.log(watch('email'));
+
+  const onPressHandler = async () => {
+    return await googleAuth();
+  };
 
   return (
     <>
@@ -51,6 +69,8 @@ const Login = ({}) => {
           Forgot Password?
         </Link>
 
+        <p>{errorMessage}</p>
+
         <Checkbox color='default' className='mt-5' {...register('rememberMe')}>
           Remember me
         </Checkbox>
@@ -60,7 +80,13 @@ const Login = ({}) => {
         </Button>
       </form>
       <FormDivider />
-      <Button startContent={<GoogleIcon />} size='lg' className='my-6 min-h-14 w-full' color='default'>
+      <Button
+        onPress={onPressHandler}
+        startContent={<GoogleIcon />}
+        size='lg'
+        className='my-6 min-h-14 w-full'
+        color='default'
+      >
         Login with Google
       </Button>
       <p className='text-center'>

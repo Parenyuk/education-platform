@@ -5,6 +5,9 @@ import './globals.css';
 
 import { Providers } from '@/src/app/providers';
 
+// eslint-disable-next-line import/order
+import OneTapComponent from '../components/elements/OneTapComponent';
+
 const geistSans = Geist({
   variable: '--font-geist-sans',
   subsets: ['latin'],
@@ -28,6 +31,7 @@ export default function RootLayout({
   return (
     <html lang='en' className='light'>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <OneTapComponent />
         <Providers>{children}</Providers>
       </body>
     </html>

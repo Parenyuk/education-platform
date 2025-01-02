@@ -1,10 +1,13 @@
 'use client';
 
+import { useState } from 'react';
+
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Button } from '@nextui-org/button';
 import { Link } from '@nextui-org/link';
 import { useForm, SubmitHandler } from 'react-hook-form';
 
+import { signUpAction } from '@/actions/auth/signUpAction';
 import { ROUTES } from '@/lib/constants/routes';
 import { signUpSchema } from '@/lib/schema/SignUpSchema';
 import { SignUpSchema } from '@/lib/types/schema/SignUpSchema';
@@ -24,7 +27,17 @@ const SignUp = ({}) => {
   } = useForm<SignUpSchema>({
     resolver: zodResolver(signUpSchema),
   });
-  const onSubmit: SubmitHandler<SignUpSchema> = (data) => console.log(data);
+
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
+  const onSubmit: SubmitHandler<SignUpSchema> = async (data) => {
+    console.log('data', data);
+    setErrorMessage(null);
+    const response = await signUpAction(data);
+    if (!response.success) {
+      setErrorMessage(response.message);
+    }
+  };
 
   console.log(watch('checkbox'));
 
@@ -61,6 +74,8 @@ const SignUp = ({}) => {
         </div>
 
         <FormCheckbox register={register('checkbox', { required: true })} error={errors?.checkbox?.message} />
+
+        {errorMessage}
 
         <Button type='submit' color='primary' className='mt-5 text-white-100'>
           Submit
