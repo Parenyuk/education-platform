@@ -46,7 +46,7 @@ export default function ContactPage() {
         className='mx-4 mt-7 flex h-0.5 max-w-full items-center justify-center space-x-3 bg-white-90 md:mx-5 md:mt-10 md:space-x-6 2xl:mx-8
           2xl:mt-12'
       />
-      <div className='container mx-auto mb-12 mt-12 flex flex-row rounded-xl bg-white-100 md:mb-20 md:mt-20 md:flex-col 2xl:mb-40 2xl:mt-24'>
+      <div className='container mx-auto mb-12 mt-12 flex flex-col rounded-xl bg-white-100 md:mb-20 md:mt-20 md:flex-row 2xl:mb-40 2xl:mt-24'>
         <form className='w-full p-7 md:p-15 2xl:p-20' onSubmit={handleSubmit(onSubmit)}>
           <div className='grid grid-cols-1 gap-4 pb-4 md:grid-cols-2 md:gap-6 md:pb-6 2xl:gap-8 2xl:pb-8'>
             <FormInput
