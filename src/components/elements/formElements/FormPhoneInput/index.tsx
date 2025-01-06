@@ -11,24 +11,16 @@ import FormError from '@/src/components/elements/formElements/FormError';
 
 const FormPhoneInput = ({ control, error }: PhoneFormInputProps) => {
   const [fullPhoneNumber, setFullPhoneNumber] = useState<string | null>(null);
-  const [isInternational, setIsInternational] = useState<boolean>(true);
-
-  // console.log('error', error);
 
   const handlePhoneChange = (value?: string) => {
     if (value) {
       const phoneNumber = parsePhoneNumber(value);
 
       if (phoneNumber) {
-        console.log('phoneNumber', phoneNumber);
         setFullPhoneNumber(phoneNumber.format('E.164'));
-        setIsInternational(!phoneNumber.country);
-        console.log('Full Phone Number:', phoneNumber.number);
-        console.log('Country Code:', phoneNumber.country || 'International');
       }
     } else {
       setFullPhoneNumber(null);
-      setIsInternational(true);
     }
   };
 
@@ -49,9 +41,6 @@ const FormPhoneInput = ({ control, error }: PhoneFormInputProps) => {
         onChange={handlePhoneChange}
       />
       {error && <FormError error={error} />}
-      {fullPhoneNumber && !isInternational && (
-        <p className='mt-2 text-xs text-gray-500'>Full Phone Number: {fullPhoneNumber}</p>
-      )}
     </div>
   );
 };
