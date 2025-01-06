@@ -31,8 +31,8 @@ const FormPhoneInput = ({ control, error }: PhoneFormInputProps) => {
             containerClass={`group transition-all !duration-150 flex z-20 border-gray-15 relative top-0.75 h-15 min-h-15 rounded-xl border bg-white-97 
             focus:bg-white-97 hover:bg-white-100 2xl:h-17 2xl:min-h-17 [&_input]:bg-white-97 [&_input]:outline-none`}
             buttonClass='!border-none group-hover:bg-white-100 !border-r-[#e5e7eb] !rounded-xl transition-all !duration-150'
-            dropdownClass='!border-none !rounded-xl'
-            inputClass='min-w-full h-full self-center !border-none !group-hover:bg-white-100  !transition-all !duration-150'
+            buttonStyle={{ borderRadius: '50%' }}
+            inputClass=' min-w-full h-full self-center !border-none !group-hover:bg-white-100  !transition-all !duration-150'
             inputStyle={{ backgroundColor: 'transparent' }}
             countryCodeEditable={false}
           />
