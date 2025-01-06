@@ -30,8 +30,9 @@ const FormPhoneInput = ({ control, error }: PhoneFormInputProps) => {
             country={'ua'}
             enableSearch
             containerClass={cn(
-              `group transition-all !duration-150 flex z-20 border-gray-15 relative top-0.75 h-15 min-h-15 rounded-xl border bg-white-97 
-            focus:bg-white-97 hover:bg-white-100 2xl:h-17 2xl:min-h-17 [&_input]:bg-white-97 [&_input]:outline-none`,
+              `group transition-all !duration-150 flex z-20 border-gray-15 relative top-0.75 h-15 min-h-15 rounded-xl border bg-white-97
+            focus:bg-white-100 hover:bg-white-100 focus-within:bg-white-100
+            2xl:h-17 2xl:min-h-17 [&_input]:bg-white-97 [&_input]:outline-none`,
               'container-open'
             )}
             buttonClass='!border-none group-hover:bg-white-100 !border-r-[#e5e7eb] !rounded-xl transition-all !duration-150'
