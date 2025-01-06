@@ -39,8 +39,8 @@ const ContactFormUnit = ({}) => {
   };
 
   return (
-    <form className='w-full p-7 md:p-15 2xl:p-20' onSubmit={handleSubmit(onSubmit)}>
-      <div className='grid grid-cols-1 gap-4 pb-4 md:grid-cols-2 md:gap-6 md:pb-6 2xl:gap-8 2xl:pb-8'>
+    <form className='grid w-full p-7 md:p-8 lg:p-15 2xl:p-20' onSubmit={handleSubmit(onSubmit)}>
+      <div className='grid grid-cols-1 gap-4 pb-4 md:gap-6 md:pb-6 lg:grid-cols-2 2xl:gap-8 2xl:pb-8'>
         <FormInput
           label='Full Name'
           placeholder='Enter your full name'
@@ -75,7 +75,11 @@ const ContactFormUnit = ({}) => {
         minRows={10}
       />
       {errorMessage}
-      <Button type='submit' color='primary' className='mt-5 text-white-100'>
+      <Button
+        type='submit'
+        color='primary'
+        className='mt-8 w-full text-white-100 md:mx-auto md:mt-10 md:w-auto 2xl:mt-12'
+      >
         Send your message
       </Button>
     </form>
