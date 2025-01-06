@@ -4,14 +4,12 @@ import { Input } from '@nextui-org/input';
 
 import cn from '@/helpers/cn';
 import { FormInputProps } from '@/lib/types/components/elements/formElements/FormInput';
-import FormError from '@/src/components/elements/formElements/FormError';
-import InputLabel from '@/src/components/elements/formElements/InputLabel';
 
-const FormInput = ({ label, placeholder, register, error, classNames }: FormInputProps) => {
+const FormInput = ({ label, placeholder, register, error, classNames, ...restProps }: FormInputProps) => {
   return (
     <>
       <Input
-        label={<InputLabel label={label} error={!!error} />}
+        label={label}
         labelPlacement='outside'
         placeholder={placeholder}
         classNames={{
@@ -19,8 +17,9 @@ const FormInput = ({ label, placeholder, register, error, classNames }: FormInpu
           ...classNames,
         }}
         {...register}
+        {...restProps}
       />
-      {error && <FormError error={error} />}
+      {/*{error && <FormError error={error} />}*/}
     </>
   );
 };

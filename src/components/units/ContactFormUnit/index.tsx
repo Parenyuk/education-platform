@@ -10,6 +10,7 @@ import { contactSchema } from '@/lib/schema/contactSchema';
 import { ContactSchema } from '@/lib/types/schema/ContactSchema';
 import FormInput from '@/src/components/elements/formElements/FormInput';
 import FormPhoneInput from '@/src/components/elements/formElements/FormPhoneInput';
+import FormTextArea from '@/src/components/elements/formElements/FormTextArea';
 
 const ContactFormUnit = ({}) => {
   const {
@@ -63,12 +64,15 @@ const ContactFormUnit = ({}) => {
           classNames={commonInputClassnames}
         />
       </div>
-      <FormInput
+      <FormTextArea
         label='Message'
         placeholder='Enter your Message'
         register={register('message', { required: true })}
         error={errors?.message?.message}
-        classNames={commonInputClassnames}
+        classNames={{
+          inputWrapper: commonInputClassnames.inputWrapper,
+        }}
+        minRows={10}
       />
       {errorMessage}
       <Button type='submit' color='primary' className='mt-5 text-white-100'>
