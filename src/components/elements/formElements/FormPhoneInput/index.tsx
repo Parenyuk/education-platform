@@ -16,8 +16,8 @@ const FormPhoneInput = ({ control }: PhoneFormInputProps) => {
         id='phone'
         control={control}
         autoComplete='new-phone'
-        className='border-gray-15 relative top-1 h-15 min-h-15 rounded-lg border bg-white-97 px-5 focus:bg-white-97 2xl:h-17 2xl:min-h-17
-          [&_input]:bg-white-97 [&_input]:outline-none'
+        className='border-gray-15 relative top-0.75 h-15 min-h-15 rounded-xl border bg-white-97 px-5 focus:bg-white-97 2xl:h-17
+          2xl:min-h-17 [&_input]:bg-white-97 [&_input]:outline-none'
         limitMaxLength
       />
     </div>
