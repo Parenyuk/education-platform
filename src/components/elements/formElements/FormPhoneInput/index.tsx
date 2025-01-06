@@ -6,6 +6,7 @@ import { Controller } from 'react-hook-form';
 import ReactPhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 
+import cn from '@/helpers/cn';
 import { PhoneFormInputProps } from '@/lib/types/components/elements/formElements/FormPhoneInput';
 import FormError from '@/src/components/elements/formElements/FormError';
 
@@ -28,10 +29,13 @@ const FormPhoneInput = ({ control, error }: PhoneFormInputProps) => {
             }}
             country={'ua'}
             enableSearch
-            containerClass={`group transition-all !duration-150 flex z-20 border-gray-15 relative top-0.75 h-15 min-h-15 rounded-xl border bg-white-97 
-            focus:bg-white-97 hover:bg-white-100 2xl:h-17 2xl:min-h-17 [&_input]:bg-white-97 [&_input]:outline-none`}
+            containerClass={cn(
+              `group transition-all !duration-150 flex z-20 border-gray-15 relative top-0.75 h-15 min-h-15 rounded-xl border bg-white-97 
+            focus:bg-white-97 hover:bg-white-100 2xl:h-17 2xl:min-h-17 [&_input]:bg-white-97 [&_input]:outline-none`,
+              'container-open'
+            )}
             buttonClass='!border-none group-hover:bg-white-100 !border-r-[#e5e7eb] !rounded-xl transition-all !duration-150'
-            buttonStyle={{ borderRadius: '50%' }}
+            buttonStyle={{ borderRadius: '12px' }}
             inputClass=' min-w-full h-full self-center !border-none !group-hover:bg-white-100  !transition-all !duration-150'
             inputStyle={{ backgroundColor: 'transparent' }}
             countryCodeEditable={false}
