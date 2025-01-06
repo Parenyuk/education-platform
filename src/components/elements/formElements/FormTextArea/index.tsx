@@ -6,7 +6,7 @@ import FormError from '@/src/components/elements/formElements/FormError';
 
 const FormTextArea = ({ label, placeholder, register, error, classNames, ...restProps }: FormTextAreaProps) => {
   return (
-    <>
+    <div className='relative'>
       <Textarea
         label={label}
         labelPlacement='outside'
@@ -18,8 +18,8 @@ const FormTextArea = ({ label, placeholder, register, error, classNames, ...rest
         {...register}
         {...restProps}
       />
-      {error && <FormError error={error} />}
-    </>
+      {error && <FormError error={error} className='bottom-2' />}
+    </div>
   );
 };
 

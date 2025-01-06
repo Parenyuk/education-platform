@@ -55,7 +55,7 @@ const ContactFormUnit = ({}) => {
           error={errors?.email?.message}
           classNames={commonInputClassnames}
         />
-        <FormPhoneInput control={control} />
+        <FormPhoneInput control={control} error={errors?.phone?.message} />
         <FormInput
           label='Subject'
           placeholder='Enter your Subject'
