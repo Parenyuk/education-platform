@@ -1,15 +1,13 @@
-'use client';
-
-import { Input } from '@nextui-org/input';
+import { Textarea } from '@nextui-org/input';
 
 import cn from '@/helpers/cn';
-import { FormInputProps } from '@/lib/types/components/elements/formElements/FormInput';
+import { FormTextAreaProps } from '@/lib/types/components/elements/formElements/FormTextArea';
 import FormError from '@/src/components/elements/formElements/FormError';
 
-const FormInput = ({ label, placeholder, register, error, classNames, ...restProps }: FormInputProps) => {
+const FormTextArea = ({ label, placeholder, register, error, classNames, ...restProps }: FormTextAreaProps) => {
   return (
     <div className='relative'>
-      <Input
+      <Textarea
         label={label}
         labelPlacement='outside'
         placeholder={placeholder}
@@ -20,9 +18,9 @@ const FormInput = ({ label, placeholder, register, error, classNames, ...restPro
         {...register}
         {...restProps}
       />
-      {error && <FormError error={error} />}
+      {error && <FormError error={error} className='bottom-2' />}
     </div>
   );
 };
 
-export default FormInput;
+export default FormTextArea;

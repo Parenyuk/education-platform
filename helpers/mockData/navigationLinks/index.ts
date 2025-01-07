@@ -29,7 +29,7 @@ export const navigationLinks: NavigationLinksType = {
     {
       id: 4,
       name: 'Contact',
-      href: '/',
+      href: '/contact',
       items: null,
     },
   ],

@@ -81,12 +81,21 @@ export default {
             lineHeight: '150%',
           },
         ],
+        '6xl': [
+          '3rem',
+          {
+            lineHeight: '150%',
+          },
+        ],
       },
       screens: {
         '2xl': '1920px',
       },
       spacing: {
+        '0.75': '0.1875rem',
         '15': '3.75rem',
+        '17': '4.25rem',
+        '90': '22.5rem',
       },
     },
   },
