@@ -3,10 +3,12 @@ import { Button } from '@nextui-org/button';
 const JoinUsBanner = ({}) => {
   return (
     <div
-      className={`mb-12 flex flex-col justify-between rounded-lg bg-white-100 bg-[length:360px_160px] bg-[top_right_15rem] bg-no-repeat
-        p-8 md:mb-24 md:flex-row md:p-15 2xl:mb-40 2xl:p-20`}
+      className={`mb-12 flex flex-col justify-between rounded-lg bg-white-100 bg-no-repeat p-8 md:mb-24 md:flex-row md:p-15 2xl:mb-40
+        2xl:p-20`}
       style={{
-        backgroundImage: "url('/png/abstract_design.png')",
+        backgroundImage: 'url("/png/abstract_design.png")',
+        backgroundSize: 'auto 200%',
+        backgroundPosition: '80% center',
       }}
     >
       <div>
