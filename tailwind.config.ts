@@ -69,6 +69,12 @@ export default {
             lineHeight: '150%',
           },
         ],
+        '2xl': [
+          '1.5rem',
+          {
+            lineHeight: '150%',
+          },
+        ],
         '3xl': [
           '1.875rem',
           {

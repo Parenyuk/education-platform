@@ -4,4 +4,6 @@ export const ROUTES = {
   SIGN_UP: '/sign-up',
   CREATE_USER: '/create-user',
   PROFILE: '/profile',
+  CONTACT: '/contact',
+  ABOUTUS: '/about-us',
 } as const;

@@ -8,11 +8,11 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 
 import { contactAction } from '@/actions/contact/contactAction';
 import { contactSchema } from '@/lib/schema/contactSchema';
-import { ContactFormUnitProps } from '@/lib/types/components/units/ContactFormUnitProps';
 import { ContactSchema } from '@/lib/types/schema/ContactSchema';
 import FormInput from '@/src/components/elements/formElements/FormInput';
 import FormPhoneInput from '@/src/components/elements/formElements/FormPhoneInput';
 import FormTextArea from '@/src/components/elements/formElements/FormTextArea';
+import { ContactFormUnitProps } from 'lib/types/components/units/ContactFormUnit';
 
 const ContactFormUnit = ({ user }: ContactFormUnitProps) => {
   const {
