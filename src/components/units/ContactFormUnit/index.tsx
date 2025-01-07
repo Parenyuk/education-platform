@@ -6,6 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Button } from '@nextui-org/button';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
+import { contactAction } from '@/actions/contact/contactAction';
 import { contactSchema } from '@/lib/schema/contactSchema';
 import { ContactFormUnitProps } from '@/lib/types/components/units/ContactFormUnitProps';
 import { ContactSchema } from '@/lib/types/schema/ContactSchema';
@@ -28,20 +29,26 @@ const ContactFormUnit = ({ user }: ContactFormUnitProps) => {
   });
 
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [successMessage, setSuccessMessage] = useState<boolean>(false);
 
-  const onSubmit: SubmitHandler<ContactSchema> = (data) => {
-    console.log('data', data);
+  const onSubmit: SubmitHandler<ContactSchema> = async (data) => {
     setErrorMessage(null);
-    // const response = await loginAction(data);
-    // if (!response.success) {
-    //   setErrorMessage(response.message);
-    // }
+    const response = await contactAction(data);
+    if (!response.success) {
+      setErrorMessage(response.message);
+    } else {
+      setSuccessMessage(true);
+    }
   };
 
   const commonInputClassnames = {
     inputWrapper: 'border border-gray-15 bg-white-97 h-15 min-h-15 2xl:h-17 2xl:min-h-17 px-5',
     label: 'group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_30px)]',
   };
+
+  if (successMessage) {
+    return <div className='grid w-full place-items-center text-3xl 2xl:text-5xl'>Your message successfully sent!</div>;
+  }
 
   return (
     <form className='grid w-full p-7 md:p-8 lg:p-15 2xl:p-20' onSubmit={handleSubmit(onSubmit)}>

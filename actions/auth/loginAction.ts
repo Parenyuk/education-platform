@@ -5,6 +5,7 @@ import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 
 import ZodParseDataAdapter from '@/adapters/zod/ZodParseDataAdapter';
+import { ROUTES } from '@/lib/constants/routes';
 import { loginSchema } from '@/lib/schema/LoginSchema';
 import { LoginResponse } from '@/lib/types/actions';
 import { LoginSchema } from '@/lib/types/schema/LoginSchema';
@@ -25,6 +26,6 @@ export const loginAction = async (formData: LoginSchema): Promise<LoginResponse>
     return { success: false, message: 'An unexpected error occurred. Please try again later.' };
   }
 
-  revalidatePath('/profile', 'layout');
-  redirect('/profile');
+  revalidatePath(ROUTES.PROFILE, 'layout');
+  redirect(ROUTES.PROFILE);
 };
