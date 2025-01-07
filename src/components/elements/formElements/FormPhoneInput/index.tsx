@@ -24,7 +24,6 @@ const FormPhoneInput = ({ control, error }: PhoneFormInputProps) => {
             {...field}
             inputProps={{
               ref,
-              autoFocus: true,
               required: false,
             }}
             country={'ua'}
