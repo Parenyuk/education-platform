@@ -7,11 +7,11 @@ import {
   pageDescription,
 } from '@/helpers/mockData/aboutUsPage';
 import InfoCardsBlock from '@/src/components/units/InfoCardsBlock';
+import JoinUsBanner from '@/src/components/units/JoinUsBanner';
 import TopPageUnit from '@/src/components/units/TopPageUnit';
 
 export default async function AboutUsPage() {
   const { user } = await userAuthStateAction();
-  console.log('user', user);
 
   return (
     <>
@@ -24,6 +24,7 @@ export default async function AboutUsPage() {
           data={ourGoalsMockData}
           classNames={'mb-12 md:mb-15 2xl:mb-20'}
         />
+        {!user && <JoinUsBanner />}
       </div>
     </>
   );
