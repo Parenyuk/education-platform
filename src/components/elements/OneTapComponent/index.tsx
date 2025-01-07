@@ -47,7 +47,7 @@ const OneTapComponent = () => {
           client_id: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID,
           callback: async (response: CredentialResponse) => {
             try {
-              // send id token returned in response.credential to supabase
+              // send id token returned in response.credential to auth
               const { data, error } = await supabase.auth.signInWithIdToken({
                 provider: 'google',
                 token: response.credential,
