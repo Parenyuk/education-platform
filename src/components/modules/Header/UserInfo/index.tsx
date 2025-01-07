@@ -9,7 +9,6 @@ import LogOutButton from '@/src/components/units/LogoutButton';
 const UserInfo = async ({}) => {
   const { isLoggedIn, user } = await userAuthState();
 
-  console.log('isLoggedIn', isLoggedIn);
   console.log('user', user);
 
   return (
