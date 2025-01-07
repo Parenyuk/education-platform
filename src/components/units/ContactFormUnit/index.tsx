@@ -7,12 +7,13 @@ import { Button } from '@nextui-org/button';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 import { contactSchema } from '@/lib/schema/contactSchema';
+import { ContactFormUnitProps } from '@/lib/types/components/units/ContactFormUnitProps';
 import { ContactSchema } from '@/lib/types/schema/ContactSchema';
 import FormInput from '@/src/components/elements/formElements/FormInput';
 import FormPhoneInput from '@/src/components/elements/formElements/FormPhoneInput';
 import FormTextArea from '@/src/components/elements/formElements/FormTextArea';
 
-const ContactFormUnit = ({}) => {
+const ContactFormUnit = ({ user }: ContactFormUnitProps) => {
   const {
     register,
     control,
@@ -20,6 +21,10 @@ const ContactFormUnit = ({}) => {
     formState: { errors },
   } = useForm<ContactSchema>({
     resolver: zodResolver(contactSchema),
+    defaultValues: {
+      fullName: user?.fullName,
+      email: user?.email,
+    },
   });
 
   const [errorMessage, setErrorMessage] = useState<string | null>(null);

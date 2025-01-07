@@ -2,11 +2,11 @@
 
 import { Button } from '@nextui-org/button';
 
-import { logOut } from '@/helpers/auth/LogOut';
+import { logOutAction } from '@/actions/auth/LogOutAction';
 
 const LogOutButton = ({}) => {
   return (
-    <Button color='primary' onPress={() => logOut()}>
+    <Button color='primary' onPress={() => logOutAction()}>
       Log out
     </Button>
   );

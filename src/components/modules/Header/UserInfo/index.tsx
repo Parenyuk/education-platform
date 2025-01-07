@@ -1,15 +1,13 @@
 import { Link } from '@nextui-org/link';
 
-import { userAuthState } from '@/helpers/auth/isUserLogin';
+import { userAuthStateAction } from '@/actions/auth/userAuthStateAction';
 import { ROUTES } from '@/lib/constants/routes';
 import MenuIcon from '@/public/svg/mobile-menu.svg';
 import LinkAsButton from '@/src/components/elements/LinkAsButton';
 import LogOutButton from '@/src/components/units/LogoutButton';
 
 const UserInfo = async ({}) => {
-  const { isLoggedIn, user } = await userAuthState();
-
-  console.log('user', user);
+  const { isLoggedIn, user } = await userAuthStateAction();
 
   return (
     <div className='flex items-center justify-center space-x-5'>

@@ -3,7 +3,7 @@
 import { UserDataAdapter } from '@/adapters/supabase/UserDataAdapter';
 import { createClient } from '@/utils/supabase/server';
 
-export const userAuthState = async () => {
+export const userAuthStateAction = async () => {
   const supabase = await createClient();
 
   const user = await supabase.auth.getUser();
