@@ -3,13 +3,9 @@ import { Button } from '@nextui-org/button';
 const JoinUsBanner = ({}) => {
   return (
     <div
-      className={`mb-12 flex flex-col justify-between rounded-lg bg-white-100 bg-no-repeat p-8 md:mb-24 md:flex-row md:p-15 2xl:mb-40
-        2xl:p-20`}
-      style={{
-        backgroundImage: 'url("/png/abstract_design.png")',
-        backgroundSize: 'auto 200%',
-        backgroundPosition: '80% center',
-      }}
+      className={`mb-12 flex flex-col justify-between rounded-lg bg-white-100 bg-abstract-design bg-custom-size-mobile
+        bg-custom-position-mobile bg-no-repeat p-8 md:mb-24 md:flex-row md:bg-custom-size-laptop md:bg-custom-position-laptop
+        md:p-15 2xl:mb-40 2xl:p-20`}
     >
       <div>
         <h3 className='w-3/4 text-3xl font-semibold md:text-5xl 2xl:text-6xl'>

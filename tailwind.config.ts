@@ -21,6 +21,17 @@ export default {
       },
     },
     extend: {
+      backgroundImage: {
+        'abstract-design': "url('/png/abstract_design.png')",
+      },
+      backgroundSize: {
+        'custom-size-mobile': 'auto 50%',
+        'custom-size-laptop': 'auto 200%',
+      },
+      backgroundPosition: {
+        'custom-position-mobile': '100% 135%',
+        'custom-position-laptop': '80% center',
+      },
       colors: {
         orange: {
           50: '#FF9500',
