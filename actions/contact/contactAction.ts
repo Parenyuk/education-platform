@@ -34,7 +34,7 @@ export const contactAction = async (formData: ContactSchema) => {
     .select();
 
   if (error) {
-    return { success: false, message: 'An unexpected error occurred. Please try again later.' };
+    return { success: false, message: error.message };
   }
 
   return { success: true, message: null };
