@@ -75,7 +75,7 @@ const Login = ({}) => {
           Remember me
         </Checkbox>
 
-        <Button type='submit' color='primary' className='mt-5 text-white-100'>
+        <Button type='submit' color='primary' className='mt-5 text-white'>
           Login
         </Button>
       </form>

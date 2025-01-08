@@ -3,7 +3,7 @@ import { Button } from '@nextui-org/button';
 const JoinUsBanner = ({}) => {
   return (
     <div
-      className={`mb-12 flex flex-col justify-between rounded-lg bg-white-100 bg-abstract-design bg-custom-size-mobile
+      className={`mb-12 flex flex-col justify-between rounded-lg bg-white bg-abstract-design bg-custom-size-mobile
         bg-custom-position-mobile bg-no-repeat p-8 md:mb-24 md:flex-row md:bg-custom-size-laptop md:bg-custom-position-laptop
         md:p-15 2xl:mb-40 2xl:p-20`}
     >
@@ -15,7 +15,7 @@ const JoinUsBanner = ({}) => {
           Join us on this exciting learning journey and unlock your potential in design and development.
         </p>
       </div>
-      <Button color='primary' className='self-center text-white-100'>
+      <Button color='primary' className='self-center text-white'>
         Join now
       </Button>
     </div>

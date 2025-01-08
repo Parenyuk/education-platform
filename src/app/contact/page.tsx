@@ -11,7 +11,7 @@ export default async function ContactPage() {
     <>
       <TopPageUnit title='Contat Us' description={contactPageText} />
       <div className='container mx-auto'>
-        <div className='my-12 flex flex-col rounded-xl bg-white-100 md:mb-20 md:mt-20 md:flex-row 2xl:mb-40 2xl:mt-24'>
+        <div className='my-12 flex flex-col rounded-xl bg-white md:mb-20 md:mt-20 md:flex-row 2xl:mb-40 2xl:mt-24'>
           <ContactFormUnit user={user} />
           <ContactBoxUnit />
         </div>

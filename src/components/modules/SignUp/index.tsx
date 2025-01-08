@@ -77,7 +77,7 @@ const SignUp = ({}) => {
 
         {errorMessage}
 
-        <Button type='submit' color='primary' className='mt-5 text-white-100'>
+        <Button type='submit' color='primary' className='mt-5 text-white'>
           Submit
         </Button>
       </form>

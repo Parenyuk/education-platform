@@ -2,7 +2,7 @@ import { InfoCardType } from '@/lib/types/components/units/InfoCardsUnit/InfoCar
 
 const InfoCard = ({ item }: { item: InfoCardType }) => {
   return (
-    <div className='rounded-lg bg-white-100 p-8 md:p-10 2xl:p-12'>
+    <div className='rounded-lg bg-white p-8 md:p-10 2xl:p-12'>
       <div className='inline-block rounded-lg bg-orange-97 p-3.5 2xl:p-4'>
         <item.icon className='z-10 h-7 w-7 transition hover:scale-125' />
       </div>

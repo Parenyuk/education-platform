@@ -87,11 +87,7 @@ const ContactFormUnit = ({ user }: ContactFormUnitProps) => {
         minRows={10}
       />
       {errorMessage}
-      <Button
-        type='submit'
-        color='primary'
-        className='mt-8 w-full text-white-100 md:mx-auto md:mt-10 md:w-auto 2xl:mt-12'
-      >
+      <Button type='submit' color='primary' className='mt-8 w-full text-white md:mx-auto md:mt-10 md:w-auto 2xl:mt-12'>
         Send your message
       </Button>
     </form>

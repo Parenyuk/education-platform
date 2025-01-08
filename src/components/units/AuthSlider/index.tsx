@@ -31,7 +31,7 @@ const AuthSlider = () => {
           spaceBetween={24}
         >
           {sliderMockData.map((item) => (
-            <SwiperSlide key={item.id} className='border-gray-10 rounded-lg border bg-white-100'>
+            <SwiperSlide key={item.id} className='border-gray-10 rounded-lg border bg-white'>
               <div className='text-smd p-7 md:p-10 md:text-base 2xl:p-12 2xl:text-lg'>{item.description}</div>
               <div
                 className={`border-gray-10 mt-4 flex items-center justify-between rounded-bl-lg rounded-br-lg border-t bg-white-99 px-7 py-5
@@ -55,14 +55,14 @@ const AuthSlider = () => {
             md:justify-end md:space-x-2.5 2xl:space-x-4'
         >
           <button
-            className='swiper-button-prev min-h-14 min-w-14 rounded-lg bg-white-100 !text-black transition hover:bg-gray-300 md:p-3
-              2xl:min-h-16 2xl:min-w-16 2xl:p-3.5'
+            className='swiper-button-prev min-h-14 min-w-14 rounded-lg bg-white !text-black transition hover:bg-gray-300 md:p-3 2xl:min-h-16
+              2xl:min-w-16 2xl:p-3.5'
           >
             →
           </button>
           <button
-            className='swiper-button-next min-h-14 min-w-14 rounded-lg bg-white-100 !text-black transition hover:bg-gray-300 md:p-3
-              2xl:min-h-16 2xl:min-w-16 2xl:p-3.5'
+            className='swiper-button-next min-h-14 min-w-14 rounded-lg bg-white !text-black transition hover:bg-gray-300 md:p-3 2xl:min-h-16
+              2xl:min-w-16 2xl:p-3.5'
           >
             ←
           </button>

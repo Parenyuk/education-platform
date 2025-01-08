@@ -7,7 +7,7 @@ const HomaPageTop = ({}) => {
   return (
     <div className='container mx-auto grid place-items-center'>
       <div className='flex flex-col items-center justify-center'>
-        <div className='bg-white-100 mt-12 flex w-auto items-center justify-center gap-2.5 rounded-lg p-3.5 md:mt-20 md:p-4 2xl:mt-24 2xl:p-5'>
+        <div className='mt-12 flex w-auto items-center justify-center gap-2.5 rounded-lg bg-white p-3.5 md:mt-20 md:p-4 2xl:mt-24 2xl:p-5'>
           <div className='rounded-md bg-orange-95 p-3.5 md:p-4 2xl:p-5'>
             <LightningIcon />
           </div>
@@ -22,7 +22,7 @@ const HomaPageTop = ({}) => {
           Learn from Industry Experts and Enhance Your Skills.
         </p>
         <div className='mt-12 flex gap-3 2xl:mt-15'>
-          <Button color='primary' className='text-white-100' href={ROUTES.COURSES}>
+          <Button color='primary' className='text-white' href={ROUTES.COURSES}>
             Explore Courses
           </Button>
           <Button href={ROUTES.PRICING}>View Pricing</Button>
