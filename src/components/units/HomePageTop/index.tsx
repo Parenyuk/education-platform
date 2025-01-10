@@ -1,13 +1,18 @@
 import { Button } from '@nextui-org/button';
 
 import { ROUTES } from '@/lib/constants/routes';
+import AbstractLine from '@/public/svg/abstract_line.svg';
 import LightningIcon from '@/src/components/elements/LightningIcon';
 
 const HomaPageTop = ({}) => {
   return (
     <div className='container mx-auto grid place-items-center'>
       <div className='flex flex-col items-center justify-center'>
-        <div className='mt-12 flex w-auto items-center justify-center gap-2.5 rounded-lg bg-white p-3.5 md:mt-20 md:p-4 2xl:mt-24 2xl:p-5'>
+        <div
+          className='relative mt-12 flex w-auto items-center justify-center gap-2.5 rounded-lg bg-white p-3.5 md:mt-20 md:p-4 2xl:mt-24
+            2xl:p-5'
+        >
+          <AbstractLine className={'absolute -left-6 -top-7.5'} />
           <div className='rounded-md bg-orange-95 p-3.5 md:p-4 2xl:p-5'>
             <LightningIcon />
           </div>
