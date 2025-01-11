@@ -35,3 +35,6 @@ export const benefitsMockData: BenefitsCardType[] = [
 
 export const benefitsMockDataDescription =
   'Lorem ipsum dolor sit amet consectetur. Tempus tincidunt etiam eget elit id imperdiet et. Cras eu sit dignissim lorem nibh et. Ac cum eget habitasse in velit fringilla feugiat senectus in.';
+
+export const ourCoursesMockDataDescription =
+  'Lorem ipsum dolor sit amet consectetur. Tempus tincidunt etiam eget elit id imperdiet et. Cras eu sit dignissim lorem nibh et. Ac cum eget habitasse in velit fringilla feugiat senectus in.';

@@ -1,6 +1,6 @@
 import { Link } from '@nextui-org/link';
 
-import { CardNumericProps } from '@/lib/types/components/elements/cards/CardNumeric';
+import { CardNumericProps } from '@/lib/types/components/units/cards/CardNumeric';
 import Arrow from '@/src/components/elements/Arrow';
 
 const CardNumeric = ({ item }: CardNumericProps) => {
@@ -15,7 +15,7 @@ const CardNumeric = ({ item }: CardNumericProps) => {
       <p className='mb-8 mt-2.5 text-sm md:mb-10 md:mt-3.5 md:text-base 2xl:mb-10 2xl:mt-4 2xl:text-lg'>
         {description}
       </p>
-      <Link href='/' className='self-end rounded-md border border-white-95 bg-white-99 p-3.5 2xl:p-5'>
+      <Link href='/public' className='self-end rounded-md border border-white-95 bg-white-99 p-3.5 2xl:p-5'>
         <Arrow color='#FF9500' className='-rotate-45 transform' />
       </Link>
     </div>

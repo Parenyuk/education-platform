@@ -1,6 +1,6 @@
 import { benefitsMockData } from '@/helpers/mockData/homePage';
 import { BenefitsCardModuleProps } from '@/lib/types/components/modules/BenefitsCardModule';
-import CardNumeric from '@/src/components/elements/cards/CardNumeric';
+import CardNumeric from '@/src/components/units/cards/CardNumeric';
 import CardsBlock from '@/src/components/units/CardsBlock';
 
 const BenefitsCardModule = ({ title, description }: BenefitsCardModuleProps) => {

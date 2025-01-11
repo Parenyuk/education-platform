@@ -4,4 +4,5 @@ export type CardsBlockProps = {
   children: ReactNode;
   title: string;
   description: string;
+  itemContainerStyles?: string;
 };
