@@ -62,48 +62,18 @@ export default {
         },
       },
       fontSize: {
-        sm: [
-          '0.875rem',
-          {
-            lineHeight: '150%',
-          },
-        ],
-        lg: [
-          '1.125rem',
-          {
-            lineHeight: '150%',
-          },
-        ],
-        xl: [
-          '1.25rem',
-          {
-            lineHeight: '150%',
-          },
-        ],
-        '2xl': [
-          '1.5rem',
-          {
-            lineHeight: '150%',
-          },
-        ],
-        '3xl': [
-          '1.875rem',
-          {
-            lineHeight: '150%',
-          },
-        ],
-        '5xl': [
-          '2.375rem',
-          {
-            lineHeight: '150%',
-          },
-        ],
-        '6xl': [
-          '3rem',
-          {
-            lineHeight: '150%',
-          },
-        ],
+        sm: ['0.875rem', '1.5'],
+        lg: ['1.125rem', '1.5'],
+        xl: ['1.25rem', '1.5'],
+        '2xl': ['1.5rem', '1.5'],
+        '3xl': ['1.875rem', '1.5'],
+        '5xl': ['2.375rem', '1.5'],
+        '6xl': ['3rem', '1.5'],
+        '7xl': ['3.75rem', '1.5'],
+        '8xl': ['5rem', '1.5'],
+      },
+      lineHeight: {
+        custom: '150%',
       },
       screens: {
         '2xl': '1920px',
