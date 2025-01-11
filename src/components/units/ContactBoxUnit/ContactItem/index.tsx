@@ -1,4 +1,4 @@
-import { ContactItemProps } from '@/lib/types/units/ContactBoxUnit/ContactItem';
+import { ContactItemProps } from '@/lib/types/components/units/ContactBoxUnit/ContactItem';
 
 const ContactItem = ({ children, icon: Icon }: ContactItemProps) => {
   return (

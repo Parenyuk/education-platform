@@ -21,6 +21,17 @@ export default {
       },
     },
     extend: {
+      backgroundImage: {
+        'abstract-design': "url('/png/abstract_design.png')",
+      },
+      backgroundSize: {
+        'custom-size-mobile': 'auto 50%',
+        'custom-size-laptop': 'auto 200%',
+      },
+      backgroundPosition: {
+        'custom-position-mobile': '100% 135%',
+        'custom-position-laptop': '80% center',
+      },
       colors: {
         orange: {
           50: '#FF9500',
@@ -33,11 +44,11 @@ export default {
           99: '#FFFDFA',
         },
         white: {
+          DEFAULT: '#ffffff',
           90: '#E4E4E7',
           95: '#F1F1F3',
           97: '#F7F7F8',
           99: '#FCFCFD',
-          100: '#FFFFFF',
         },
         grey: {
           10: '#191919',
@@ -51,48 +62,25 @@ export default {
         },
       },
       fontSize: {
-        sm: [
-          '0.875rem',
-          {
-            lineHeight: '150%',
-          },
-        ],
-        lg: [
-          '1.125rem',
-          {
-            lineHeight: '150%',
-          },
-        ],
-        xl: [
-          '1.25rem',
-          {
-            lineHeight: '150%',
-          },
-        ],
-        '3xl': [
-          '1.875rem',
-          {
-            lineHeight: '150%',
-          },
-        ],
-        '5xl': [
-          '2.375rem',
-          {
-            lineHeight: '150%',
-          },
-        ],
-        '6xl': [
-          '3rem',
-          {
-            lineHeight: '150%',
-          },
-        ],
+        sm: ['0.875rem', '1.5'],
+        lg: ['1.125rem', '1.5'],
+        xl: ['1.25rem', '1.5'],
+        '2xl': ['1.5rem', '1.5'],
+        '3xl': ['1.875rem', '1.5'],
+        '5xl': ['2.375rem', '1.5'],
+        '6xl': ['3rem', '1.5'],
+        '7xl': ['3.75rem', '1.5'],
+        '8xl': ['5rem', '1.5'],
+      },
+      lineHeight: {
+        custom: '150%',
       },
       screens: {
         '2xl': '1920px',
       },
       spacing: {
         '0.75': '0.1875rem',
+        '7.5': '1.875rem',
         '15': '3.75rem',
         '17': '4.25rem',
         '90': '22.5rem',

@@ -1,10 +1,20 @@
 import { Link } from '@nextui-org/link';
 
+import cn from '@/helpers/cn';
 import { LinkAsButtonProps } from '@/lib/types/components/elements/LinkAsButton';
 
-const LinkAsButton = ({ href, className, color, children }: LinkAsButtonProps) => {
+const typeStyles: Record<string, string> = {
+  primary:
+    'grid place-items-center w-full text-grey-30 bg-white-95 hover:bg-orange-50 hover:text-white transition border border:bg-white-97 rounded-lg py-3.5 2xl:py-4',
+};
+
+export type LinkAsButtonType = keyof typeof typeStyles;
+
+const LinkAsButton = ({ href, className, color, children, type }: LinkAsButtonProps) => {
+  const typeClass = typeStyles[type ?? ''] || '';
+
   return (
-    <Link href={href} color={color} className={className}>
+    <Link href={href} color={color} className={cn(typeClass, className)}>
       {children}
     </Link>
   );

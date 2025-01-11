@@ -1,6 +1,6 @@
 import Login from '@/src/components/modules/Login';
 import AuthSlider from '@/src/components/units/AuthSlider';
-import AuthWrapper from 'src/components/wrappers/AuthWrapper';
+import AuthWrapper from '@/src/components/wrappers/AuthWrapper';
 
 export default async function LoginPage() {
   return (

@@ -1,6 +1,6 @@
+import SignUp from '@/src/components/modules/SignUp';
 import AuthSlider from '@/src/components/units/AuthSlider';
-import SignUp from 'src/components/modules/SignUp';
-import AuthWrapper from 'src/components/wrappers/AuthWrapper';
+import AuthWrapper from '@/src/components/wrappers/AuthWrapper';
 
 export default async function SignUpPage() {
   return (

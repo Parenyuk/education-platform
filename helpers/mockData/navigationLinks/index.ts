@@ -1,3 +1,4 @@
+import { ROUTES } from '@/lib/constants/routes';
 import { NavigationLinksType } from '@/lib/types/helpers/mockData/navigationLinks';
 
 export const navigationLinks: NavigationLinksType = {
@@ -17,7 +18,7 @@ export const navigationLinks: NavigationLinksType = {
     {
       id: 2,
       name: 'About Us',
-      href: '/',
+      href: ROUTES.ABOUTUS,
       items: null,
     },
     {
@@ -29,7 +30,7 @@ export const navigationLinks: NavigationLinksType = {
     {
       id: 4,
       name: 'Contact',
-      href: '/contact',
+      href: ROUTES.CONTACT,
       items: null,
     },
   ],

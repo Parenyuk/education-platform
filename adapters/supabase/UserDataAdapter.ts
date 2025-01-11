@@ -8,7 +8,7 @@ export const UserDataAdapter = (data: UserResponse) => {
   return {
     id: user.id || null,
     aud: user.aud || null,
-    email: user.email || null,
+    email: user.email,
     phone: user.phone || null,
     fullName: user.user_metadata?.full_name || null,
   };
