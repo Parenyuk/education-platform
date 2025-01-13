@@ -8,8 +8,6 @@ const BenefitsCardModule = async () => {
 
   const { data: benefits, error } = await getAll<BenefitsType>('get_benefits_with_metadata', { isRpc: true });
 
-  console.log('benefits1', benefits);
-
   if (error) return null;
 
   return (
