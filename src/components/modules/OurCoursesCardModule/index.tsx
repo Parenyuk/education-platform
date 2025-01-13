@@ -1,15 +1,16 @@
-import { getCourses } from '@/actions/courses';
-import { BenefitsCardModuleProps } from '@/lib/types/components/modules/BenefitsCardModule';
+import { CourseType } from '@/lib/types/components/modules/OurCoursesCardModule';
 import CardImage from '@/src/components/units/cards/CardImage';
 import CardsBlock from '@/src/components/units/CardsBlock';
+import { fetchData } from '@/supabase/fetchData';
 
-const OurCoursesCardModule = async ({ title, description }: BenefitsCardModuleProps) => {
-  const { data: courses, error } = await getCourses();
+const OurCoursesCardModule = async ({ title, description }: { title: string; description: string }) => {
+  const { getAll } = await fetchData();
 
-  if (error) return null;
+  const { data: courses, error } = await getAll<CourseType[]>('courses');
 
-  console.log('data', courses);
-  console.log('error', error);
+  console.log('courses', courses);
+
+  if (courses?.length == 0 || error) return null;
 
   return (
     <CardsBlock title={title} description={description} itemContainerStyles='md:grid-cols-2'>

@@ -32,7 +32,6 @@ const Login = ({}) => {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const onSubmit: SubmitHandler<LoginSchema> = async (data) => {
-    console.log('data', data);
     setErrorMessage(null);
     const response = await loginAction(data);
     if (!response.success) {
