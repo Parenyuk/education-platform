@@ -22,7 +22,6 @@ const SignUp = ({}) => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm<SignUpSchema>({
     resolver: zodResolver(signUpSchema),
@@ -31,15 +30,12 @@ const SignUp = ({}) => {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const onSubmit: SubmitHandler<SignUpSchema> = async (data) => {
-    console.log('data', data);
     setErrorMessage(null);
     const response = await signUpAction(data);
     if (!response.success) {
       setErrorMessage(response.message);
     }
   };
-
-  console.log(watch('checkbox'));
 
   return (
     <>
