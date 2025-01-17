@@ -14,7 +14,6 @@ export const fetchData = async () => {
 
     if (isRpc) {
       const { data, error, status, statusText } = await supabase.rpc(resource);
-
       if (error) {
         console.error(error);
         return { data: null, error, status, statusText };

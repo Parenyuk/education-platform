@@ -42,7 +42,7 @@ export const navigationLinks: NavigationLinksType = {
       items: [
         { id: 0, title: 'Benefits', href: '/benefits' },
         { id: 1, title: 'Our Courses', href: '/' },
-        { id: 2, title: 'Our Testimonials', href: '/' },
+        { id: 2, title: 'Our TestimonialsCardModule', href: '/' },
         { id: 3, title: 'Our FAQ', href: '/' },
       ],
     },
