@@ -5,7 +5,7 @@ import { LinkAsButtonProps } from '@/lib/types/components/elements/LinkAsButton'
 
 const typeStyles: Record<string, string> = {
   primary:
-    'grid place-items-center w-full text-grey-30 bg-white-95 hover:bg-orange-50 hover:text-white transition border border:bg-white-97 rounded-lg py-3.5 2xl:py-4',
+    'grid place-items-center px-3.5 py-4 2xl:px-4.5 2xl:py-6 font-medium text-grey-15 bg-white-95 hover:bg-orange-50 hover:text-white transition border border:bg-white-97 rounded-lg py-3.5 2xl:py-4',
 };
 
 export type LinkAsButtonType = keyof typeof typeStyles;

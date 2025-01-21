@@ -10,10 +10,16 @@ const TestimonialsCardModule = async () => {
     isRpc: true,
   });
 
+  console.log('testimonials data', testimonials);
+
   if (error) return null;
 
   return (
-    <CardsBlock title={testimonials?.title} description={testimonials?.description}>
+    <CardsBlock
+      title={testimonials?.title}
+      description={testimonials?.description}
+      itemContainerStyles={'md:grid-cols-2'}
+    >
       {testimonials?.data.map((item) => {
         return <CardContent key={item.id} item={item} />;
       })}
