@@ -1,7 +1,8 @@
+import { JSX, SVGProps } from 'react';
+
 import { useCheckbox, Chip, VisuallyHidden, tv } from '@heroui/react';
 
-
-export const CheckIcon = (props) => {
+export const CheckIcon = (props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) => {
   return (
     <svg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
       <path fillRule='evenodd' clipRule='evenodd'
@@ -11,9 +12,7 @@ export const CheckIcon = (props) => {
   );
 };
 
-
-export const CustomCheckbox = (props) => {
-  console.log('props', props);
+export const CustomCheckbox = (props: { isSelected: never; label: never; }) => {
   const { children, isSelected, isFocusVisible, getBaseProps, getLabelProps, getInputProps } =
     useCheckbox({
       defaultSelected: props.isSelected,
@@ -44,7 +43,7 @@ export const CustomCheckbox = (props) => {
       },
       isFocusVisible: {
         true: {
-          // base: 'outline-none ring-2 ring-focus ring-offset-2 ring-offset-background',
+          base: 'outline-none ring-2 ring-focus ring-offset-2 ring-offset-background',
         },
       },
     },
@@ -62,7 +61,7 @@ export const CustomCheckbox = (props) => {
           base: styles.base(),
           content: styles.content(),
         }}
-        // color='primary'
+        color='primary'
         startContent={isSelected ? <CheckIcon /> : (
           <svg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'>
             <path
