@@ -1,4 +1,4 @@
-import { Link } from '@nextui-org/link';
+import { Link } from "@heroui/link";
 
 import cn from '@/helpers/cn';
 import { LinkAsButtonProps } from '@/lib/types/components/elements/LinkAsButton';

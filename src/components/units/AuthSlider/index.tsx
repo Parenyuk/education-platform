@@ -1,7 +1,7 @@
 'use client';
 
-import { Image } from '@nextui-org/image';
-import { Link } from '@nextui-org/link';
+import { Image } from "@heroui/image";
+import { Link } from "@heroui/link";
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';

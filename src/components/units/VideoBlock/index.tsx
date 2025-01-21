@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 
-import { Skeleton } from '@nextui-org/skeleton';
+import { Skeleton } from "@heroui/skeleton";
 import dynamic from 'next/dynamic';
 
 import { homePageMainVideo } from '@/lib/constants/homePageMainVideo';

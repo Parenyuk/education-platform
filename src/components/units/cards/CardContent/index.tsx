@@ -1,4 +1,4 @@
-import { Image } from '@nextui-org/image';
+import { Image } from "@heroui/image";
 
 import { CardContentProps } from '@/lib/types/components/units/cards/CardContent';
 import LinkAsButton from '@/src/components/elements/LinkAsButton';

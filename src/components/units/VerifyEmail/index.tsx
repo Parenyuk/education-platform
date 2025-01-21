@@ -1,6 +1,6 @@
 'use client';
 
-import { Button } from '@nextui-org/button';
+import { Button } from "@heroui/button";
 
 import { verifyEmail } from '@/actions/auth/verifyEmail';
 import { VerifyEmailProps } from '@/lib/types/components/units/VerifyEmail';

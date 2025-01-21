@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Button } from '@nextui-org/button';
+import { Button } from "@heroui/button";
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 import { contactAction } from '@/actions/contact/contactAction';

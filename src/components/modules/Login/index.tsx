@@ -2,10 +2,10 @@
 
 import { useState } from 'react';
 
+import { Button } from '@heroui/button';
+import { Checkbox } from '@heroui/checkbox';
+import { Link } from '@heroui/link';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Button } from '@nextui-org/button';
-import { Checkbox } from '@nextui-org/checkbox';
-import { Link } from '@nextui-org/link';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 import { googleAuth } from '@/actions/auth/GoogleAuth';

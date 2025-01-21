@@ -10,8 +10,6 @@ const TestimonialsCardModule = async () => {
     isRpc: true,
   });
 
-  console.log('testimonials data', testimonials);
-
   if (error) return null;
 
   return (

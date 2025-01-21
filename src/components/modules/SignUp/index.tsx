@@ -3,8 +3,8 @@
 import { useState } from 'react';
 
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Button } from '@nextui-org/button';
-import { Link } from '@nextui-org/link';
+import { Button } from "@heroui/button";
+import { Link } from "@heroui/link";
 import { useForm, SubmitHandler } from 'react-hook-form';
 
 import { signUpAction } from '@/actions/auth/signUpAction';

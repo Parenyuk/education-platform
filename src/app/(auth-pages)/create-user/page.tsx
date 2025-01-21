@@ -1,4 +1,4 @@
-import { Link } from '@nextui-org/link';
+import { Link } from "@heroui/link";
 
 import { ROUTES } from '@/lib/constants/routes';
 import Arrow from '@/src/components/elements/Arrow';
