@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-import { Checkbox } from '@heroui/react';
+import { Checkbox } from '@heroui/checkbox';
 
 
 const Feature = ({ item }: { item: { name: string, value: boolean } }) => {
