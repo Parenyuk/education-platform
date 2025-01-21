@@ -3,10 +3,10 @@ import { Link } from '@nextui-org/link';
 import { CardNumericProps } from '@/lib/types/components/units/cards/CardNumeric';
 import Arrow from '@/src/components/elements/Arrow';
 
-const CardNumeric = ({ item }: CardNumericProps) => {
+const CardNumeric = ({ item, index }: CardNumericProps) => {
   const { title, description } = item;
 
-  const cardIndex = item.id <= 10 ? `0${item.id + 1}` : `${item.id + 1}`;
+  const cardIndex = item.id <= 10 ? `0${index + 1}` : `${index + 1}`;
 
   return (
     <div className='flex flex-col rounded-xl bg-white p-8 md:p-10 2xl:p-12'>

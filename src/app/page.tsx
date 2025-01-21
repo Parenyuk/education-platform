@@ -1,8 +1,8 @@
-import { benefitsMockDataDescription, ourCoursesMockDataDescription } from '@/helpers/mockData/homePage';
 import BenefitsCardModule from '@/src/components/modules/BenefitsCardModule';
 import Footer from '@/src/components/modules/Footer';
 import Header from '@/src/components/modules/Header';
 import OurCoursesCardModule from '@/src/components/modules/OurCoursesCardModule';
+import TestimonialsCardModule from '@/src/components/modules/TestimonialsCardModule';
 import HomePageTop from '@/src/components/units/HomePageTop';
 import PartnersLogo from '@/src/components/units/PartnersLogo';
 import VideoBlock from '@/src/components/units/VideoBlock';
@@ -15,8 +15,9 @@ export default function Home() {
         <HomePageTop />
         <PartnersLogo />
         <VideoBlock />
-        <BenefitsCardModule title='Benefits' description={benefitsMockDataDescription} />
-        <OurCoursesCardModule title={'Our Courses'} description={ourCoursesMockDataDescription} />
+        <BenefitsCardModule />
+        <OurCoursesCardModule />
+        <TestimonialsCardModule />
       </main>
       <Footer />
     </div>

@@ -18,12 +18,7 @@ const CardImage = ({ item }: CardImageProps) => {
       </div>
       <h4 className='text-lg font-semibold md:text-xl 2xl:text-2xl'>{item.title}</h4>
       <p className='mb-6 mt-2.5 text-grey-15 2xl:mb-7.5 2xl:mt-3.5'>{item.description}</p>
-      <LinkAsButton
-        href={'/'}
-        type='primary'
-        className='border:bg-white-97 grid w-full place-items-center rounded-lg border bg-white-95 py-3.5 text-grey-30 transition
-          hover:bg-orange-50 hover:text-white 2xl:py-4'
-      >
+      <LinkAsButton href={'/'} type='primary'>
         Get it Now
       </LinkAsButton>
     </div>

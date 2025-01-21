@@ -23,7 +23,6 @@ const Login = ({}) => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm<LoginSchema>({
     resolver: zodResolver(loginSchema),
@@ -32,15 +31,12 @@ const Login = ({}) => {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const onSubmit: SubmitHandler<LoginSchema> = async (data) => {
-    console.log('data', data);
     setErrorMessage(null);
     const response = await loginAction(data);
     if (!response.success) {
       setErrorMessage(response.message);
     }
   };
-
-  console.log(watch('email'));
 
   const onPressHandler = async () => {
     return await googleAuth();

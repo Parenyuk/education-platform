@@ -1,4 +1,4 @@
-import { CourseType } from '@/lib/types/actions/getCourses';
+import { CourseType } from '@/lib/types/components/modules/OurCoursesCardModule';
 
 export type CardImageProps = {
   item: CourseType;

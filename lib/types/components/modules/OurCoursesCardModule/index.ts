@@ -7,3 +7,9 @@ export type CourseType = {
   imageURL: string;
   tags: string[];
 };
+
+export type CoursesType = {
+  title: string;
+  description: string;
+  data: CourseType[];
+};
