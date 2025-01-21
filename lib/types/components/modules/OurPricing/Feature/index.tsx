@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-import { Checkbox } from '@heroui/checkbox';
+import { CustomCheckbox } from '@/src/components/elements/CustomCheckbox';
 
 
 const Feature = ({ item }: { item: { name: string, value: boolean } }) => {
@@ -11,14 +11,30 @@ const Feature = ({ item }: { item: { name: string, value: boolean } }) => {
   console.log('item.', typeof item.value);
 
   return (<div className='flex'>
-    <Checkbox
+    {/*<Checkbox*/}
+    {/*  aria-label={item.name}*/}
+    {/*  isSelected={isSelected}*/}
+    {/*  onValueChange={setIsSelected}*/}
+
+    {/*  // color='primary'*/}
+    {/*  className='!after:bg-[#FF0000]'*/}
+    {/*  // classNames={{*/}
+    {/*  //   base: '!after:bg-red-500',*/}
+    {/*  //   wrapper: '!after:bg-red-500',*/}
+    {/*  //   hiddenInput: '!after:bg-red-500',*/}
+    {/*  //   icon: '!after:bg-red-500',*/}
+    {/*  //   label: '!after:bg-red-500',*/}
+    {/*  // }}*/}
+    {/*>*/}
+    {/*  {item.name}*/}
+    {/*</Checkbox>*/}
+    <CustomCheckbox
       aria-label={item.name}
       isSelected={isSelected}
-      onValueChange={setIsSelected}
-      color='primary'
+      label={item.name}
     >
       {item.name}
-    </Checkbox>
+    </CustomCheckbox>
   </div>);
 };
 
