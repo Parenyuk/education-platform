@@ -14,10 +14,10 @@ import { ROUTES } from '@/lib/constants/routes';
 import { loginSchema } from '@/lib/schema/LoginSchema';
 import { LoginSchema } from '@/lib/types/schema/LoginSchema';
 import GoogleIcon from '@/public/svg/google.svg';
-import Arrow from '@/src/components/elements/Arrow';
 import FormDivider from '@/src/components/elements/formElements/FormDivider';
 import FormInput from '@/src/components/elements/formElements/FormInput';
 import FormPasswordInput from '@/src/components/elements/formElements/FormPasswordInput';
+import Arrow from '@/src/components/elements/svgElements/Arrow';
 
 const Login = ({}) => {
   const {

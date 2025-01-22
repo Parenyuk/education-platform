@@ -1,7 +1,7 @@
 import { Link } from '@heroui/link';
 
 import { ROUTES } from '@/lib/constants/routes';
-import Arrow from '@/src/components/elements/Arrow';
+import Arrow from '@/src/components/elements/svgElements/Arrow';
 
 export default async function CreateUserPage() {
   return (
