@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 
-import { Link } from '@nextui-org/link';
+import { Link } from '@heroui/link';
 
 import { userAuthStateAction } from '@/actions/auth/userAuthStateAction';
 import { ROUTES } from '@/lib/constants/routes';

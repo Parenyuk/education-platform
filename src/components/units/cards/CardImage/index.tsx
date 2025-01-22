@@ -1,4 +1,9 @@
-import { Image } from '@nextui-org/image';
+'use client';
+
+// import Image from 'next/image';
+
+import { Image } from '@heroui/react';
+import NextImage from 'next/image';
 
 import { CardImageProps } from '@/lib/types/components/units/cards/CardImage';
 import LinkAsButton from '@/src/components/elements/LinkAsButton';
@@ -7,7 +12,14 @@ import TagComponent from '@/src/components/units/cards/CardImage/TagComponent';
 const CardImage = ({ item }: CardImageProps) => {
   return (
     <div className='rounded-xl bg-white p-6 md:p-10 2xl:p-12'>
-      <Image src={item.imageURL} className='rounded-lg' />
+      <Image
+        alt='HeroUI hero Image'
+        as={NextImage}
+        src={item.imageURL}
+        className='min-w-full'
+        width='300'
+        height='300'
+      />
       <div className='mb-3.5 mt-6 flex justify-between md:mb-6 2xl:my-7.5 2xl:mt-7.5'>
         <div className='flex gap-2.5'>
           {item.tags.map((item) => (

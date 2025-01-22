@@ -1,4 +1,4 @@
-import { Link } from '@nextui-org/link';
+import { Link } from '@heroui/link';
 
 import Arrow from 'public/svg/right-arrow.svg';
 

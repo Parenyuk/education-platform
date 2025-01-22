@@ -6,3 +6,9 @@ export type CardsBlockProps = {
   description?: string;
   itemContainerStyles?: string;
 };
+
+export type CardsCommonT<T> = {
+  title: string;
+  description: string;
+  data: T[];
+};

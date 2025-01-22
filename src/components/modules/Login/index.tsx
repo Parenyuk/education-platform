@@ -2,10 +2,10 @@
 
 import { useState } from 'react';
 
+import { Button } from '@heroui/button';
+import { Checkbox } from '@heroui/checkbox';
+import { Link } from '@heroui/link';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Button } from '@nextui-org/button';
-import { Checkbox } from '@nextui-org/checkbox';
-import { Link } from '@nextui-org/link';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 import { googleAuth } from '@/actions/auth/GoogleAuth';
@@ -14,10 +14,10 @@ import { ROUTES } from '@/lib/constants/routes';
 import { loginSchema } from '@/lib/schema/LoginSchema';
 import { LoginSchema } from '@/lib/types/schema/LoginSchema';
 import GoogleIcon from '@/public/svg/google.svg';
-import Arrow from '@/src/components/elements/Arrow';
 import FormDivider from '@/src/components/elements/formElements/FormDivider';
 import FormInput from '@/src/components/elements/formElements/FormInput';
 import FormPasswordInput from '@/src/components/elements/formElements/FormPasswordInput';
+import Arrow from '@/src/components/elements/svgElements/Arrow';
 
 const Login = ({}) => {
   const {

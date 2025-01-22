@@ -1,6 +1,6 @@
 import { ComponentProps } from 'react';
 
-import { Textarea } from '@nextui-org/input';
+import { Textarea } from '@heroui/input';
 import { UseFormRegisterReturn } from 'react-hook-form';
 
 export type FormTextAreaProps = {

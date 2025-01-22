@@ -2,8 +2,8 @@
 
 import React, { useState } from 'react';
 
+import { Button } from '@heroui/button';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Button } from '@nextui-org/button';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 import { contactAction } from '@/actions/contact/contactAction';

@@ -2,9 +2,9 @@
 
 import { useState } from 'react';
 
+import { Button } from '@heroui/button';
+import { Link } from '@heroui/link';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Button } from '@nextui-org/button';
-import { Link } from '@nextui-org/link';
 import { useForm, SubmitHandler } from 'react-hook-form';
 
 import { signUpAction } from '@/actions/auth/signUpAction';
@@ -12,9 +12,9 @@ import { ROUTES } from '@/lib/constants/routes';
 import { signUpSchema } from '@/lib/schema/SignUpSchema';
 import { SignUpSchema } from '@/lib/types/schema/SignUpSchema';
 import GoogleIcon from '@/public/svg/google.svg';
-import Arrow from '@/src/components/elements/Arrow';
 import FormCheckbox from '@/src/components/elements/formElements/FormCheckbox';
 import FormPasswordInput from '@/src/components/elements/formElements/FormPasswordInput';
+import Arrow from '@/src/components/elements/svgElements/Arrow';
 import FormDivider from 'src/components/elements/formElements/FormDivider';
 import FormInput from 'src/components/elements/formElements/FormInput';
 

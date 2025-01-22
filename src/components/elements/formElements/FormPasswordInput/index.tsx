@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-import { Input } from '@nextui-org/input';
+import { Input } from '@heroui/input';
 
 import cn from '@/helpers/cn';
 import { FormInputProps } from '@/lib/types/components/elements/formElements/FormInput';
