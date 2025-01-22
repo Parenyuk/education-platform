@@ -1,22 +1,12 @@
 'use client';
-
-import { useState } from 'react';
-
-import { CustomCheckbox } from '@/src/components/elements/CustomCheckbox';
+import CrossIcon from 'public/svg/cross.svg';
+import TickIcon from 'public/svg/tick.svg';
 
 
 const Feature = ({ item }: { item: { name: string, value: boolean } }) => {
-  const [isSelected, setIsSelected] = useState(item.value);
-
-  return (<div className='flex'>
-
-    <CustomCheckbox
-      aria-label={item.name}
-      isSelected={isSelected}
-      label={item.name}
-    >
-      {item.name}
-    </CustomCheckbox>
+  return (<div className='flex gap-2 2xl:gap-3'>
+    {!!item.value ? <TickIcon /> : <CrossIcon />}
+    <p>{item.name}</p>
   </div>);
 };
 
