@@ -4,9 +4,3 @@ export type BenefitType = {
   description: string;
   created_at: string;
 };
-
-export type BenefitsType = {
-  title: string;
-  description: string;
-  data: BenefitType[];
-};

@@ -1,4 +1,4 @@
-import { Link } from "@heroui/link";
+import { Link } from '@heroui/link';
 
 import { CardNumericProps } from '@/lib/types/components/units/cards/CardNumeric';
 import Arrow from '@/src/components/elements/Arrow';

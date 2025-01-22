@@ -1,6 +1,6 @@
 import { ComponentProps } from 'react';
 
-import { Input } from "@heroui/input";
+import { Input } from '@heroui/input';
 import { UseFormRegisterReturn } from 'react-hook-form';
 
 export type FormInputProps = {

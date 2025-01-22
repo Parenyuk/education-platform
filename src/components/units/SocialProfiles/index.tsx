@@ -1,4 +1,4 @@
-import { Link } from "@heroui/link";
+import { Link } from '@heroui/link';
 
 import { socialProfiles } from '@/helpers/mockData/footerIcons';
 

@@ -1,4 +1,4 @@
-import { Button } from "@heroui/button";
+import { Button } from '@heroui/button';
 
 import { ROUTES } from '@/lib/constants/routes';
 import AbstractLine from '@/public/svg/abstract_line.svg';

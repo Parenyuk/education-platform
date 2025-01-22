@@ -1,7 +1,7 @@
 'use client';
 
-import { Checkbox } from "@heroui/checkbox";
-import { Link } from "@heroui/link";
+import { Checkbox } from '@heroui/checkbox';
+import { Link } from '@heroui/link';
 
 import { FormCheckboxProps } from '@/lib/types/components/elements/formElements/FormCheckbox';
 import FormError from '@/src/components/elements/formElements/FormError';

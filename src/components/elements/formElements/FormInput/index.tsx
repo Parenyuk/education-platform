@@ -1,6 +1,6 @@
 'use client';
 
-import { Input } from "@heroui/input";
+import { Input } from '@heroui/input';
 
 import cn from '@/helpers/cn';
 import { FormInputProps } from '@/lib/types/components/elements/formElements/FormInput';

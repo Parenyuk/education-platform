@@ -5,9 +5,3 @@ export type CardContentType = {
   author: string;
   author_image: string;
 };
-
-export type TestimonialsType = {
-  title: string;
-  description: string;
-  data: CardContentType[];
-};

@@ -1,4 +1,4 @@
-import { Button } from "@heroui/button";
+import { Button } from '@heroui/button';
 
 const JoinUsBanner = ({}) => {
   return (

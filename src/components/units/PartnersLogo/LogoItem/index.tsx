@@ -1,4 +1,4 @@
-import { Image } from "@heroui/image";
+import { Image } from '@heroui/image';
 
 import { LogoItemProps } from '@/lib/types/components/units/PartnersLogo/LogoItem';
 

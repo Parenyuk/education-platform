@@ -1,4 +1,4 @@
-import { Textarea } from "@heroui/input";
+import { Textarea } from '@heroui/input';
 
 import cn from '@/helpers/cn';
 import { FormTextAreaProps } from '@/lib/types/components/elements/formElements/FormTextArea';

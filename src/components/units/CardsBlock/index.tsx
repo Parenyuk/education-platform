@@ -1,4 +1,4 @@
-import { Button } from "@heroui/button";
+import { Button } from '@heroui/button';
 
 import cn from '@/helpers/cn';
 import { CardsBlockProps } from '@/lib/types/components/units/CardsBlock';
