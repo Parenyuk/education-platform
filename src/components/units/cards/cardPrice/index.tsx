@@ -19,10 +19,12 @@ const CardPrice = ({ item, timePlanType }: CardPriceProps) => {
       >
         {planType}
       </div>
-      <span
-        className='text-6xl font-semibold md:text-7xl 2xl:text-8xl'>${timePlanType === 'month' ? pricePerMonth : pricePerYear}</span>
-      <span
-        className='text-base font-medium md:text-lg 2xl:text-xl'>{timePlanType === 'month' ? '/month' : '/year'} </span>
+      <span className='text-6xl font-semibold md:text-7xl 2xl:text-8xl'>
+        ${timePlanType === 'month' ? pricePerMonth : pricePerYear}
+      </span>
+      <span className='text-base font-medium md:text-lg 2xl:text-xl'>
+        {timePlanType === 'month' ? '/month' : '/year'}{' '}
+      </span>
       <div className='rounded-t-md border border-white-95 bg-white p-5 md:rounded-t-lg md:p-8 2xl:p-10'>
         <p className='mb-5 text-center text-lg font-medium md:mb-6 2xl:mb-8 2xl:text-2xl'>Available Features</p>
         {availableFeatures.map((feature: FeatureType, index: number) => (

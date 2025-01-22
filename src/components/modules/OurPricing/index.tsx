@@ -7,7 +7,7 @@ const OurPricing = async ({}) => {
 
   const { data: ourPricing, error } = await getAll<OurPricingType>('get_pricing_with_metadata', { isRpc: true });
 
-  if (ourPricing?.data.length == 0 || error) return null;
+  if (error) return null;
 
   return <PricingClientComponent data={ourPricing} />;
 };
