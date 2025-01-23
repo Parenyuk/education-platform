@@ -8,12 +8,14 @@ export const fetchData = async () => {
     resource: string,
     options: {
       isRpc?: boolean;
+      table_name?: string;
     } = { isRpc: false }
   ): Promise<SupabaseResponse<T>> => {
-    const { isRpc = false } = options;
+    const { isRpc = false, table_name } = options;
 
     if (isRpc) {
-      const { data, error, status, statusText } = await supabase.rpc(resource);
+      const { data, error, status, statusText } = await supabase.rpc(resource, { table_name });
+
       if (error) {
         console.error(error);
         return { data: null, error, status, statusText };

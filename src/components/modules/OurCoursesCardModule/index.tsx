@@ -1,3 +1,4 @@
+import { rpcFunction } from '@/lib/constants/tableFunctions';
 import { CourseType } from '@/lib/types/components/modules/OurCoursesCardModule';
 import { CardsCommonT } from '@/lib/types/components/units/CardsBlock';
 import CardImage from '@/src/components/units/cards/CardImage';
@@ -7,7 +8,10 @@ import { fetchData } from '@/supabase/fetchData';
 const OurCoursesCardModule = async () => {
   const { getAll } = await fetchData();
 
-  const { data: courses, error } = await getAll<CardsCommonT<CourseType>>('get_courses_with_metadata', { isRpc: true });
+  const { data: courses, error } = await getAll<CardsCommonT<CourseType>>(rpcFunction.getTableWithMetadata, {
+    isRpc: true,
+    table_name: 'courses',
+  });
 
   if (courses?.data.length == 0 || error) return null;
 

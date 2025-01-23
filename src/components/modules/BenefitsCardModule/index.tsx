@@ -1,3 +1,4 @@
+import { rpcFunction } from '@/lib/constants/tableFunctions';
 import { BenefitType } from '@/lib/types/components/modules/BenefitsCardModule';
 import { CardsCommonT } from '@/lib/types/components/units/CardsBlock';
 import CardNumeric from '@/src/components/units/cards/CardNumeric';
@@ -7,8 +8,9 @@ import { fetchData } from '@/supabase/fetchData';
 const BenefitsCardModule = async () => {
   const { getAll } = await fetchData();
 
-  const { data: benefits, error } = await getAll<CardsCommonT<BenefitType>>('get_benefits_with_metadata', {
+  const { data: benefits, error } = await getAll<CardsCommonT<BenefitType>>(rpcFunction.getTableWithMetadata, {
     isRpc: true,
+    table_name: 'benefits',
   });
 
   if (error) return null;
