@@ -3,17 +3,11 @@ export type FeatureType = {
   value: boolean;
 };
 
-export type CardPriceType = {
+export type CardPriceT = {
   id: number;
   created_at: string;
   plan_type: string;
   price_per_month: number;
   price_per_year: number;
   available_features: FeatureType[];
-};
-
-export type OurPricingType = {
-  title: string;
-  description: string;
-  data: CardPriceType[];
 };

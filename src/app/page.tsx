@@ -1,4 +1,5 @@
 import BenefitsCardModule from '@/src/components/modules/BenefitsCardModule';
+import FAQ from '@/src/components/modules/FAQ';
 import Footer from '@/src/components/modules/Footer';
 import Header from '@/src/components/modules/Header';
 import OurCoursesCardModule from '@/src/components/modules/OurCoursesCardModule';
@@ -20,6 +21,7 @@ export default function Home() {
         <OurCoursesCardModule />
         <TestimonialsCardModule />
         <OurPricing />
+        <FAQ />
       </main>
       <Footer />
     </div>

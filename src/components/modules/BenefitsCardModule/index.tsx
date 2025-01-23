@@ -1,5 +1,6 @@
-import { BenefitType } from '@/lib/types/components/modules/BenefitsCardModule';
-import { CardsCommonT } from '@/lib/types/components/units/CardsBlock';
+import { rpcFunction } from '@/lib/constants/tableFunctions';
+import { BenefitI } from '@/lib/types/components/modules/BenefitsCardModule';
+import { CardsCommonI } from '@/lib/types/components/units/CardsBlock';
 import CardNumeric from '@/src/components/units/cards/CardNumeric';
 import CardsBlock from '@/src/components/units/CardsBlock';
 import { fetchData } from '@/supabase/fetchData';
@@ -7,8 +8,9 @@ import { fetchData } from '@/supabase/fetchData';
 const BenefitsCardModule = async () => {
   const { getAll } = await fetchData();
 
-  const { data: benefits, error } = await getAll<CardsCommonT<BenefitType>>('get_benefits_with_metadata', {
+  const { data: benefits, error } = await getAll<CardsCommonI<BenefitI>>(rpcFunction.getTableWithMetadata, {
     isRpc: true,
+    table_name: 'benefits',
   });
 
   if (error) return null;

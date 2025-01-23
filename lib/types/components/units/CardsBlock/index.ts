@@ -1,14 +1,12 @@
 import { ReactNode } from 'react';
 
-export type CardsBlockProps = {
-  children: ReactNode;
-  title?: string;
-  description?: string;
-  itemContainerStyles?: string;
-};
+import { MetadataI } from '@/lib/types/common/metadata';
 
-export type CardsCommonT<T> = {
-  title: string;
-  description: string;
+export interface CardsBlockProps extends Partial<MetadataI> {
+  children: ReactNode;
+  itemContainerStyles?: string;
+}
+
+export interface CardsCommonI<T> extends Partial<MetadataI> {
   data: T[];
-};
+}

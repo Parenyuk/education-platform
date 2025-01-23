@@ -1,6 +1,5 @@
-export type BenefitType = {
-  id: number;
-  title: string;
-  description: string;
-  created_at: string;
-};
+import { DateInfoI } from '@/lib/types/common/date';
+import { ItemID } from '@/lib/types/common/id';
+import { MetadataI } from '@/lib/types/common/metadata';
+
+export interface BenefitI extends ItemID, DateInfoI, Partial<MetadataI> {}
