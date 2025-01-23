@@ -1,6 +1,6 @@
 import { rpcFunction } from '@/lib/constants/tableFunctions';
 import { CardContentType } from '@/lib/types/components/modules/TestimonialsCardModule';
-import { CardsCommonT } from '@/lib/types/components/units/CardsBlock';
+import { CardsCommonI } from '@/lib/types/components/units/CardsBlock';
 import CardContent from '@/src/components/units/cards/CardContent';
 import CardsBlock from '@/src/components/units/CardsBlock';
 import { fetchData } from '@/supabase/fetchData';
@@ -8,7 +8,7 @@ import { fetchData } from '@/supabase/fetchData';
 const TestimonialsCardModule = async () => {
   const { getAll } = await fetchData();
 
-  const { data: testimonials, error } = await getAll<CardsCommonT<CardContentType>>(rpcFunction.getTableWithMetadata, {
+  const { data: testimonials, error } = await getAll<CardsCommonI<CardContentType>>(rpcFunction.getTableWithMetadata, {
     isRpc: true,
     table_name: 'testimonials',
   });

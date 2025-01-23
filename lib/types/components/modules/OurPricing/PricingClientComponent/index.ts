@@ -1,7 +1,8 @@
-import { OurPricingType } from '@/lib/types/components/modules/OurPricing';
+import { CardPriceT } from '@/lib/types/components/modules/OurPricing';
+import { CardsCommonI } from '@/lib/types/components/units/CardsBlock';
 
 export type TimePricePlanT = 'month' | 'year';
 
 export type PricingClientComponentProps = {
-  data: OurPricingType | null;
+  data: CardsCommonI<CardPriceT> | null;
 };

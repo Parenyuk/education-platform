@@ -1,6 +1,6 @@
-import { BenefitsCardType } from '@/lib/types/helpers/mockData/homePage';
+import { BenefitI } from '@/lib/types/components/modules/BenefitsCardModule';
 
 export type CardNumericProps = {
-  item: BenefitsCardType;
+  item: BenefitI;
   index: number;
 };
