@@ -5,6 +5,7 @@ import { Accordion, AccordionItem } from '@heroui/react';
 import { DataSideProps } from '@/lib/types/components/modules/FAQ/DataSide';
 import FAQCross from '@/src/components/elements/svgElements/FAQCross';
 import FAQPlus from '@/src/components/elements/svgElements/FAQPlus';
+import RightArrowUnit from '@/src/components/units/RightArrowUnit';
 
 const DataSide = ({ data }: DataSideProps) => {
   return (
@@ -21,6 +22,15 @@ const DataSide = ({ data }: DataSideProps) => {
           indicator={({ isOpen }) => (isOpen ? <FAQCross /> : <FAQPlus />)}
         >
           <p className=''>{item.answer}</p>
+          {item.linkText && (
+            <div
+              className='mt-5 flex justify-between rounded-md bg-white-95 px-5 py-3 md:mt-10 md:px-6 md:py-4 2xl:mt-12 2xl:rounded-lg 2xl:px-8
+                2xl:py-5'
+            >
+              <p className='self-center text-sm font-medium md:text-base 2xl:text-lg'>{item.linkText}</p>
+              <RightArrowUnit link={item.link} />
+            </div>
+          )}
         </AccordionItem>
       ))}
     </Accordion>

@@ -18,7 +18,10 @@ const FAQ = async () => {
   }
 
   return (
-    <div className='container mx-auto grid grid-cols-1 rounded-xl bg-white p-6 md:grid-cols-[4fr_8fr] md:gap-20 md:p-20 2xl:gap-32 2xl:p-24'>
+    <div
+      className='mb:12 container mx-auto grid grid-cols-1 rounded-xl bg-white p-6 md:mb-24 md:grid-cols-[4fr_8fr] md:gap-20 md:p-20
+        2xl:mb-36 2xl:gap-32 2xl:p-24'
+    >
       <HeadSide title={faqData.title} description={faqData.description} />
       <DataSide data={faqData.data} />
     </div>
