@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-type LinkAsButtonType = 'primary' | 'secondary' | 'secondary-full';
+type LinkAsButtonType = 'primary' | 'secondary' | 'secondary-full' | 'tertiary';
 
 export type LinkAsButtonProps = {
   children: ReactNode;

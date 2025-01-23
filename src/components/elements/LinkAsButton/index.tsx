@@ -9,6 +9,8 @@ const typeStyles: Record<string, string> = {
   secondary: 'rounded-lg bg-orange-50 px-6 py-2.5 2xl:px-8 2xl:py-3.5',
   'secondary-full':
     'w-full grid place-items-center text-white font-semibold text-sm 2xl:text-lg rounded-b-md md:rounded-b-lg bg-orange-50 px-6 py-2.5 2xl:px-8 2xl:py-3.5',
+  tertiary:
+    'grid place-items-center px-5 py-3.5 2xl:px-6 2xl:p-4.5 text-grey-15 font-medium rounded-md text-sm border border-white-95 w-fit',
 };
 
 const LinkAsButton = ({ href, className, color, children, type }: LinkAsButtonProps) => {
