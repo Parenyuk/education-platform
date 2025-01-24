@@ -6,3 +6,7 @@ export type SupabaseResponse<T> = {
   status: number;
   statusText: string;
 };
+
+export interface FetchDataMethods {
+  getAll: <T>(resource: string, options?: { isRpc?: boolean; table_name?: string }) => Promise<SupabaseResponse<T>>;
+}

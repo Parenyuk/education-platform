@@ -6,12 +6,13 @@ import TopPageUnit from '@/src/components/units/TopPageUnit';
 import { fetchData } from '@/supabase/fetchData';
 
 export default async function ContactPage() {
-  const { getAll } = await fetchData();
-
-  const { data: courses, error } = await getAll<CardsCommonI<CourseType>>(rpcFunction.getTableWithMetadata, {
-    isRpc: true,
-    table_name: 'courses',
-  });
+  const { data: courses, error } = await fetchData().getAll<CardsCommonI<CourseType>>(
+    rpcFunction.getTableWithMetadata,
+    {
+      isRpc: true,
+      table_name: 'courses',
+    }
+  );
 
   if (courses?.data.length == 0 || !courses || error) return null;
 

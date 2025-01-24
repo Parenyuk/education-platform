@@ -6,12 +6,13 @@ import CardsBlock from '@/src/components/units/CardsBlock';
 import { fetchData } from '@/supabase/fetchData';
 
 const OurCoursesCardModule = async () => {
-  const { getAll } = await fetchData();
-
-  const { data: courses, error } = await getAll<CardsCommonI<CourseType>>(rpcFunction.getTableWithMetadata, {
-    isRpc: true,
-    table_name: 'courses',
-  });
+  const { data: courses, error } = await fetchData().getAll<CardsCommonI<CourseType>>(
+    rpcFunction.getTableWithMetadata,
+    {
+      isRpc: true,
+      table_name: 'courses',
+    }
+  );
 
   if (courses?.data.length == 0 || error) return null;
 

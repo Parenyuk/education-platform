@@ -6,9 +6,7 @@ import HeadSide from '@/src/components/modules/FAQ/HeadSide';
 import { fetchData } from '@/supabase/fetchData';
 
 const FAQ = async () => {
-  const { getAll } = await fetchData();
-
-  const { data: faqData, error } = await getAll<CardsCommonI<FAQI>>(rpcFunction.getTableWithMetadata, {
+  const { data: faqData, error } = await fetchData().getAll<CardsCommonI<FAQI>>(rpcFunction.getTableWithMetadata, {
     isRpc: true,
     table_name: 'faq',
   });

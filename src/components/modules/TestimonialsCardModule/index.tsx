@@ -6,12 +6,13 @@ import CardsBlock from '@/src/components/units/CardsBlock';
 import { fetchData } from '@/supabase/fetchData';
 
 const TestimonialsCardModule = async () => {
-  const { getAll } = await fetchData();
-
-  const { data: testimonials, error } = await getAll<CardsCommonI<CardContentType>>(rpcFunction.getTableWithMetadata, {
-    isRpc: true,
-    table_name: 'testimonials',
-  });
+  const { data: testimonials, error } = await fetchData().getAll<CardsCommonI<CardContentType>>(
+    rpcFunction.getTableWithMetadata,
+    {
+      isRpc: true,
+      table_name: 'testimonials',
+    }
+  );
 
   if (error) return null;
 
