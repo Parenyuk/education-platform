@@ -1,4 +1,4 @@
-export type TopPageUnitProps = {
+export type TopPageUnitProps = Partial<{
   title: string;
   description: string;
-};
+}>;

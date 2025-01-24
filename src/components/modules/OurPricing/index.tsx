@@ -5,12 +5,13 @@ import { fetchData } from '@/supabase/fetchData';
 import PricingClientComponent from 'src/components/modules/OurPricing/PricingClientComponent';
 
 const OurPricing = async ({}) => {
-  const { getAll } = await fetchData();
-
-  const { data: ourPricing, error } = await getAll<CardsCommonI<CardPriceT>>(rpcFunction.getTableWithMetadata, {
-    isRpc: true,
-    table_name: 'pricing',
-  });
+  const { data: ourPricing, error } = await fetchData().getAll<CardsCommonI<CardPriceT>>(
+    rpcFunction.getTableWithMetadata,
+    {
+      isRpc: true,
+      table_name: 'pricing',
+    }
+  );
 
   if (error) return null;
 
