@@ -13,9 +13,9 @@ const FAQPlus = ({}) => {
       <path
         d='M19 26H26M33 26H26M26 26V19M26 26V33'
         stroke='#262626'
-        stroke-width='2'
-        stroke-linecap='round'
-        stroke-linejoin='round'
+        strokeWidth='2'
+        strokeLinecap='round'
+        strokeLinejoin='round'
       />
     </svg>
   );

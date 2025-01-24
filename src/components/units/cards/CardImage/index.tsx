@@ -15,7 +15,7 @@ const CardImage = ({ item }: CardImageProps) => {
       <Image
         alt='HeroUI hero Image'
         as={NextImage}
-        src={item.imageURL}
+        src={item.images[1]}
         className='min-w-full'
         width='300'
         height='300'

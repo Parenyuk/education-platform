@@ -17,7 +17,7 @@ const OurCoursesCardModule = async () => {
 
   return (
     <CardsBlock title={courses?.title} description={courses?.description} itemContainerStyles='md:grid-cols-2'>
-      {courses?.data.map((item) => {
+      {courses?.data.slice(0, 6).map((item) => {
         return <CardImage key={item.id} item={item} />;
       })}
     </CardsBlock>
