@@ -7,6 +7,7 @@ import { CredentialResponse } from 'google-one-tap';
 import { useRouter } from 'next/navigation';
 import Script from 'next/script';
 
+import { ROUTES } from '@/lib/constants/routes';
 import { createClient } from '@/utils/supabase/client';
 
 const OneTapComponent = () => {
@@ -36,7 +37,7 @@ const OneTapComponent = () => {
           console.error('Error getting session', error);
         }
         if (data.session) {
-          router.push('/');
+          router.push(ROUTES.PROFILE);
           return;
         }
 
