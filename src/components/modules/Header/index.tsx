@@ -1,7 +1,7 @@
 import LogoComponent from '@/src/components/elements/LogoComponent';
 import NavigationLinks from '@/src/components/modules/Header/NavigationLinks';
 import TopLine from '@/src/components/modules/Header/TopLine';
-import UserInfo from '@/src/components/modules/Header/UserInfo';
+import UserInfoWrapper from '@/src/components/modules/Header/UserInfoWrapper';
 
 const Header = async () => {
   return (
@@ -12,7 +12,7 @@ const Header = async () => {
           <LogoComponent />
           <NavigationLinks />
         </div>
-        <UserInfo />
+        <UserInfoWrapper />
       </nav>
     </header>
   );

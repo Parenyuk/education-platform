@@ -1,38 +1,14 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-
 import { Link } from '@heroui/link';
 
-import { userAuthStateAction } from '@/actions/auth/userAuthStateAction';
 import { ROUTES } from '@/lib/constants/routes';
+import { UserInfoPropsType } from '@/lib/types/components/modules/Header/UserInfo';
 import MenuIcon from '@/public/svg/mobile-menu.svg';
 import LinkAsButton from '@/src/components/elements/LinkAsButton';
 import LogOutButton from '@/src/components/units/LogoutButton';
 
-const UserInfo = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [user, setUser] = useState<{ fullName: string } | null>(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchUserState = async () => {
-      try {
-        const { isLoggedIn, user } = await userAuthStateAction();
-        setIsLoggedIn(isLoggedIn);
-        setUser(user);
-      } catch (error) {
-        console.error('Failed to fetch user state:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchUserState();
-  }, []);
-
-  if (loading) return <div>Loading...</div>;
-
+const UserInfo = ({ isLoggedIn, user }: UserInfoPropsType) => {
   return (
     <div className='flex items-center justify-center space-x-5'>
       {isLoggedIn ? (
