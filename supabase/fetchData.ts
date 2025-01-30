@@ -5,7 +5,7 @@ import { createClient } from '@/utils/supabase/server';
 export const fetchData = (): FetchDataMethods => {
   const getAll = async <T>(
     resource: any,
-    { isRpc = false, table_name }: { isRpc?: boolean; table_name?: string } = {},
+    { isRpc = false, table_name }: { isRpc?: boolean; table_name?: string } = {}
   ): Promise<SupabaseResponse<T>> => {
     const supabase = await createClient();
 
@@ -17,7 +17,7 @@ export const fetchData = (): FetchDataMethods => {
       return { data: null, error, status, statusText };
     }
 
-    return error ? { data: null, error, status, statusText } : { data: data as T, error: null, status, statusText };
+    return { data: data as T, error: null, status, statusText };
   };
 
   return { getAll };
