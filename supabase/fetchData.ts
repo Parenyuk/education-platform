@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { TableNames } from '@/lib/constants/tables';
+import { TableNames } from '@/lib/types/common/tableNames';
 import { FetchDataMethods, SupabaseResponse } from '@/lib/types/supabase';
 import { createClient } from '@/utils/supabase/server';
 

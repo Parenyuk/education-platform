@@ -1,6 +1,6 @@
 import { PostgrestError } from '@supabase/supabase-js';
 
-import { TableNames } from '@/lib/constants/tables';
+import { ResourceType, TableNames } from '@/lib/types/common/tableNames';
 
 export type SupabaseResponse<T> = {
   data: T | null;
@@ -10,5 +10,11 @@ export type SupabaseResponse<T> = {
 };
 
 export interface FetchDataMethods {
-  getAll: <T>(resource: string, options?: { isRpc?: boolean; table_name: TableNames }) => Promise<SupabaseResponse<T>>;
+  getAll: <T>(
+    resource: ResourceType,
+    options?: {
+      isRpc?: boolean;
+      table_name: TableNames;
+    }
+  ) => Promise<SupabaseResponse<T>>;
 }
