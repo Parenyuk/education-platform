@@ -13,12 +13,12 @@ export default async function ContactPage() {
     },
   );
 
-  if (courses?.data?.data?.length == 0 || !courses || error) return null;
+  if (courses?.data?.length == 0 || !courses || error) return null;
 
   return (
     <>
-      <TopPageUnit title={courses?.data.title} description={courses?.data.description} />
-      <CoursesList data={courses.data.data} />
+      <TopPageUnit title={courses?.data.title} description={courses?.description} />
+      <CoursesList data={courses.data} />
     </>
   );
 }
