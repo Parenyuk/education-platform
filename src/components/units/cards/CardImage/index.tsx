@@ -1,7 +1,5 @@
 'use client';
 
-// import Image from 'next/image';
-
 import { Image } from '@heroui/react';
 import NextImage from 'next/image';
 
@@ -10,16 +8,13 @@ import LinkAsButton from '@/src/components/elements/LinkAsButton';
 import TagComponent from '@/src/components/units/cards/CardImage/TagComponent';
 
 const CardImage = ({ item }: CardImageProps) => {
+  const image = item?.images?.[1] ?? null;
+
   return (
     <div className='rounded-xl bg-white p-6 md:p-10 2xl:p-12'>
-      <Image
-        alt='HeroUI hero Image'
-        as={NextImage}
-        src={item.images[1]}
-        className='min-w-full'
-        width='300'
-        height='300'
-      />
+      {image && (
+        <Image alt='HeroUI hero Image' as={NextImage} src={image} className='min-w-full' width='300' height='300' />
+      )}
       <div className='mb-3.5 mt-6 flex justify-between md:mb-6 2xl:my-7.5 2xl:mt-7.5'>
         <div className='flex gap-2.5'>
           {item.tags.map((item) => (

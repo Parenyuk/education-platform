@@ -15,19 +15,27 @@ const CourseItem = ({ item }: CourseItemProps) => {
             {item.description}
           </p>
         </div>
-        <LinkAsButton
-          href={item.slug}
-          className='mb-6 whitespace-nowrap px-4 py-3.5 text-sm md:mb-0 md:text-base 2xl:px-6 2xl:py-4.5 2xl:text-lg'
-          type='primary'
-        >
-          View Course
-        </LinkAsButton>
+        {item.slug && (
+          <LinkAsButton
+            href={item.slug}
+            className='mb-6 whitespace-nowrap px-4 py-3.5 text-sm md:mb-0 md:text-base 2xl:px-6 2xl:py-4.5 2xl:text-lg'
+            type='primary'
+          >
+            View Course
+          </LinkAsButton>
+        )}
       </div>
-      <div className='grid grid-cols-3 gap-2.5 md:gap-5 2xl:gap-8'>
-        {item.images.slice(0, 3).map((image, index) => (
-          <Image key={index} src={image} className='aspect-square rounded object-cover md:rounded-md 2xl:rounded-lg' />
-        ))}
-      </div>
+      {item.images && (
+        <div className='grid grid-cols-3 gap-2.5 md:gap-5 2xl:gap-8'>
+          {item.images.slice(0, 3).map((image, index) => (
+            <Image
+              key={index}
+              src={image}
+              className='aspect-square rounded object-cover md:rounded-md 2xl:rounded-lg'
+            />
+          ))}
+        </div>
+      )}
       <div className='mb-4 mt-6 flex flex-col md:mb-10 md:flex-row md:justify-between 2xl:mb-12 2xl:mt-8'>
         <div className='flex gap-2 2xl:gap-2.5'>
           {item.tags.map((tag, index) => (
