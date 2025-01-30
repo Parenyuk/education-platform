@@ -18,3 +18,8 @@ export interface FetchDataMethods {
     }
   ) => Promise<SupabaseResponse<T>>;
 }
+
+export type GetAllParams = {
+  isRpc?: boolean;
+  table_name?: TableNames;
+};

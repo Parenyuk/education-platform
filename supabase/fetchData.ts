@@ -1,11 +1,11 @@
 import { ResourceType, RpcFunctionValues, TableNames } from '@/lib/types/common/tableNames';
-import { FetchDataMethods, SupabaseResponse } from '@/lib/types/supabase';
+import { FetchDataMethods, GetAllParams, SupabaseResponse } from '@/lib/types/supabase';
 import { createClient } from '@/utils/supabase/server';
 
 export const fetchData = (): FetchDataMethods => {
   const getAll = async <T>(
     resource: ResourceType,
-    { isRpc = false, table_name }: { isRpc?: boolean; table_name?: TableNames } = {}
+    { isRpc = false, table_name }: GetAllParams = {}
   ): Promise<SupabaseResponse<T>> => {
     const supabase = await createClient();
 
