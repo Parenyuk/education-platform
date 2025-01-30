@@ -5,7 +5,7 @@ import { createClient } from '@/utils/supabase/server';
 export const fetchData = (): FetchDataMethods => {
   const getAll = async <T>(
     resource: ResourceType,
-    { isRpc = false, table_name }: GetAllParams = {}
+    { isRpc = false, table_name }: GetAllParams = {},
   ): Promise<SupabaseResponse<T>> => {
     const supabase = await createClient();
 
@@ -14,10 +14,13 @@ export const fetchData = (): FetchDataMethods => {
     }
 
     const query = isRpc
-      ? supabase.rpc(resource as RpcFunctionValues, { table_name: table_name! })
+      ? supabase
+        .rpc(resource as RpcFunctionValues, { table_name: table_name!, filter_level: 'Intermediate' })
       : supabase.from(resource as TableNames).select();
 
     const { data, error, status, statusText } = await query;
+
+    console.log('err', error);
 
     if (error) {
       return { data: null, error, status, statusText };
