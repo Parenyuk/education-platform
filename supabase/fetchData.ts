@@ -1,16 +1,21 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { TableNames } from '@/lib/types/common/tableNames';
+import { ResourceType, RpcFunctionValues, TableNames } from '@/lib/types/common/tableNames';
 import { FetchDataMethods, SupabaseResponse } from '@/lib/types/supabase';
 import { createClient } from '@/utils/supabase/server';
 
 export const fetchData = (): FetchDataMethods => {
   const getAll = async <T>(
-    resource: any,
+    resource: ResourceType,
     { isRpc = false, table_name }: { isRpc?: boolean; table_name?: TableNames } = {}
   ): Promise<SupabaseResponse<T>> => {
     const supabase = await createClient();
 
-    const query = isRpc ? supabase.rpc(resource, { table_name }) : supabase.from(resource).select();
+    if (isRpc && !table_name) {
+      throw new Error('table_name is required when isRpc is true');
+    }
+
+    const query = isRpc
+      ? supabase.rpc(resource as RpcFunctionValues, { table_name: table_name! })
+      : supabase.from(resource as TableNames).select();
 
     const { data, error, status, statusText } = await query;
 
