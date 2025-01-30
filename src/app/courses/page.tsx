@@ -5,7 +5,7 @@ import TopPageUnit from '@/src/components/units/TopPageUnit';
 import { fetchData } from '@/supabase/fetchData';
 
 export default async function ContactPage() {
-  const { data: courses, error } = await fetchData().getAll<Tables<'courses'>, true>(
+  const { data: courses, error } = await fetchData().getAll<Tables<'courses'>>(
     rpcFunction.getTableWithMetadata,
     {
       isRpc: true,
@@ -17,7 +17,7 @@ export default async function ContactPage() {
 
   return (
     <>
-      <TopPageUnit title={courses?.data.title} description={courses?.description} />
+      <TopPageUnit title={courses?.title} description={courses?.description} />
       <CoursesList data={courses.data} />
     </>
   );
