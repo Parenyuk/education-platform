@@ -1,9 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { FetchDataMethods, SupabaseResponse } from '@/lib/types/supabase';
 import { createClient } from '@/utils/supabase/server';
 
 export const fetchData = (): FetchDataMethods => {
   const getAll = async <T>(
-    resource: string,
+    resource: any,
     { isRpc = false, table_name }: { isRpc?: boolean; table_name?: string } = {}
   ): Promise<SupabaseResponse<T>> => {
     const supabase = await createClient();
