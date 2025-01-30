@@ -1,6 +1,6 @@
-import { CourseType } from '@/lib/types/components/modules/OurCoursesCardModule';
+import { Tables } from '@/database.types';
 
 
 export type CoursesListProps = {
-  data: CourseType[];
+  data: Tables<'courses'>[] | null;
 }
