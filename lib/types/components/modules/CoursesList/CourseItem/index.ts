@@ -1,5 +1,5 @@
-import { Tables } from '@/database.types';
+import { CourseType } from '@/lib/types/components/modules/OurCoursesCardModule';
 
 export type CourseItemProps = {
-  item: Tables<'courses'>
-}
+  item: CourseType;
+};
