@@ -3,30 +3,32 @@
 
 import { useEffect, useState } from 'react';
 
+
 import TagItem from '@/src/components/units/FilterIItemsUnit/TagItem';
 
 
 const FilterItemsUnit = ({}) => {
-  const [selected, setSelected] = useState<ExperienceLevelT[]>(['All levels']);
+  const [selected, setSelected] = useState<ExperienceLevelT[]>(['all levels']);
 
   // const durationItems = ['up to 2 weeks', 'up to 2 weeks', 'up to 6 weeks', 'up to 10 weeks', 'more than 10 weeks'];
 
-  const experienceLevel = ['Beginner', 'Intermediate', 'Advanced', 'Expert', 'All levels'] as const;
+  const experienceLevel = ['beginner', 'intermediate', 'advanced', 'expert', 'all levels'] as const;
 
   type ExperienceLevelT = typeof experienceLevel[number];
 
   const handleTagClick = (item: ExperienceLevelT) => {
     setSelected((prevSelected) => {
-      if (item === 'All levels') {
-        return ['All levels'];
+      if (item === 'all levels') {
+        return ['all levels'];
       }
 
-      if (prevSelected.includes('All levels')) {
+      if (prevSelected.includes('all levels')) {
         return [item];
       }
 
       if (prevSelected.includes(item)) {
-        return prevSelected.filter((level) => level !== item);
+        const updatedSelection = prevSelected.filter((level) => level !== item);
+        return updatedSelection.length > 0 ? updatedSelection : ['all levels'];
       }
 
       return [...prevSelected, item];

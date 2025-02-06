@@ -17,9 +17,11 @@ const CardImage = ({ item }: CardImageProps) => {
       )}
       <div className='mb-3.5 mt-6 flex justify-between md:mb-6 2xl:my-7.5 2xl:mt-7.5'>
         <div className='flex gap-2.5'>
-          {item.tags.map((item) => (
-            <TagComponent key={item} item={item} />
-          ))}
+          {
+            Object.values(item.tags).map((item) => (
+              <TagComponent key={item} item={item} />
+            ))
+          }
         </div>
         <div className='self-center text-sm font-medium md:text-base 2xl:text-lg'>By {item.author}</div>
       </div>
