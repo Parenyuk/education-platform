@@ -1,7 +1,7 @@
 import { userAuthStateAction } from '@/actions/auth/userAuthStateAction';
-import { contactPageText } from '@/helpers/mockData/contactPage';
 import ContactBoxUnit from '@/src/components/units/ContactBoxUnit';
 import TopPageUnit from '@/src/components/units/TopPageUnit';
+import { contactPageText } from '@/utils/mockData/contactPage';
 import ContactFormUnit from 'src/components/units/ContactFormUnit';
 
 export default async function ContactPage() {

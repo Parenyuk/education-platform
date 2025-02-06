@@ -2,9 +2,9 @@
 
 import { Input } from '@heroui/input';
 
-import cn from '@/helpers/cn';
 import { FormInputProps } from '@/lib/types/components/elements/formElements/FormInput';
 import FormError from '@/src/components/elements/formElements/FormError';
+import cn from '@/utils/helpers/cn';
 
 const FormInput = ({ label, placeholder, register, error, classNames, ...restProps }: FormInputProps) => {
   return (

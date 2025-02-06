@@ -1,5 +1,5 @@
-import { checkNumber } from '@/helpers/checkNumber';
 import { ModuleItemProps } from '@/lib/types/components/modules/CoursesList/CourseIntro/ModuleItem';
+import { checkNumber } from '@/utils/helpers/checkNumber';
 
 const ModuleItem = ({ item, itemOrder }: ModuleItemProps) => {
   return (

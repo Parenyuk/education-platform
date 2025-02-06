@@ -4,10 +4,10 @@ import { useState } from 'react';
 
 import { Input } from '@heroui/input';
 
-import cn from '@/helpers/cn';
 import { FormInputProps } from '@/lib/types/components/elements/formElements/FormInput';
 import FormError from '@/src/components/elements/formElements/FormError';
 import InputLabel from '@/src/components/elements/formElements/InputLabel';
+import cn from '@/utils/helpers/cn';
 
 export const EyeSlashFilledIcon = ({ className }: { className: string }) => {
   return (

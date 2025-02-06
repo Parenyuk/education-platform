@@ -1,5 +1,5 @@
 import { ROUTES } from '@/lib/constants/routes';
-import { NavigationLinksType } from '@/lib/types/helpers/mockData/navigationLinks';
+import { NavigationLinksType } from '@/lib/types/utils/mockData/navigationLinks';
 
 export const navigationLinks: NavigationLinksType = {
   header: [

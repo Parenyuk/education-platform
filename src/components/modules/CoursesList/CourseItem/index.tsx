@@ -3,6 +3,7 @@ import { Image } from '@heroui/image';
 import { CourseItemProps } from '@/lib/types/components/modules/CoursesList/CourseItem';
 import LinkAsButton from '@/src/components/elements/LinkAsButton';
 import CourseIntro from '@/src/components/modules/CoursesList/CourseIntro';
+import TagItem from '@/src/components/modules/CoursesList/TagItem';
 
 const CourseItem = ({ item }: CourseItemProps) => {
   return (
@@ -36,11 +37,11 @@ const CourseItem = ({ item }: CourseItemProps) => {
         </div>
       )}
       <div className='mb-4 mt-6 flex flex-col md:mb-10 md:flex-row md:justify-between 2xl:mb-12 2xl:mt-8'>
-        {/*<div className='flex gap-2 2xl:gap-2.5'>*/}
-        {/*  {item.tags.map((tag, index) => (*/}
-        {/*    <TagItem key={index} tag={tag} />*/}
-        {/*  ))}*/}
-        {/*</div>*/}
+        <div className='flex gap-2 2xl:gap-2.5'>
+          {Object.values(item.tags).map((tag, index) => (
+            <TagItem key={index} tag={tag} />
+          ))}
+        </div>
         <p className='mt-4 text-base font-medium md:mt-0 md:self-center md:text-lg 2xl:text-xl'>By {item.author}</p>
       </div>
       <CourseIntro item={item.course_content} />

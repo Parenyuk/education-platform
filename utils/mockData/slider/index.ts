@@ -1,4 +1,4 @@
-import { SliderDataType } from '@/lib/types/helpers/mockData/slider';
+import { SliderDataType } from '@/lib/types/utils/mockData/slider';
 
 export const sliderMockData: SliderDataType[] = [
   {

@@ -1,7 +1,7 @@
 import { Button } from '@heroui/button';
 
-import cn from '@/helpers/cn';
 import { CardsBlockProps } from '@/lib/types/components/units/CardsBlock';
+import cn from '@/utils/helpers/cn';
 
 const CardsBlock = ({ children, title = '', description = '', itemContainerStyles }: CardsBlockProps) => {
   return (

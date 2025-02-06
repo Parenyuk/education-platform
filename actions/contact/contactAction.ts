@@ -1,9 +1,9 @@
 'use server';
 
 import ZodParseDataAdapter from '@/adapters/zod/ZodParseDataAdapter';
-import { checkPhoneLength } from '@/helpers/checkPhoneLength';
 import { contactSchema } from '@/lib/schema/contactSchema';
 import { ContactSchema } from '@/lib/types/schema/ContactSchema';
+import { checkPhoneLength } from '@/utils/helpers/checkPhoneLength';
 import { createClient } from '@/utils/supabase/server';
 
 export const contactAction = async (formData: ContactSchema) => {
