@@ -6,9 +6,9 @@ import { Controller } from 'react-hook-form';
 import ReactPhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 
-import cn from '@/helpers/cn';
 import { PhoneFormInputProps } from '@/lib/types/components/elements/formElements/FormPhoneInput';
 import FormError from '@/src/components/elements/formElements/FormError';
+import cn from '@/utils/helpers/cn';
 
 const FormPhoneInput = ({ control, error }: PhoneFormInputProps) => {
   return (

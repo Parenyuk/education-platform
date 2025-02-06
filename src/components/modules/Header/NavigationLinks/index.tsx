@@ -1,6 +1,6 @@
 import { Link } from '@heroui/link';
 
-import { navigationLinks } from '@/helpers/mockData/navigationLinks';
+import { navigationLinks } from '@/utils/mockData/navigationLinks';
 
 const NavigationLinks = ({}) => {
   return (

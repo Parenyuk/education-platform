@@ -1,14 +1,14 @@
 import { userAuthStateAction } from '@/actions/auth/userAuthStateAction';
+import InfoCardsBlock from '@/src/components/units/InfoCardsBlock';
+import JoinUsBanner from '@/src/components/units/JoinUsBanner';
+import TopPageUnit from '@/src/components/units/TopPageUnit';
 import {
   achievementsMockData,
   achievementsMockDescription,
   ourGoalsMockData,
   ourGoalsMockDataDescription,
   pageDescription,
-} from '@/helpers/mockData/aboutUsPage';
-import InfoCardsBlock from '@/src/components/units/InfoCardsBlock';
-import JoinUsBanner from '@/src/components/units/JoinUsBanner';
-import TopPageUnit from '@/src/components/units/TopPageUnit';
+} from '@/utils/mockData/aboutUsPage';
 
 export default async function AboutUsPage() {
   const { user } = await userAuthStateAction();

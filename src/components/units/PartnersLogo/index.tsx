@@ -1,5 +1,5 @@
 import LogoItem from '@/src/components/units/PartnersLogo/LogoItem';
-import getPartnerLogos from '@/utils/getPartnerLogos';
+import getPartnerLogos from '@/utils/helpers/getPartnerLogos';
 
 const PartnersLogo = ({}) => {
   const logos = getPartnerLogos();

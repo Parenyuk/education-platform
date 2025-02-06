@@ -1,6 +1,6 @@
-import cn from '@/helpers/cn';
 import { InfoCardsBlockProps } from '@/lib/types/components/units/InfoCardsUnit';
 import InfoCard from '@/src/components/units/InfoCardsBlock/InfoCard';
+import cn from '@/utils/helpers/cn';
 
 const InfoCardsBlock = ({ title, description, data, classNames }: InfoCardsBlockProps) => {
   return (

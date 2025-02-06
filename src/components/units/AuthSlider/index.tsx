@@ -7,8 +7,8 @@ import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
 import { SwiperSlide } from 'swiper/react';
 
-import { sliderMockData } from '@/helpers/mockData/slider';
 import SwiperSlider from '@/src/components/elements/SwiperSlider';
+import { sliderMockData } from '@/utils/mockData/slider';
 
 const AuthSlider = () => {
   return (

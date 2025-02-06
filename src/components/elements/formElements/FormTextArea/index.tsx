@@ -1,8 +1,8 @@
 import { Textarea } from '@heroui/input';
 
-import cn from '@/helpers/cn';
 import { FormTextAreaProps } from '@/lib/types/components/elements/formElements/FormTextArea';
 import FormError from '@/src/components/elements/formElements/FormError';
+import cn from '@/utils/helpers/cn';
 
 const FormTextArea = ({ label, placeholder, register, error, classNames, ...restProps }: FormTextAreaProps) => {
   return (

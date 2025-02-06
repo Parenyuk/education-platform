@@ -1,16 +1,11 @@
-import { DateInfoI } from '@/lib/types/common/date';
-import { ItemID } from '@/lib/types/common/id';
-import { MetadataI } from '@/lib/types/common/metadata';
+import { Tables } from '@/database.types';
 
 export type CourseContentType = {
   module: string;
   lessons: string[];
 };
 
-export interface CourseType extends ItemID, DateInfoI, MetadataI {
-  author: string;
-  images: string[];
+export interface CourseType extends Tables<'courses'> {
   tags: string[];
-  slug: string;
   course_content: CourseContentType[];
 }

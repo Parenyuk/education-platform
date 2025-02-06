@@ -2,8 +2,8 @@
 
 import { Button } from '@heroui/button';
 
-import cn from '@/helpers/cn';
 import { TabButtonsProps } from '@/lib/types/components/modules/OurPricing/TabButtons';
+import cn from '@/utils/helpers/cn';
 
 const TabButtons = ({ timePlanType, setTimePlanType }: TabButtonsProps) => {
   const bgAnimationStyle =

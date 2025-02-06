@@ -1,4 +1,4 @@
-import { BenefitsCardType } from '@/lib/types/helpers/mockData/homePage';
+import { BenefitsCardType } from '@/lib/types/utils/mockData/homePage';
 
 export const benefitsMockData: BenefitsCardType[] = [
   {
