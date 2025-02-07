@@ -5,7 +5,7 @@ export type CourseContentType = {
   lessons: string[];
 };
 
-export interface CourseType extends Tables<'courses'> {
-  tags: string[];
+export interface CourseI extends Tables<'courses'> {
+  // tags: string[];
   course_content: CourseContentType[];
 }

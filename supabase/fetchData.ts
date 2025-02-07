@@ -1,23 +1,31 @@
-import { ResourceType, RpcFunctionValues, TableNames } from '@/lib/types/common/tableNames';
+import { ResourceType, TableNames } from '@/lib/types/common/tableNames';
 import { FetchDataMethods, GetAllParams, SupabaseResponse } from '@/lib/types/supabase';
 import { createClient } from '@/utils/supabase/server';
 
 export const fetchData = (): FetchDataMethods => {
   const getAll = async <T>(
     resource: ResourceType,
-    { isRpc = false, table_name, filter_level }: GetAllParams = {}
+    { filters = [], pagination = {}, options }: GetAllParams = {},
   ): Promise<SupabaseResponse<T>> => {
     const supabase = await createClient();
 
-    const filter = filter_level || 'all';
+    let query = supabase.from(resource as TableNames).select('*');
 
-    if (isRpc && !table_name) {
-      throw new Error('table_name is required when isRpc is true');
+    filters.forEach(({ column, operator, value }) => {
+      if (query[operator]) {
+        query = query[operator](column, value);
+      }
+    });
+
+    if (options) {
+      options.queryModifiers?.forEach((modifier) => {
+        query = modifier(query);
+      });
     }
 
-    const query = isRpc
-      ? supabase.rpc(resource as RpcFunctionValues, { table_name: table_name!, filter_level: filter })
-      : supabase.from(resource as TableNames).select();
+    // Пагінація;
+    if (pagination.limit) query = query.limit(pagination.limit);
+    if (pagination.offset) query = query.range(pagination.offset, pagination.offset + pagination.limit - 1);
 
     const { data, error, status, statusText } = await query;
 
@@ -30,3 +38,4 @@ export const fetchData = (): FetchDataMethods => {
 
   return { getAll };
 };
+

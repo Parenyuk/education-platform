@@ -14,10 +14,9 @@ export interface FetchDataMethods {
   getAll: <T>(
     resource: ResourceType,
     options?: {
-      isRpc?: boolean;
-      table_name: TableNames;
-      filter_level?: CheckLevelReturn;
-    }
+      filters?: any;
+      options?: any;
+    },
   ) => Promise<SupabaseResponse<T>>;
 }
 
