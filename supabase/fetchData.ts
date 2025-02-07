@@ -11,11 +11,13 @@ export const fetchData = (): FetchDataMethods => {
 
     let query = supabase.from(resource as TableNames).select('*');
 
-    filters.forEach(({ column, operator, value }) => {
-      if (query[operator]) {
-        query = query[operator](column, value);
-      }
-    });
+    if (filters.length > 0) {
+      filters.forEach(({ column, operator, value }) => {
+        if (query[operator]) {
+          query = query[operator](column, value);
+        }
+      });
+    }
 
     if (options) {
       options.queryModifiers?.forEach((modifier) => {
