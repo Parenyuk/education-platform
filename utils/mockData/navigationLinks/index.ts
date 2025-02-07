@@ -12,7 +12,7 @@ export const navigationLinks: NavigationLinksType = {
     {
       id: 1,
       name: 'Courses',
-      href: ROUTES.COURSES,
+      href: ROUTES.COURSES(),
       items: null,
     },
     {

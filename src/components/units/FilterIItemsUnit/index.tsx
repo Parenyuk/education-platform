@@ -19,19 +19,19 @@ const FilterItemsUnit = ({ level }: FilterItemsUnitProps) => {
 
       if (item === 'all levels') {
         newSelection = ['all levels'];
-        router.push(ROUTES.COURSES);
+        router.push(ROUTES.COURSES());
       } else if (prevSelected.includes('all levels')) {
         newSelection = [item];
-        router.push(`${ROUTES.COURSES}?level=${item}`);
+        router.push(`${ROUTES.COURSES()}&level=${item}`);
       } else if (prevSelected.includes(item)) {
         const updatedSelection = prevSelected.filter((level) => level !== item);
         newSelection = updatedSelection.length > 0 ? updatedSelection : ['all levels'];
         router.push(
-          updatedSelection.length > 0 ? `${ROUTES.COURSES}?level=${updatedSelection.join('-')}` : ROUTES.COURSES
+          updatedSelection.length > 0 ? `${ROUTES.COURSES()}&level=${updatedSelection.join('-')}` : ROUTES.COURSES(),
         );
       } else {
         newSelection = [...prevSelected, item];
-        router.push(`${ROUTES.COURSES}?level=${[...newSelection].join('-')}`);
+        router.push(`${ROUTES.COURSES()}&level=${[...newSelection].join('-')}`);
       }
 
       return newSelection;

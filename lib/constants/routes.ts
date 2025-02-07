@@ -7,6 +7,6 @@ export const ROUTES = {
   PROFILE: '/profile',
   CONTACT: '/contact',
   ABOUTUS: '/about-us',
-  COURSES: '/courses',
+  COURSES: (page: number = 1) => `/courses?page=${page}`,
   PRICING: '/pricing',
 } as const;

@@ -27,7 +27,7 @@ const HomaPageTop = ({}) => {
           Learn from Industry Experts and Enhance Your Skills.
         </p>
         <div className='mt-12 flex gap-3 2xl:mt-15'>
-          <Button color='primary' className='text-white' href={ROUTES.COURSES}>
+          <Button color='primary' className='text-white' href={ROUTES.COURSES()}>
             Explore Courses
           </Button>
           <Button href={ROUTES.PRICING}>View Pricing</Button>

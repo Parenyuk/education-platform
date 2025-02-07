@@ -9,7 +9,7 @@ export const fetchData = (): FetchDataMethods => {
   ): Promise<SupabaseResponse<T>> => {
     const supabase = await createClient();
 
-    let query = supabase.from(resource as TableNames).select('*');
+    let query = supabase.from(resource as TableNames).select('*', { count: 'exact' });
 
     if (filters.length > 0) {
       filters.forEach(({ column, operator, value }) => {
@@ -25,17 +25,16 @@ export const fetchData = (): FetchDataMethods => {
       });
     }
 
-    // Пагінація;
     if (pagination.limit) query = query.limit(pagination.limit);
     if (pagination.offset) query = query.range(pagination.offset, pagination.offset + pagination.limit - 1);
 
-    const { data, error, status, statusText } = await query;
+    const { data, error, status, statusText, count } = await query;
 
     if (error) {
-      return { data: null, error, status, statusText };
+      return { data: null, error, status, statusText, count };
     }
 
-    return { data: data as T, error: null, status, statusText };
+    return { data: data as T, error: null, status, statusText, count };
   };
 
   return { getAll };

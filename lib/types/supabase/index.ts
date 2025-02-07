@@ -8,6 +8,7 @@ export type SupabaseResponse<T> = {
   error: PostgrestError | null;
   status: number;
   statusText: string;
+  count?: number;
 };
 
 export interface FetchDataMethods {
