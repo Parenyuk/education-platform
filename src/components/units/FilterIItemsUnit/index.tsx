@@ -17,19 +17,17 @@ const FilterItemsUnit = () => {
       return;
     }
 
-    const newLevels = level?.includes(item)
-      ? level.filter((levelItem) => levelItem !== item)
-      : level?.includes('all levels')
-        ? [item]
-        : [level ?? [], item].flat();
+    let newLevels: ExperienceLevelT[] = [];
 
-    if (newLevels.length === 0) {
-      await setLevel(null);
-      await setPage(1);
-      return;
+    if (level?.includes(item)) {
+      newLevels = level.filter((levelItem) => levelItem !== item);
+    } else if (level?.includes('all levels')) {
+      newLevels = [item];
+    } else {
+      newLevels = [...(level ?? []), item];
     }
 
-    if (newLevels.length === experienceLevels.length - 1) {
+    if (newLevels.length === 0 || newLevels.length === experienceLevels.length - 1) {
       await setLevel(null);
       await setPage(1);
       return;
