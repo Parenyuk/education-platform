@@ -46,6 +46,8 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
   },
   );
 
+  console.log('courses', courses);
+
   const metadataItem = metaData?.data;
 
   const title = metadataItem?.title || coursesTitle;

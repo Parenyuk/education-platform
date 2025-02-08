@@ -11,6 +11,8 @@ export const fetchData = (): FetchDataMethods => {
 
     let query = supabase.from(resource as TableNames).select('*', { count: 'exact' });
 
+    console.log('filters', filters);
+
     if (filters.length > 0) {
       filters.forEach(({ column, operator, value }) => {
         if (query[operator]) {
