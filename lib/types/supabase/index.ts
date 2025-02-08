@@ -8,18 +8,22 @@ export type SupabaseResponse<T> = {
   error: PostgrestError | null;
   status: number;
   statusText: string;
-  count?: number;
+  count?: number | null;
 };
 
-type FiltersType = { column: string; operator: string; value: string | string[]; };
+type FiltersType = { column: string; operator: string; value: string | string[] };
+
+type PaginationType = { limit: number; offset: number };
+
+type QueryOptionsType = { queryModifiers: ((q: unknown) => unknown)[]; };
 
 export interface FetchDataMethods {
   getAll: <T>(
     resource: ResourceType,
-    options?: {
+    params?: {
       filters?: FiltersType[];
-      pagination?: { limit: number; offset: number; }
-      options?: { queryModifiers: ((q: unknown) => unknown)[]; };
+      pagination?: PaginationType;
+      queryOptions?: QueryOptionsType;
     },
   ) => Promise<SupabaseResponse<T>>;
 }

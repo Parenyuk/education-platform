@@ -25,7 +25,7 @@ export default async function CoursesPage({ searchParams }: { searchParams: Prom
 
   const metaData = await fetchData().getAll<MetadataI>('global_metadata', {
     filters: [{ column: 'table_name_key', operator: 'eq', value: 'courses' }],
-    options: { queryModifiers: [(q: unknown) => q.single()] },
+    queryOptions: { queryModifiers: [(q: unknown) => q.single()] },
   });
 
   const courses = await fetchData().getAll<CourseI[]>('courses', {
