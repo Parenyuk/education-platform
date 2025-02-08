@@ -15,6 +15,7 @@ const PaginationUnit = ({ total }) => {
 
   return (<Pagination initialPage={1}
     total={pageCount}
+    page={page}
     onChange={handlePageChange}
     classNames={{ base: 'container mx-auto flex justify-center my-6 md:my-10 2xl:my-12' }} />);
 };

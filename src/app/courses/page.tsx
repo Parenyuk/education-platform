@@ -15,8 +15,6 @@ import { loadSearchParams } from '@/utils/nuqs';
 
 
 export default async function ContactPage({ searchParams }: { searchParams: Promise<SearchParams> }) {
-  // const { page, level } = await searchParams;
-
   const { page, level } = await loadSearchParams(searchParams);
 
   console.log('page', page);

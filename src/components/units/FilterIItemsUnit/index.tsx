@@ -1,28 +1,19 @@
 'use client';
 
 
-import { useSearchParams } from 'next/navigation';
-import { parseAsStringLiteral, useQueryState } from 'nuqs';
+import { parseAsInteger, parseAsStringLiteral, useQueryState } from 'nuqs';
 
 import { experienceLevels } from '@/lib/constants/experienceLevels';
 import { ExperienceLevelT } from '@/lib/types/components/units/FilterItemsUnit';
 import TagItem from '@/src/components/units/FilterIItemsUnit/TagItem';
 
 const FilterItemsUnit = () => {
-  // const router = useRouter();
-  // const [selected, setSelected] = useState<ExperienceLevelT[]>(level);
   const [level, setLevel] = useQueryState<ExperienceLevelT[]>('level', parseAsStringLiteral(experienceLevels).withOptions({ shallow: false }).withDefault('all levels'));
-  const searchParams = useSearchParams();
-  const currentPage = searchParams.get('page');
-
-  console.log('level client', level);
+  const [page, setPage] = useQueryState('page', parseAsInteger.withOptions({ shallow: false }));
 
   const handleTagClick = async (item: ExperienceLevelT) => {
-    return await setLevel(item);
-    // const newLevel = level.includes(item)
-    //   ? level.filter((i) => i !== item)
-    //   : [...level, item];
-    // await setLevel(newLevel.length > 0 ? newLevel : ['all levels']);
+    await setLevel(item);
+    await setPage(1);
   };
 
   return (
