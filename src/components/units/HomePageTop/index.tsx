@@ -30,7 +30,7 @@ const HomaPageTop = ({}) => {
           <Button color='primary' className='text-white' href={ROUTES.COURSES()}>
             Explore Courses
           </Button>
-          <Button href={ROUTES.PRICING}>View Pricing</Button>
+          <Button href={ROUTES.PRICING()}>View Pricing</Button>
         </div>
       </div>
     </div>

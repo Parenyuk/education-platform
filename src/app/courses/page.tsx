@@ -59,7 +59,7 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
   return (
     <>
       <TopPageUnit title={title} description={description} />
-      <FilterIItemsUnit level={(level as ExperienceLevelT[]) || 'all-levels'} />
+      <FilterIItemsUnit level={(level as ExperienceLevelT[]) || 'all levels'} />
       <CoursesList data={courses.data} />
       <PaginationUnit total={courses.count} />
     </>

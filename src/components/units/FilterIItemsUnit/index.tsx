@@ -7,11 +7,11 @@ import { ExperienceLevelT } from '@/lib/types/components/units/FilterItemsUnit';
 import TagItem from '@/src/components/units/FilterIItemsUnit/TagItem';
 
 const FilterItemsUnit = () => {
-  const [level, setLevel] = useQueryState<ExperienceLevelT[]>('level', parseAsArrayOf(parseAsStringLiteral, '-').withOptions({ shallow: false }).withDefault('all-levels'));
+  const [level, setLevel] = useQueryState<ExperienceLevelT[]>('level', parseAsArrayOf(parseAsStringLiteral, '-').withOptions({ shallow: false }).withDefault('all levels'));
   const [page, setPage] = useQueryState('page', parseAsInteger.withOptions({ shallow: false }));
 
   const handleTagClick = async (item: ExperienceLevelT) => {
-    if (item === 'all-levels') {
+    if (item === 'all levels') {
       await setLevel(null);
       await setPage(1);
       return;
@@ -19,7 +19,7 @@ const FilterItemsUnit = () => {
 
     const newLevels = level?.includes(item)
       ? level.filter((levelItem) => levelItem !== item)
-      : level?.includes('all-levels')
+      : level?.includes('all levels')
         ? [item]
         : [level ?? [], item].flat();
 
