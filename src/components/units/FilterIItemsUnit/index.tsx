@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 import { experienceLevels } from '@/lib/constants/experienceLevels';
 import { ROUTES } from '@/lib/constants/routes';
@@ -12,6 +12,8 @@ import TagItem from '@/src/components/units/FilterIItemsUnit/TagItem';
 const FilterItemsUnit = ({ level }: FilterItemsUnitProps) => {
   const router = useRouter();
   const [selected, setSelected] = useState<ExperienceLevelT[]>(level);
+  const searchParams = useSearchParams();
+  const currentPage = searchParams.get('page');
 
   const handleTagClick = (item: ExperienceLevelT) => {
     setSelected((prevSelected) => {
@@ -19,15 +21,17 @@ const FilterItemsUnit = ({ level }: FilterItemsUnitProps) => {
 
       if (item === 'all levels') {
         newSelection = ['all levels'];
-        router.push(ROUTES.COURSES());
+        router.push(ROUTES.COURSES({ page: currentPage, level: item }));
       } else if (prevSelected.includes('all levels')) {
         newSelection = [item];
-        router.push(`${ROUTES.COURSES()}&level=${item}`);
+        router.push(ROUTES.COURSES({ page: currentPage, level: item }));
       } else if (prevSelected.includes(item)) {
         const updatedSelection = prevSelected.filter((level) => level !== item);
         newSelection = updatedSelection.length > 0 ? updatedSelection : ['all levels'];
         router.push(
-          updatedSelection.length > 0 ? `${ROUTES.COURSES()}&level=${updatedSelection.join('-')}` : ROUTES.COURSES(),
+          updatedSelection.length > 0
+            ? ROUTES.COURSES({ page: currentPage, level: updatedSelection })
+            : ROUTES.COURSES({ page: currentPage }),
         );
       } else {
         newSelection = [...prevSelected, item];
@@ -45,7 +49,9 @@ const FilterItemsUnit = ({ level }: FilterItemsUnitProps) => {
         <div></div>
         <div className='flex gap-4'>
           {experienceLevels.map((item) => (
-            <TagItem key={item} item={item} onClick={() => handleTagClick(item)} isSelected={selected.includes(item)} />
+            <TagItem key={item} item={item}
+              onClick={() => handleTagClick(item)}
+              isSelected={selected.includes(item)} />
           ))}
         </div>
       </div>

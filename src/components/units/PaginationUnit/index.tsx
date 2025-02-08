@@ -16,7 +16,7 @@ const PaginationUnit = ({ total }) => {
 
   const handlePageChange = (page: number) => {
     if (page !== currentPage) {
-      router.replace(ROUTES.COURSES(page), { scroll: false });
+      router.replace(ROUTES.COURSES({ page }), { scroll: false });
     }
   };
 
