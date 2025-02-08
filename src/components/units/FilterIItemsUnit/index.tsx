@@ -1,20 +1,44 @@
 'use client';
 
-
-import { parseAsInteger, parseAsStringLiteral, useQueryState } from 'nuqs';
+import { parseAsArrayOf, parseAsInteger, parseAsStringLiteral, useQueryState } from 'nuqs';
 
 import { experienceLevels } from '@/lib/constants/experienceLevels';
 import { ExperienceLevelT } from '@/lib/types/components/units/FilterItemsUnit';
 import TagItem from '@/src/components/units/FilterIItemsUnit/TagItem';
 
 const FilterItemsUnit = () => {
-  const [level, setLevel] = useQueryState<ExperienceLevelT[]>('level', parseAsStringLiteral(experienceLevels).withOptions({ shallow: false }).withDefault('all levels'));
+  const [level, setLevel] = useQueryState<ExperienceLevelT[]>('level', parseAsArrayOf(parseAsStringLiteral, '-').withOptions({ shallow: false }).withDefault('all-levels'));
   const [page, setPage] = useQueryState('page', parseAsInteger.withOptions({ shallow: false }));
 
   const handleTagClick = async (item: ExperienceLevelT) => {
-    await setLevel(item);
+    if (item === 'all-levels') {
+      await setLevel(null);
+      await setPage(1);
+      return;
+    }
+
+    const newLevels = level?.includes(item)
+      ? level.filter((levelItem) => levelItem !== item)
+      : level?.includes('all-levels')
+        ? [item]
+        : [level ?? [], item].flat();
+
+    if (newLevels.length === 0) {
+      await setLevel(null);
+      await setPage(1);
+      return;
+    }
+
+    if (newLevels.length === experienceLevels.length - 1) {
+      await setLevel(null);
+      await setPage(1);
+      return;
+    }
+
+    await setLevel(newLevels);
     await setPage(1);
   };
+
 
   return (
     <div className='roundedmd container mx-auto mt-6 md:mt-10 md:rounded-lg 2xl:mt-12 2xl:rounded-xl'>

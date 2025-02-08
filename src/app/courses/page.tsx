@@ -17,9 +17,9 @@ import { loadSearchParams } from '@/utils/nuqs';
 export default async function ContactPage({ searchParams }: { searchParams: Promise<SearchParams> }) {
   const { page, level } = await loadSearchParams(searchParams);
 
-  console.log('page', page);
+  // console.log('page', page);
 
-  console.log('level', level);
+  // console.log('level', level);
 
   const currentPage = page || 1;
   const itemsPerPage = 5;
@@ -43,8 +43,8 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
     pagination: { limit: itemsPerPage, offset: (currentPage - 1) * itemsPerPage },
   },
   );
-
-  console.log('courses', courses);
+  //
+  // console.log('courses', courses);
 
   const metadataItem = metaData?.data;
 
@@ -59,7 +59,7 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
   return (
     <>
       <TopPageUnit title={title} description={description} />
-      <FilterIItemsUnit level={(level as ExperienceLevelT[]) || 'all levels'} />
+      <FilterIItemsUnit level={(level as ExperienceLevelT[]) || 'all-levels'} />
       <CoursesList data={courses.data} />
       <PaginationUnit total={courses.count} />
     </>
