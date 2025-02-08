@@ -1,45 +1,28 @@
 'use client';
 
-import { useState } from 'react';
 
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
+import { parseAsStringLiteral, useQueryState } from 'nuqs';
 
 import { experienceLevels } from '@/lib/constants/experienceLevels';
-import { ROUTES } from '@/lib/constants/routes';
-import { ExperienceLevelT, FilterItemsUnitProps } from '@/lib/types/components/units/FilterItemsUnit';
+import { ExperienceLevelT } from '@/lib/types/components/units/FilterItemsUnit';
 import TagItem from '@/src/components/units/FilterIItemsUnit/TagItem';
 
-const FilterItemsUnit = ({ level }: FilterItemsUnitProps) => {
-  const router = useRouter();
-  const [selected, setSelected] = useState<ExperienceLevelT[]>(level);
+const FilterItemsUnit = () => {
+  // const router = useRouter();
+  // const [selected, setSelected] = useState<ExperienceLevelT[]>(level);
+  const [level, setLevel] = useQueryState<ExperienceLevelT[]>('level', parseAsStringLiteral(experienceLevels).withDefault('all levels'));
   const searchParams = useSearchParams();
   const currentPage = searchParams.get('page');
 
-  const handleTagClick = (item: ExperienceLevelT) => {
-    setSelected((prevSelected) => {
-      let newSelection: ExperienceLevelT[];
+  console.log('level client', level);
 
-      if (item === 'all levels') {
-        newSelection = ['all levels'];
-        router.push(ROUTES.COURSES({ page: currentPage, level: item }));
-      } else if (prevSelected.includes('all levels')) {
-        newSelection = [item];
-        router.push(ROUTES.COURSES({ page: currentPage, level: item }));
-      } else if (prevSelected.includes(item)) {
-        const updatedSelection = prevSelected.filter((level) => level !== item);
-        newSelection = updatedSelection.length > 0 ? updatedSelection : ['all levels'];
-        router.push(
-          updatedSelection.length > 0
-            ? ROUTES.COURSES({ page: currentPage, level: updatedSelection })
-            : ROUTES.COURSES({ page: currentPage }),
-        );
-      } else {
-        newSelection = [...prevSelected, item];
-        router.push(`${ROUTES.COURSES()}&level=${[...newSelection].join('-')}`);
-      }
-
-      return newSelection;
-    });
+  const handleTagClick = async (item: ExperienceLevelT) => {
+    return await setLevel(item);
+    // const newLevel = level.includes(item)
+    //   ? level.filter((i) => i !== item)
+    //   : [...level, item];
+    // await setLevel(newLevel.length > 0 ? newLevel : ['all levels']);
   };
 
   return (
@@ -51,7 +34,7 @@ const FilterItemsUnit = ({ level }: FilterItemsUnitProps) => {
           {experienceLevels.map((item) => (
             <TagItem key={item} item={item}
               onClick={() => handleTagClick(item)}
-              isSelected={selected.includes(item)} />
+              isSelected={level.includes(item)} />
           ))}
         </div>
       </div>

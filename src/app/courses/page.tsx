@@ -1,4 +1,5 @@
-import { SearchParams } from 'next/dist/server/request/search-params';
+// import { SearchParams } from 'next/dist/server/request/search-params';
+import type { SearchParams } from 'nuqs/server';
 
 import { coursesDescription, coursesTitle } from '@/lib/constants/courses';
 import { MetadataI } from '@/lib/types/common/metadata';
@@ -10,13 +11,22 @@ import PaginationUnit from '@/src/components/units/PaginationUnit';
 import TopPageUnit from '@/src/components/units/TopPageUnit';
 import { fetchData } from '@/supabase/fetchData';
 import { checkLevel } from '@/utils/helpers/checkLevel';
+import { loadSearchParams } from '@/utils/nuqs';
+
 
 export default async function ContactPage({ searchParams }: { searchParams: Promise<SearchParams> }) {
-  const { page, level } = await searchParams;
+  // const { page, level } = await searchParams;
+
+  const { page, level } = await loadSearchParams(searchParams);
+
+  console.log('level', level);
 
   const currentPage = page || 1;
   const itemsPerPage = 5;
   const checkedLevel = checkLevel(level);
+
+
+  console.log('checkedLevel', checkedLevel);
 
   const filters = [];
   if (checkedLevel?.length) {
