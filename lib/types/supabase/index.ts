@@ -11,12 +11,15 @@ export type SupabaseResponse<T> = {
   count?: number;
 };
 
+type FiltersType = { column: string; operator: string; value: string | string[]; };
+
 export interface FetchDataMethods {
   getAll: <T>(
     resource: ResourceType,
     options?: {
-      filters?: any;
-      options?: any;
+      filters?: FiltersType[];
+      pagination?: { limit: number; offset: number; }
+      options?: { queryModifiers: ((q: unknown) => unknown)[]; };
     },
   ) => Promise<SupabaseResponse<T>>;
 }
