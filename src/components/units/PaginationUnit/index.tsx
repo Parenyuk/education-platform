@@ -1,23 +1,16 @@
 'use client';
 
 import { Pagination } from '@heroui/react';
-import { useRouter, useSearchParams } from 'next/navigation';
-
-import { ROUTES } from '@/lib/constants/routes';
+import { parseAsInteger, useQueryState } from 'nuqs';
 
 
 const PaginationUnit = ({ total }) => {
   const itemsPerPage = 5;
   const pageCount = Math.ceil(total / itemsPerPage);
-  const router = useRouter();
-  const searchParams = useSearchParams();
+  const [page, setPage] = useQueryState('page', parseAsInteger.withOptions({ shallow: false }));
 
-  const currentPage = Number(searchParams.get('page')) || 1;
-
-  const handlePageChange = (page: number) => {
-    if (page !== currentPage) {
-      router.replace(ROUTES.COURSES({ page }), { scroll: false });
-    }
+  const handlePageChange = async (page: number) => {
+    await setPage(page);
   };
 
   return (<Pagination initialPage={1}

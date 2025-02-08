@@ -11,7 +11,7 @@ import TagItem from '@/src/components/units/FilterIItemsUnit/TagItem';
 const FilterItemsUnit = () => {
   // const router = useRouter();
   // const [selected, setSelected] = useState<ExperienceLevelT[]>(level);
-  const [level, setLevel] = useQueryState<ExperienceLevelT[]>('level', parseAsStringLiteral(experienceLevels).withDefault('all levels'));
+  const [level, setLevel] = useQueryState<ExperienceLevelT[]>('level', parseAsStringLiteral(experienceLevels).withOptions({ shallow: false }).withDefault('all levels'));
   const searchParams = useSearchParams();
   const currentPage = searchParams.get('page');
 

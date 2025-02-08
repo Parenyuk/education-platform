@@ -19,6 +19,8 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
 
   const { page, level } = await loadSearchParams(searchParams);
 
+  console.log('page', page);
+
   console.log('level', level);
 
   const currentPage = page || 1;
