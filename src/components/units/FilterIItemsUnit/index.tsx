@@ -7,7 +7,13 @@ import { ExperienceLevelT } from '@/lib/types/components/units/FilterItemsUnit';
 import TagItem from '@/src/components/units/FilterIItemsUnit/TagItem';
 
 const FilterItemsUnit = () => {
-  const [level, setLevel] = useQueryState<ExperienceLevelT[]>('level', parseAsArrayOf(parseAsStringLiteral, '-').withOptions({ shallow: false }).withDefault('all levels'));
+  const [level, setLevel] = useQueryState<ExperienceLevelT[]>(
+    'level',
+    parseAsArrayOf(parseAsStringLiteral<ExperienceLevelT>(experienceLevels), '-')
+      .withOptions({ shallow: false })
+      .withDefault(['all levels']),
+  );
+
   const [page, setPage] = useQueryState('page', parseAsInteger.withOptions({ shallow: false }));
 
   const handleTagClick = async (item: ExperienceLevelT) => {
