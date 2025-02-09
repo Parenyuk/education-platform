@@ -15,5 +15,5 @@ export const verifyEmail = async (token_hash: string, type: EmailOtpType) => {
     return;
   }
 
-  redirect(ROUTES.LOGIN);
+  redirect(ROUTES.LOGIN());
 };

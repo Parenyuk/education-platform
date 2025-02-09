@@ -1,36 +1,43 @@
-import { SearchParams } from 'next/dist/server/request/search-params';
+import type { SearchParams } from 'nuqs/server';
 
-import { rpcFunction } from '@/lib/constants/tableFunctions';
-import { CourseType } from '@/lib/types/components/modules/OurCoursesCardModule';
-import { CardsCommonI } from '@/lib/types/components/units/CardsBlock';
-import { ExperienceLevelT } from '@/lib/types/components/units/FilterItemsUnit';
+import { INITIAL_PAGE } from '@/lib/constants/initialPage';
+import { ITEMS_PER_PAGE } from '@/lib/constants/itemsPerPage';
+import { CourseI } from '@/lib/types/components/modules/OurCoursesCardModule';
 import CoursesList from '@/src/components/modules/CoursesList';
 import FilterIItemsUnit from '@/src/components/units/FilterIItemsUnit';
-import TopPageUnit from '@/src/components/units/TopPageUnit';
+import PaginationUnit from '@/src/components/units/PaginationUnit';
+import TopPageUnitWrapper from '@/src/components/wrappers/TopPageUnitWrapper';
 import { fetchData } from '@/supabase/fetchData';
 import { checkLevel } from '@/utils/helpers/checkLevel';
+import { paginationOffset } from '@/utils/helpers/paginationOffset';
+import { loadSearchParams } from '@/utils/nuqs';
 
-export default async function ContactPage({ searchParams }: { searchParams: Promise<SearchParams> }) {
-  const { level } = await searchParams;
+export default async function CoursesPage({ searchParams }: { searchParams: Promise<SearchParams> }) {
+  const { page, level } = await loadSearchParams(searchParams);
 
+  const currentPage = page || INITIAL_PAGE;
   const checkedLevel = checkLevel(level);
 
-  const { data: courses, error } = await fetchData().getAll<CardsCommonI<CourseType>>(
-    rpcFunction.getTableWithMetadata,
-    {
-      isRpc: true,
-      table_name: 'courses',
-      filter_level: checkedLevel,
-    }
-  );
+  const filters = [];
+  if (checkedLevel?.length) {
+    filters.push({ column: 'level', operator: 'in', value: checkedLevel });
+  }
 
-  if (courses?.data.length == 0 || !courses || error) return null;
+  const courses = await fetchData().getAll<CourseI[]>('courses', {
+    filters,
+    pagination: { limit: ITEMS_PER_PAGE, offset: paginationOffset(currentPage) },
+  });
+
+  if (!courses.data) {
+    return null;
+  }
 
   return (
     <>
-      <TopPageUnit title={courses?.title} description={courses?.description} />
-      <FilterIItemsUnit level={(level as ExperienceLevelT[]) || 'all levels'} />
+      <TopPageUnitWrapper />
+      <FilterIItemsUnit />
       <CoursesList data={courses.data} />
+      {courses.count && <PaginationUnit total={courses.count} />}
     </>
   );
 }

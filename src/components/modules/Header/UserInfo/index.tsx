@@ -18,11 +18,11 @@ const UserInfo = ({ isLoggedIn, user }: UserInfoPropsType) => {
         </div>
       ) : (
         <>
-          <Link href={ROUTES.SIGN_UP} color='secondary'>
+          <Link href={ROUTES.SIGN_UP()} color='secondary'>
             Sign Up
           </Link>
           <LinkAsButton
-            href={ROUTES.LOGIN}
+            href={ROUTES.LOGIN()}
             color='secondary'
             className='rounded-lg bg-orange-50 px-6 py-2.5 2xl:px-8 2xl:py-3.5'
           >

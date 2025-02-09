@@ -33,6 +33,6 @@ export const signUpAction = async (formData: SignUpSchema) => {
     return { success: false, message: 'An unexpected error occurred. Please try again later.' };
   }
 
-  revalidatePath(ROUTES.CREATE_USER, 'layout');
-  redirect(ROUTES.CREATE_USER);
+  revalidatePath(ROUTES.CREATE_USER(), 'layout');
+  redirect(ROUTES.CREATE_USER());
 };

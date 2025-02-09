@@ -84,7 +84,7 @@ const SignUp = ({}) => {
       <p className='text-center'>
         Already have an account?{' '}
         <Link
-          href={ROUTES.LOGIN}
+          href={ROUTES.LOGIN()}
           showAnchorIcon
           className='underline'
           color='secondary'

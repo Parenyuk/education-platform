@@ -1,7 +1,7 @@
 import { CheckLevelProps, CheckLevelReturn } from '@/lib/types/utils/checkLevel';
 
 export const checkLevel = (level: CheckLevelProps): CheckLevelReturn => {
-  if (!level) {
+  if (!level || level === 'all levels') {
     return null;
   }
 

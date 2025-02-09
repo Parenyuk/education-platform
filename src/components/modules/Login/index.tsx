@@ -61,7 +61,7 @@ const Login = ({}) => {
             error={errors?.password?.message}
           />
         </div>
-        <Link href={ROUTES.FORGOT_PASSWORD} color='secondary' className='mt-2.5 justify-end 2xl:mt-3.5'>
+        <Link href={ROUTES.FORGOT_PASSWORD()} color='secondary' className='mt-2.5 justify-end 2xl:mt-3.5'>
           Forgot Password?
         </Link>
 
@@ -88,7 +88,7 @@ const Login = ({}) => {
       <p className='text-center'>
         Don’t have an account?{' '}
         <Link
-          href={ROUTES.SIGN_UP}
+          href={ROUTES.SIGN_UP()}
           showAnchorIcon
           className='underline'
           color='secondary'

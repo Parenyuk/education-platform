@@ -1,21 +1,16 @@
-import { rpcFunction } from '@/lib/constants/tableFunctions';
 import { CardPriceT } from '@/lib/types/components/modules/OurPricing';
-import { CardsCommonI } from '@/lib/types/components/units/CardsBlock';
+import TopBlock from '@/src/components/modules/OurPricing/TopBlock';
 import { fetchData } from '@/supabase/fetchData';
 import PricingClientComponent from 'src/components/modules/OurPricing/PricingClientComponent';
 
 const OurPricing = async ({}) => {
-  const { data: ourPricing, error } = await fetchData().getAll<CardsCommonI<CardPriceT>>(
-    rpcFunction.getTableWithMetadata,
-    {
-      isRpc: true,
-      table_name: 'pricing',
-    }
-  );
+  const { data: pricing, error } = await fetchData().getAll<CardPriceT[]>('pricing');
 
-  if (error) return null;
+  if (error || !pricing) return null;
 
-  return <PricingClientComponent data={ourPricing} />;
+  return <PricingClientComponent data={pricing}>
+    <TopBlock />
+  </PricingClientComponent>;
 };
 
 export default OurPricing;

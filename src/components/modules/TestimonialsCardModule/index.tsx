@@ -1,28 +1,19 @@
-import { rpcFunction } from '@/lib/constants/tableFunctions';
 import { CardContentType } from '@/lib/types/components/modules/TestimonialsCardModule';
-import { CardsCommonI } from '@/lib/types/components/units/CardsBlock';
 import CardContent from '@/src/components/units/cards/CardContent';
 import CardsBlock from '@/src/components/units/CardsBlock';
 import { fetchData } from '@/supabase/fetchData';
 
 const TestimonialsCardModule = async () => {
-  const { data: testimonials, error } = await fetchData().getAll<CardsCommonI<CardContentType>>(
-    rpcFunction.getTableWithMetadata,
-    {
-      isRpc: true,
-      table_name: 'testimonials',
-    }
-  );
+  const { data: testimonials, error } = await fetchData().getAll<CardContentType[]>('testimonials');
 
-  if (error) return null;
+  if (error || testimonials?.length === 0) return null;
 
   return (
     <CardsBlock
-      title={testimonials?.title}
-      description={testimonials?.description}
+      tableName='testimonials'
       itemContainerStyles={'md:grid-cols-2'}
     >
-      {testimonials?.data.map((item) => {
+      {testimonials?.map((item) => {
         return <CardContent key={item.id} item={item} />;
       })}
     </CardsBlock>

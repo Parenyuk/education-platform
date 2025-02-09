@@ -1,32 +1,43 @@
-import { ResourceType, RpcFunctionValues, TableNames } from '@/lib/types/common/tableNames';
+// @ts-nocheck
+import { ResourceType, TableNamesT } from '@/lib/types/common/tableNames';
 import { FetchDataMethods, GetAllParams, SupabaseResponse } from '@/lib/types/supabase';
 import { createClient } from '@/utils/supabase/server';
 
 export const fetchData = (): FetchDataMethods => {
   const getAll = async <T>(
     resource: ResourceType,
-    { isRpc = false, table_name, filter_level }: GetAllParams = {}
+    { filters = [], pagination = {}, queryOptions }: GetAllParams = {},
   ): Promise<SupabaseResponse<T>> => {
     const supabase = await createClient();
 
-    const filter = filter_level || 'all';
+    let query = supabase.from(resource as TableNamesT).select('*', { count: 'exact' });
 
-    if (isRpc && !table_name) {
-      throw new Error('table_name is required when isRpc is true');
+    if (filters.length > 0) {
+      filters.forEach(({ column, operator, value }) => {
+        if (query[operator]) {
+          query = query[operator](column, value);
+        }
+      });
     }
 
-    const query = isRpc
-      ? supabase.rpc(resource as RpcFunctionValues, { table_name: table_name!, filter_level: filter })
-      : supabase.from(resource as TableNames).select();
+    if (queryOptions) {
+      queryOptions.queryModifiers?.forEach((modifier: any) => {
+        query = modifier(query);
+      });
+    }
 
-    const { data, error, status, statusText } = await query;
+    if (pagination.limit) query = query.limit(pagination.limit);
+    if (pagination.offset) query = query.range(pagination.offset, pagination.offset + pagination.limit - 1);
+
+    const { data, error, status, statusText, count } = await query;
 
     if (error) {
-      return { data: null, error, status, statusText };
+      return { data: null, error, status, statusText, count };
     }
 
-    return { data: data as T, error: null, status, statusText };
+    return { data: data as T, error: null, status, statusText, count };
   };
 
   return { getAll };
 };
+
