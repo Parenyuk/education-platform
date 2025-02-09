@@ -29,7 +29,6 @@ export interface FetchDataMethods {
 }
 
 export type GetAllParams = {
-  isRpc?: boolean;
   table_name?: TableNamesT;
   filter_level?: CheckLevelReturn;
 };
