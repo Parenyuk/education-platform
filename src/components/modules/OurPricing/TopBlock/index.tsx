@@ -1,7 +1,7 @@
 import { MetadataI } from '@/lib/types/common/metadata';
 import { fetchData } from '@/supabase/fetchData';
 
-const TopBlock = () => {
+const TopBlock = async () => {
   const { data: metaData } = await fetchData().getAll<MetadataI>('global_metadata', {
     filters: [{ column: 'table_name_key', operator: 'eq', value: 'pricing' }],
     queryOptions: { queryModifiers: [(q) => q.single()] },
