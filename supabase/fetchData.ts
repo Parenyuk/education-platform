@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { ResourceType, TableNames } from '@/lib/types/common/tableNames';
+import { ResourceType, TableNamesT } from '@/lib/types/common/tableNames';
 import { FetchDataMethods, GetAllParams, SupabaseResponse } from '@/lib/types/supabase';
 import { createClient } from '@/utils/supabase/server';
 
@@ -10,7 +10,7 @@ export const fetchData = (): FetchDataMethods => {
   ): Promise<SupabaseResponse<T>> => {
     const supabase = await createClient();
 
-    let query = supabase.from(resource as TableNames).select('*', { count: 'exact' });
+    let query = supabase.from(resource as TableNamesT).select('*', { count: 'exact' });
 
     if (filters.length > 0) {
       filters.forEach(({ column, operator, value }) => {

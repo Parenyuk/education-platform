@@ -1,6 +1,6 @@
 import { PostgrestError } from '@supabase/supabase-js';
 
-import { ResourceType, TableNames } from '@/lib/types/common/tableNames';
+import { ResourceType, TableNamesT } from '@/lib/types/common/tableNames';
 import { CheckLevelReturn } from '@/lib/types/utils/checkLevel';
 
 export type SupabaseResponse<T> = {
@@ -30,6 +30,6 @@ export interface FetchDataMethods {
 
 export type GetAllParams = {
   isRpc?: boolean;
-  table_name?: TableNames;
+  table_name?: TableNamesT;
   filter_level?: CheckLevelReturn;
 };

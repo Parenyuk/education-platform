@@ -1,5 +1,3 @@
-import { DateInfoI } from '@/lib/types/common/date';
-import { ItemID } from '@/lib/types/common/id';
-import { MetadataI } from '@/lib/types/common/metadata';
+import { Tables } from '@/database.types';
 
-export interface BenefitI extends ItemID, DateInfoI, Partial<MetadataI> {}
+export type BenefitI = Tables<'benefits'>

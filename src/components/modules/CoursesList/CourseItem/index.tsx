@@ -18,7 +18,7 @@ const CourseItem = ({ item }: CourseItemProps) => {
         {item.slug && (
           <LinkAsButton
             href={item.slug}
-            className='mb-6 whitespace-nowrap px-4 py-3.5 text-sm md:mb-0 md:text-base 2xl:px-6 2xl:py-4.5 2xl:text-lg'
+            className='ml-4 md:ml-6 2xl:ml-10 mb-6 whitespace-nowrap px-4 py-3.5 text-sm md:mb-0 md:text-base 2xl:px-6 2xl:py-4.5 2xl:text-lg'
             type='primary'
           >
             View Course
