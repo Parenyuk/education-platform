@@ -37,7 +37,7 @@ export default async function CoursesPage({ searchParams }: { searchParams: Prom
       <TopPageUnitWrapper />
       <FilterIItemsUnit />
       <CoursesList data={courses.data} />
-      <PaginationUnit total={courses.count} />
+      {courses.count && <PaginationUnit total={courses.count} />}
     </>
   );
 }

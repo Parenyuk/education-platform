@@ -15,7 +15,8 @@ type FiltersType = { column: string; operator: string; value: string | string[] 
 
 type PaginationType = { limit: number; offset: number };
 
-type QueryOptionsType = { queryModifiers: ((q: unknown) => unknown)[]; };
+/* eslint-disable @typescript-eslint/no-explicit-any */
+type QueryOptionsType = { queryModifiers: ((q: any) => unknown)[] };
 
 export interface FetchDataMethods {
   getAll: <T>(
@@ -24,7 +25,7 @@ export interface FetchDataMethods {
       filters?: FiltersType[];
       pagination?: PaginationType;
       queryOptions?: QueryOptionsType;
-    },
+    }
   ) => Promise<SupabaseResponse<T>>;
 }
 
