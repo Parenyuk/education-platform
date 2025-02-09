@@ -37,7 +37,7 @@ const OneTapComponent = () => {
           console.error('Error getting session', error);
         }
         if (data.session) {
-          router.push(ROUTES.PROFILE);
+          router.push(ROUTES.PROFILE());
           return;
         }
 

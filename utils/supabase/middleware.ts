@@ -24,7 +24,7 @@ export async function updateSession(request: NextRequest) {
           cookiesToSet.forEach(({ name, value, options }) => supabaseResponse.cookies.set(name, value, options));
         },
       },
-    }
+    },
   );
 
   // Do not run code between createServerClient and
@@ -37,11 +37,11 @@ export async function updateSession(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser();
 
-  const protectedRoutes = [ROUTES.PROFILE];
+  const protectedRoutes = [ROUTES.PROFILE()];
 
   if (protectedRoutes.some((route) => request.nextUrl.pathname.startsWith(route)) && !user) {
     const url = request.nextUrl.clone();
-    url.pathname = ROUTES.LOGIN;
+    url.pathname = ROUTES.LOGIN();
     return NextResponse.redirect(url);
   }
 

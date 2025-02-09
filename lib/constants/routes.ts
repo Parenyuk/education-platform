@@ -30,15 +30,6 @@ export const ROUTES: Record<keyof typeof AppRoutes, DynamicRoute> = {
   [AppRoutes.ABOUT_US]: () => '/about-us',
   [AppRoutes.COURSES]: (options) =>
     `/courses${options?.page ? `?page=${options.page}` : '?page=1'}${options?.level ? `?level=${options.level.join('-')}` : ''}`,
-  // [AppRoutes.COURSES]: (options) => {
-  //   const pageParam = `page=${options?.page ?? 1}`;
-  //   const levelParam = Array.isArray(options?.level)
-  //     ? `&level=${options.level.join('-')}`
-  //     : options?.level ? `&level=${options.level}`
-  //       : '';
-  //
-  //   return `/courses?${pageParam}${levelParam}`;
-  // },
   [AppRoutes.PRICING]: () => '/pricing',
   [AppRoutes.HOME]: () => `/`,
 };
