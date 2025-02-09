@@ -14,7 +14,7 @@ const FilterItemsUnit = () => {
       .withDefault(['all levels']),
   );
 
-  const [page, setPage] = useQueryState('page', parseAsInteger.withOptions({ shallow: false }));
+  const [, setPage] = useQueryState('page', parseAsInteger.withOptions({ shallow: false }));
 
   const handleTagClick = async (item: ExperienceLevelT) => {
     if (item === 'all levels') {
@@ -42,7 +42,6 @@ const FilterItemsUnit = () => {
     await setLevel(newLevels);
     await setPage(1);
   };
-
 
   return (
     <div className='roundedmd container mx-auto mt-6 md:mt-10 md:rounded-lg 2xl:mt-12 2xl:rounded-xl'>

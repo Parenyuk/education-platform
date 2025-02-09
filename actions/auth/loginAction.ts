@@ -26,6 +26,6 @@ export const loginAction = async (formData: LoginSchema): Promise<LoginResponse>
     return { success: false, message: 'An unexpected error occurred. Please try again later.' };
   }
 
-  revalidatePath(ROUTES.PROFILE, 'layout');
-  redirect(ROUTES.PROFILE);
+  revalidatePath(ROUTES.PROFILE(), 'layout');
+  redirect(ROUTES.PROFILE());
 };
