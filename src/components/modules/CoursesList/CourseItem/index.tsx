@@ -1,5 +1,6 @@
 import { Image } from '@heroui/image';
 
+import { ROUTES } from '@/lib/constants/routes';
 import { CourseItemProps } from '@/lib/types/components/modules/CoursesList/CourseItem';
 import LinkAsButton from '@/src/components/elements/LinkAsButton';
 import CourseIntro from '@/src/components/modules/CoursesList/CourseIntro';
@@ -17,8 +18,8 @@ const CourseItem = ({ item }: CourseItemProps) => {
         </div>
         {item.slug && (
           <LinkAsButton
-            href={item.slug}
-            className='ml-4 md:ml-6 2xl:ml-10 mb-6 whitespace-nowrap px-4 py-3.5 text-sm md:mb-0 md:text-base 2xl:px-6 2xl:py-4.5 2xl:text-lg'
+            href={ROUTES.COURSE_PAGE({ slug: item.slug })}
+            className='mb-6 ml-4 whitespace-nowrap px-4 py-3.5 text-sm md:mb-0 md:ml-6 md:text-base 2xl:ml-10 2xl:px-6 2xl:py-4.5 2xl:text-lg'
             type='primary'
           >
             View Course

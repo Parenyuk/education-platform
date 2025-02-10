@@ -1,4 +1,4 @@
 export type TopPageUnitProps = Partial<{
-  title: string;
-  description: string;
+  title: string | null;
+  description: string | null;
 }>;
