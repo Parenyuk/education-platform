@@ -1,10 +1,5 @@
 import { Database } from '@/database.types';
-import { rpcFunction } from '@/lib/constants/tableFunctions';
 
 export type TableNamesT = keyof Database['public']['Tables'];
 
-export type RpcFunctionValues = (typeof rpcFunction)[keyof typeof rpcFunction] & {
-  filter_level?: string;
-};
-
-export type ResourceType = TableNamesT | RpcFunctionValues;
+export type ResourceType = TableNamesT;

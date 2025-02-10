@@ -38,6 +38,23 @@ export const fetchData = (): FetchDataMethods => {
     return { data: data as T, error: null, status, statusText, count };
   };
 
-  return { getAll };
+  const getOne = async (resource, column, value): Promise<unknown> => {
+    const supabase = await createClient();
+
+    const { data, error, status, statusText } = await supabase
+      .from(resource)
+      .select('*')
+      .eq(column, value)
+      .single();
+
+    if (error) {
+      return { data: null, error, status, statusText };
+    }
+
+    return { data: data as T, error: null, status, statusText };
+  };
+
+
+  return { getAll, getOne };
 };
 
