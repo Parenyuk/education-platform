@@ -32,6 +32,9 @@ export default {
         'custom-position-mobile': '100% 135%',
         'custom-position-laptop': '80% center',
       },
+      boxShadow: {
+        custom: '0px 4px 20px rgba(0, 0, 0, 0.15)',
+      },
       colors: {
         orange: {
           50: '#FF9500',

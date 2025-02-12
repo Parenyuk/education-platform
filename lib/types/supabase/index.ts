@@ -32,6 +32,7 @@ export interface FetchDataMethods {
     resource: ResourceType,
     column: string,
     value: string,
+    select?: string,
   ) => Promise<SupabaseResponse<T>>;
 }
 

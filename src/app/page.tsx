@@ -16,7 +16,7 @@ export default function Home() {
       <main className='flex min-h-screen flex-col'>
         <HomePageTop />
         <PartnersLogo />
-        <VideoBlock />
+        <VideoBlock playing lightMode />
         <BenefitsCardModule />
         <OurCoursesCardModule />
         <TestimonialsCardModule />

@@ -12,7 +12,7 @@ import VideoPreview from '@/src/components/units/VideoBlock/VideoPreview';
 
 const ReactPlayer = dynamic(() => import('react-player'), { ssr: false });
 
-const VideoBlock = ({ url, imagePreview }: VideoBlockProps) => {
+const VideoBlock = ({ url, imagePreview, playing = false, lightMode = false }: VideoBlockProps) => {
   const [isPlayerReady, setIsPlayerReady] = useState(false);
 
   useEffect(() => {
@@ -20,8 +20,6 @@ const VideoBlock = ({ url, imagePreview }: VideoBlockProps) => {
 
     return () => clearTimeout(timeout);
   }, []);
-
-  console.log('isPlayerReady:', isPlayerReady);
 
   return (
     <section className='container mx-auto mb-12 mt-8 md:mb-24 md:mt-20 2xl:mb-40 2xl:mt-24'>
@@ -37,10 +35,11 @@ const VideoBlock = ({ url, imagePreview }: VideoBlockProps) => {
             url={url ?? homePageMainVideo}
             width='100%'
             height='100%'
-            light={<VideoPreview image={imagePreview} />}
             playIcon={<PlayIcon />}
-            playing
             controls
+            playsinline
+            light={lightMode ? <VideoPreview image={imagePreview} /> : undefined}
+            playing={playing}
           />
         )}
       </div>

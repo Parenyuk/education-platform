@@ -38,12 +38,12 @@ export const fetchData = (): FetchDataMethods => {
     return { data: data as T, error: null, status, statusText, count };
   };
 
-  const getOne = async (resource, column, value): Promise<unknown> => {
+  const getOne = async (resource, column, value, select = '*'): Promise<unknown> => {
     const supabase = await createClient();
 
     const { data, error, status, statusText } = await supabase
       .from(resource)
-      .select('*')
+      .select(select)
       .eq(column, value)
       .single();
 
