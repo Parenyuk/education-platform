@@ -6,12 +6,13 @@ import { Skeleton } from '@heroui/skeleton';
 import dynamic from 'next/dynamic';
 
 import { homePageMainVideo } from '@/lib/constants/homePageMainVideo';
+import { VideoBlockProps } from '@/lib/types/components/units/VideoBlock';
 import PlayIcon from '@/src/components/elements/PlayIcon';
 import VideoPreview from '@/src/components/units/VideoBlock/VideoPreview';
 
 const ReactPlayer = dynamic(() => import('react-player'), { ssr: false });
 
-const VideoBlock = () => {
+const VideoBlock = ({ url, imagePreview, playing = false, lightMode = false }: VideoBlockProps) => {
   const [isPlayerReady, setIsPlayerReady] = useState(false);
 
   useEffect(() => {
@@ -31,12 +32,14 @@ const VideoBlock = () => {
           </div>
         ) : (
           <ReactPlayer
-            url={homePageMainVideo}
+            url={url ?? homePageMainVideo}
             width='100%'
             height='100%'
-            light={<VideoPreview />}
             playIcon={<PlayIcon />}
-            playing
+            controls
+            playsinline
+            light={lightMode ? <VideoPreview image={imagePreview} /> : undefined}
+            playing={playing}
           />
         )}
       </div>

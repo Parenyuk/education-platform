@@ -71,6 +71,79 @@ export type Database = {
           },
         ]
       }
+      course_lessons: {
+        Row: {
+          course_id: number
+          created_at: string | null
+          duration: unknown
+          id: number
+          module_id: number
+          order: number
+          title: string
+          updated_at: string | null
+        }
+        Insert: {
+          course_id: number
+          created_at?: string | null
+          duration: unknown
+          id?: number
+          module_id: number
+          order: number
+          title: string
+          updated_at?: string | null
+        }
+        Update: {
+          course_id?: number
+          created_at?: string | null
+          duration?: unknown
+          id?: number
+          module_id?: number
+          order?: number
+          title?: string
+          updated_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "course_lessons_module_id_fkey"
+            columns: ["module_id"]
+            isOneToOne: false
+            referencedRelation: "course_modules"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      course_modules: {
+        Row: {
+          course_id: number
+          created_at: string | null
+          id: number
+          title: string
+          updated_at: string | null
+        }
+        Insert: {
+          course_id: number
+          created_at?: string | null
+          id?: number
+          title: string
+          updated_at?: string | null
+        }
+        Update: {
+          course_id?: number
+          created_at?: string | null
+          id?: number
+          title?: string
+          updated_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "course_modules_course_id_fkey"
+            columns: ["course_id"]
+            isOneToOne: false
+            referencedRelation: "courses"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       courses: {
         Row: {
           author: string | null
@@ -79,11 +152,13 @@ export type Database = {
           description: string | null
           duration: string | null
           id: number
+          image_preview: string | null
           images: string[] | null
           level: string | null
           slug: string | null
           tags: Json | null
           title: string | null
+          video_preview: string | null
         }
         Insert: {
           author?: string | null
@@ -92,11 +167,13 @@ export type Database = {
           description?: string | null
           duration?: string | null
           id?: number
+          image_preview?: string | null
           images?: string[] | null
           level?: string | null
           slug?: string | null
           tags?: Json | null
           title?: string | null
+          video_preview?: string | null
         }
         Update: {
           author?: string | null
@@ -105,11 +182,13 @@ export type Database = {
           description?: string | null
           duration?: string | null
           id?: number
+          image_preview?: string | null
           images?: string[] | null
           level?: string | null
           slug?: string | null
           tags?: Json | null
           title?: string | null
+          video_preview?: string | null
         }
         Relationships: []
       }
@@ -158,6 +237,86 @@ export type Database = {
           id?: number
           table_name_key?: string
           title?: string
+        }
+        Relationships: []
+      }
+      module_lessons: {
+        Row: {
+          course_id: number | null
+          created_at: string | null
+          duration: unknown
+          id: number
+          module_id: number
+          module_title: string | null
+          order: number
+          title: string
+          updated_at: string | null
+        }
+        Insert: {
+          course_id?: number | null
+          created_at?: string | null
+          duration: unknown
+          id?: number
+          module_id: number
+          module_title?: string | null
+          order: number
+          title: string
+          updated_at?: string | null
+        }
+        Update: {
+          course_id?: number | null
+          created_at?: string | null
+          duration?: unknown
+          id?: number
+          module_id?: number
+          module_title?: string | null
+          order?: number
+          title?: string
+          updated_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "module_lessons_module_id_fkey"
+            columns: ["module_id"]
+            isOneToOne: false
+            referencedRelation: "course_modules"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      module_lessons_backup: {
+        Row: {
+          course_id: number | null
+          created_at: string | null
+          duration: unknown | null
+          id: number | null
+          module_id: number | null
+          module_title: string | null
+          order: number | null
+          title: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          course_id?: number | null
+          created_at?: string | null
+          duration?: unknown | null
+          id?: number | null
+          module_id?: number | null
+          module_title?: string | null
+          order?: number | null
+          title?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          course_id?: number | null
+          created_at?: string | null
+          duration?: unknown | null
+          id?: number | null
+          module_id?: number | null
+          module_title?: string | null
+          order?: number | null
+          title?: string | null
+          updated_at?: string | null
         }
         Relationships: []
       }

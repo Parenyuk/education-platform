@@ -25,7 +25,14 @@ export interface FetchDataMethods {
       filters?: FiltersType[];
       pagination?: PaginationType;
       queryOptions?: QueryOptionsType;
-    }
+    },
+  ) => Promise<SupabaseResponse<T>>;
+
+  getOne: <T>(
+    resource: ResourceType,
+    column: string,
+    value: string,
+    select?: string,
   ) => Promise<SupabaseResponse<T>>;
 }
 
