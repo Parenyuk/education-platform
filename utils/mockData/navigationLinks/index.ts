@@ -24,7 +24,7 @@ export const navigationLinks: NavigationLinksType = {
     {
       id: 3,
       name: 'Pricing',
-      href: ROUTES.HOME(),
+      href: ROUTES.PRICING(),
       items: null,
     },
     {
