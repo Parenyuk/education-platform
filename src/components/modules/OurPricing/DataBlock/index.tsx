@@ -1,5 +1,5 @@
 import { DataBlockProps } from '@/lib/types/components/modules/OurPricing/DataBlock';
-import CardPrice from '@/src/components/units/cards/cardPrice';
+import CardPrice from 'src/components/units/cards/СardPrice';
 
 const DataBlock = ({ data, timePlanType }: DataBlockProps) => {
   return (
