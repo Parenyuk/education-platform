@@ -3,6 +3,8 @@ import InfoCard from '@/src/components/units/InfoCardsBlock/InfoCard';
 import cn from '@/utils/helpers/cn';
 
 const InfoCardsBlock = ({ title, description, data, classNames }: InfoCardsBlockProps) => {
+  if (!data) return null;
+
   return (
     <div className={cn('mt:12 mb:6 md:mb-24 md:mt-20 2xl:mb-44 2xl:mt-24', classNames)}>
       <h3 className='2xl:6xl text-2xl font-medium text-grey-20 md:text-3xl'>{title}</h3>
