@@ -4,16 +4,11 @@ import TopPageUnit from '@/src/components/units/TopPageUnit';
 import { fetchData } from '@/supabase/fetchData';
 
 const TopPageUnitWrapper = async () => {
-  const metaData = await fetchData().getAll<MetadataI>('global_metadata', {
-    filters: [{ column: 'table_name_key', operator: 'eq', value: 'courses' }],
-    queryOptions: { queryModifiers: [(q) => q.single()] },
-  });
+  const { data: metaData } = await fetchData().getOne<MetadataI>('global_metadata', 'table_name_key', 'courses');
 
-  const metadataItem = metaData?.data;
+  const title = metaData?.title || coursesTitle;
 
-  const title = metadataItem?.title || coursesTitle;
-
-  const description = metadataItem?.description || coursesDescription;
+  const description = metaData?.description || coursesDescription;
 
   return <TopPageUnit title={title} description={description} />;
 };
