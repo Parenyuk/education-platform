@@ -7,9 +7,9 @@ import cn from '@/utils/helpers/cn';
 
 const TabButtons = ({ timePlanType, setTimePlanType }: TabButtonsProps) => {
   const bgAnimationStyle =
-    'absolute left-0 top-0 z-20 m-3 h-10 w-32 rounded-md bg-orange-50 transition-transform duration-300 ease-in-out';
+    'absolute left-0 top-0 z-10 m-3 h-10 w-32 rounded-md bg-orange-50 transition-transform duration-300 ease-in-out';
 
-  const buttonStyle = 'relative z-30 w-32 bg-transparent text-center';
+  const buttonStyle = 'relative z-20 w-32 bg-transparent text-center';
 
   const translateClass = timePlanType === 'month' ? 'translate-x-0' : 'translate-x-full';
 
