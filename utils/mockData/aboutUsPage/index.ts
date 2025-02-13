@@ -8,19 +8,6 @@ import OurGoalsIcon2 from '@/public/svg/our_goals_2.svg';
 import OurGoalsIcon3 from '@/public/svg/our_goals_3.svg';
 import OurGoalsIcon4 from '@/public/svg/our_goals_4.svg';
 
-export const pageDescription = `
-Welcome to our platform, where we are passionate about empowering individuals to master the world of design and development. 
-We offer a wide range of online courses designed to equip learners with the skills and knowledge needed to succeed in 
-the ever-evolving digital landscape.
-`;
-
-export const achievementsMockDescription =
-  'Our commitment to excellence has led us to achieve significant milestones along our journey. Here are some of our notable achievements';
-
-export const ourGoalsMockDataDescription =
-  'At SkillBridge, our goal is to empower individuals from all backgrounds to thrive in the world of design and development. We believe that education should be accessible and transformative, enabling learners to pursue their passions and make a meaningful impact.\n' +
-  'Through our carefully crafted courses, we aim to';
-
 export const achievementsMockData: InfoCardType[] = [
   {
     id: 0,
