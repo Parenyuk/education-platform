@@ -1,6 +1,10 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
+
+import { Button } from '@heroui/button';
+
+import useOnClickOutside from '@/lib/hooks/useOnClickOutside';
 
 type PaymentModalProps = {
   isOpen: boolean;
@@ -12,6 +16,10 @@ type PaymentModalProps = {
 const PaymentModal = ({ isOpen, onClose, amount, planType }: PaymentModalProps) => {
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
+
+  const modalRef = useRef<HTMLDivElement | null>(null);
+
+  useOnClickOutside(modalRef, onClose);
 
   const handlePayment = async () => {
     setIsLoading(true);
@@ -37,7 +45,7 @@ const PaymentModal = ({ isOpen, onClose, amount, planType }: PaymentModalProps) 
 
   return (
     <div className='z-40 fixed inset-0 flex items-center justify-center bg-black bg-opacity-50'>
-      <div className='bg-white p-6 rounded-lg shadow-lg w-96'>
+      <div ref={modalRef} className='bg-white p-6 rounded-lg shadow-lg w-96'>
         <h2 className='text-xl font-semibold mb-4'>Confirm Payment</h2>
         <p className='mb-2'>Plan: <strong>{planType.toUpperCase()}</strong></p>
         <p className='mb-4'>Amount: <strong>${amount}</strong></p>
@@ -47,12 +55,14 @@ const PaymentModal = ({ isOpen, onClose, amount, planType }: PaymentModalProps) 
             {message}
           </p>
         ) : (
-          <div className='flex gap-4'>
-            <button onClick={handlePayment} className='bg-green-600 text-white px-4 py-2 rounded-md'
+          <div className='flex items-center justify-center gap-4'>
+            <Button onPress={handlePayment} className='bg-orange-50 text-white px-4 py-2 rounded-md'
               disabled={isLoading}>
               {isLoading ? 'Processing...' : 'Confirm'}
-            </button>
-            <button onClick={onClose} className='bg-gray-300 px-4 py-2 rounded-md'>Cancel</button>
+            </Button>
+            <Button onPress={onClose} className='bg-gray-300 px-4 py-2 rounded-md'>
+              Cancel
+            </Button>
           </div>
         )}
       </div>

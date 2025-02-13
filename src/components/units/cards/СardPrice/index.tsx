@@ -18,7 +18,7 @@ const CardPrice = ({ item, timePlanType }: CardPriceProps) => {
     available_features: availableFeatures,
   } = item;
 
-  const [isModalOpen, setIsModalOpen] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedAmount, setSelectedAmount] = useState(pricePerMonth);
 
   const handleOpenModal = () => {
