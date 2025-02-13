@@ -11,3 +11,9 @@ export type CardPriceT = {
   price_per_year: number;
   available_features: FeatureType[];
 };
+
+export type PricingModeT = 'center' | 'right';
+
+export type OurPricingProps = {
+  mode?: PricingModeT;
+}

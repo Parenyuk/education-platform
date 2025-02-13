@@ -14,7 +14,7 @@ const TabButtons = ({ timePlanType, setTimePlanType }: TabButtonsProps) => {
   const translateClass = timePlanType === 'month' ? 'translate-x-0' : 'translate-x-full';
 
   return (
-    <div className='relative mb-10 flex self-center rounded-lg bg-white p-3 md:ml-24 xl:ml-40 2xl:ml-64'>
+    <div className={cn('relative mb-10 flex self-center rounded-lg bg-white p-3 md:ml-24 xl:ml-40 2xl:ml-64')}>
       <div className={cn(bgAnimationStyle, translateClass)}></div>
       <Button className={buttonStyle} onPress={() => setTimePlanType('month')}>
         Monthly
