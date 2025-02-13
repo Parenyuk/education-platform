@@ -5,6 +5,7 @@ import { useRef, useState } from 'react';
 import { Button } from '@heroui/button';
 
 import useOnClickOutside from '@/lib/hooks/useOnClickOutside';
+import Cross from '@/src/components/elements/svgElements/Cross';
 
 type PaymentModalProps = {
   isOpen: boolean;
@@ -46,7 +47,12 @@ const PaymentModal = ({ isOpen, onClose, amount, planType }: PaymentModalProps) 
   return (
     <div className='z-40 fixed inset-0 flex items-center justify-center bg-black bg-opacity-50'>
       <div ref={modalRef} className='bg-white p-6 rounded-lg shadow-lg w-96'>
-        <h2 className='text-xl font-semibold mb-4'>Confirm Payment</h2>
+        <div className='flex items-center justify-between'>
+          <h2 className='text-xl font-semibold mb-4'>Confirm Payment</h2>
+          <Button className='min-w-10 max-w-10 max-h-10 -mt-5' onPress={onClose}>
+            <Cross />
+          </Button>
+        </div>
         <p className='mb-2'>Plan: <strong>{planType.toUpperCase()}</strong></p>
         <p className='mb-4'>Amount: <strong>${amount}</strong></p>
 
