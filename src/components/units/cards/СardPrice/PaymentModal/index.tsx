@@ -49,7 +49,7 @@ const PaymentModal = ({ isOpen, onClose, amount, planType }: PaymentModalProps) 
       const data = await res.json();
       setMessage(data.message);
     } catch (error) {
-      setMessage('An error occurred. Please try again.');
+      setMessage(error as string);
     } finally {
       setIsLoading(false);
     }
@@ -58,35 +58,39 @@ const PaymentModal = ({ isOpen, onClose, amount, planType }: PaymentModalProps) 
   if (!isOpen) return null;
 
   return (
-    <div className='z-40 fixed inset-0 flex items-center justify-center bg-black bg-opacity-50'>
-      <div ref={modalRef} className='bg-white p-6 rounded-lg shadow-lg w-96'>
+    <div className='fixed inset-0 z-40 flex items-center justify-center bg-black bg-opacity-50'>
+      <div ref={modalRef} className='w-96 rounded-lg bg-white p-6 shadow-lg'>
         <div className='flex items-center justify-between'>
-          <h2 className='text-xl font-semibold mb-4'>Confirm Payment</h2>
-          <Button className='min-w-10 max-w-10 max-h-10 -mt-5' onPress={onClose}>
+          <h2 className='mb-4 text-xl font-semibold'>Confirm Payment</h2>
+          <Button className='-mt-5 max-h-10 min-w-10 max-w-10' onPress={onClose}>
             <Cross />
           </Button>
         </div>
-        <p className='mb-2'>Plan: <strong>{planType.toUpperCase()}</strong></p>
-        <p className='mb-4'>Amount: <strong>${amount}</strong></p>
+        <p className='mb-2'>
+          Plan: <strong>{planType.toUpperCase()}</strong>
+        </p>
+        <p className='mb-4'>
+          Amount: <strong>${amount}</strong>
+        </p>
 
-        <div className='relative bg-gray-100 p-4 rounded-lg shadow-md mb-4'>
-          <p className='text-sm text-gray-600 mb-1'>Card Number</p>
+        <div className='relative mb-4 rounded-lg bg-gray-100 p-4 shadow-md'>
+          <p className='mb-1 text-sm text-gray-600'>Card Number</p>
           <input
             type='text'
             placeholder='XXXX XXXX XXXX XXXX'
-            className='w-full p-3 text-lg font-mono tracking-wide border border-gray-300 rounded bg-white'
+            className='w-full rounded border border-gray-300 bg-white p-3 font-mono text-lg tracking-wide'
             value={cardNumber}
             onChange={(e) => setCardNumber(formatCardNumber(e.target.value))}
           />
         </div>
 
-        <div className='relative bg-gray-100 p-4 rounded-lg shadow-md mb-4 w-32'>
-          <p className='text-sm text-gray-600 mb-1'>CVV</p>
+        <div className='relative mb-4 w-32 rounded-lg bg-gray-100 p-4 shadow-md'>
+          <p className='mb-1 text-sm text-gray-600'>CVV</p>
           <input
             type='text'
             placeholder='XXX'
             maxLength={3}
-            className='w-full p-3 text-lg font-mono tracking-wide border border-gray-300 rounded bg-white'
+            className='w-full rounded border border-gray-300 bg-white p-3 font-mono text-lg tracking-wide'
             value={cvv}
             onChange={(e) => setCvv(e.target.value.replace(/\D/g, ''))}
           />
@@ -100,12 +104,12 @@ const PaymentModal = ({ isOpen, onClose, amount, planType }: PaymentModalProps) 
           <div className='flex items-center justify-center gap-4'>
             <Button
               onPress={handlePayment}
-              className={`bg-orange-50 text-white px-4 py-2 rounded-md ${!isFormValid ? 'opacity-50 cursor-not-allowed' : ''}`}
+              className={`rounded-md bg-orange-50 px-4 py-2 text-white ${!isFormValid ? 'cursor-not-allowed opacity-50' : ''}`}
               disabled={!isFormValid || isLoading}
             >
               {isLoading ? 'Processing...' : 'Confirm'}
             </Button>
-            <Button onPress={onClose} className='bg-gray-300 px-4 py-2 rounded-md'>
+            <Button onPress={onClose} className='rounded-md bg-gray-300 px-4 py-2'>
               Cancel
             </Button>
           </div>
