@@ -7,11 +7,11 @@ import { redirect } from 'next/navigation';
 import ZodParseDataAdapter from '@/adapters/zod/ZodParseDataAdapter';
 import { ROUTES } from '@/lib/constants/routes';
 import { loginSchema } from '@/lib/schema/LoginSchema';
-import { LoginResponse } from '@/lib/types/actions';
+import { LoginResponseT } from '@/lib/types/actions';
 import { LoginSchema } from '@/lib/types/schema/LoginSchema';
 import { createClient } from '@/utils/supabase/server';
 
-export const loginAction = async (formData: LoginSchema): Promise<LoginResponse> => {
+export const loginAction = async (formData: LoginSchema): Promise<LoginResponseT> => {
   const validatedData = ZodParseDataAdapter(loginSchema, formData);
 
   if (validatedData.errors) {

@@ -1,4 +1,4 @@
-export type SliderDataType = {
+export type SliderDataT = {
   id: number;
   description: string;
   authorName: string;

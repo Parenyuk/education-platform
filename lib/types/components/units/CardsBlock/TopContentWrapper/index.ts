@@ -1,6 +1,5 @@
-import { TableNamesT } from '@/lib/types/common/tableNames';
-
+import { ResourceT } from '@/lib/types/common/tables';
 
 export type TopContentWrapperProps = {
-  tableName: TableNamesT;
-}
+  tableName: ResourceT;
+};

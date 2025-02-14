@@ -1,8 +1,9 @@
 import type { SearchParams } from 'nuqs/server';
 
+import { SelectCoursesAndModules } from '@/lib/constants/coursesAndModules';
 import { INITIAL_PAGE } from '@/lib/constants/initialPage';
 import { ITEMS_PER_PAGE } from '@/lib/constants/itemsPerPage';
-import { CourseI } from '@/lib/types/components/modules/OurCoursesCardModule';
+import { CourseAndModulesI } from '@/lib/types/common/tables';
 import CoursesList from '@/src/components/modules/CoursesList';
 import FilterIItemsUnit from '@/src/components/units/FilterIItemsUnit';
 import PaginationUnit from '@/src/components/units/PaginationUnit';
@@ -23,14 +24,16 @@ export default async function CoursesPage({ searchParams }: { searchParams: Prom
     filters.push({ column: 'level', operator: 'in', value: checkedLevel });
   }
 
-  const courses = await fetchData().getAll<CourseI[]>('courses', {
-    filters,
-    pagination: { limit: ITEMS_PER_PAGE, offset: paginationOffset(currentPage) },
-  });
+  const courses = await fetchData().getAll<CourseAndModulesI[]>(
+    'courses',
+    {
+      filters,
+      pagination: { limit: ITEMS_PER_PAGE, offset: paginationOffset(currentPage) },
+    },
+    SelectCoursesAndModules
+  );
 
-  if (!courses.data) {
-    return null;
-  }
+  if (!courses.data) return null;
 
   return (
     <>

@@ -1,5 +1,5 @@
-import { CourseI } from '@/lib/types/components/modules/OurCoursesCardModule';
+import { CourseT } from '@/lib/types/common/tables';
 
 export type CardImageProps = {
-  item: CourseI;
+  item: CourseT;
 };

@@ -1,4 +1,4 @@
-const RightArrow = ({}) => {
+const RightArrow = () => {
   return (
     <svg
       width='28'

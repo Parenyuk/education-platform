@@ -8,7 +8,7 @@ const ModuleItem = ({ item, itemOrder }: ModuleItemProps) => {
         2xl:space-y-5 2xl:px-12`}
     >
       <div className='text-3xl font-extrabold md:text-5xl 2xl:text-6xl'>{checkNumber(itemOrder)}</div>
-      <div className='text-sm font-medium text-grey-20 md:text-base 2xl:text-lg'>{item.module}</div>
+      <div className='text-sm font-medium text-grey-20 md:text-base 2xl:text-lg'>{item.title}</div>
     </div>
   );
 };

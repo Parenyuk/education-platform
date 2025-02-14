@@ -1,5 +1,5 @@
-import { FAQI } from '@/lib/types/components/modules/FAQ';
+import { FAQT } from '@/lib/types/common/tables';
 
 export type DataSideProps = {
-  data: FAQI[];
+  data: FAQT[];
 };

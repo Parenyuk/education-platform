@@ -11,11 +11,8 @@ const CourseIntro = ({ item }: CourseIntroProps) => {
       >
         Curriculum
       </h4>
-      {/*<div className='flex flex-col md:flex-row'>*/}
       <div className='grid md:grid-cols-4'>
-        {item.slice(0, 4).map((item, index) => (
-          <ModuleItem key={index} itemOrder={index + 1} item={item} />
-        ))}
+        {item?.slice(0, 4).map((item, index) => <ModuleItem key={index} itemOrder={index + 1} item={item} />)}
       </div>
     </div>
   );

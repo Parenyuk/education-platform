@@ -1,5 +1,5 @@
-import { CardContentType } from '@/lib/types/components/modules/TestimonialsCardModule';
+import { TestimonialsT } from '@/lib/types/common/tables';
 
 export type CardContentProps = {
-  item: CardContentType;
+  item: TestimonialsT;
 };

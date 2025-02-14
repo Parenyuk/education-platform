@@ -165,7 +165,6 @@ export type Database = {
       courses: {
         Row: {
           author: string | null;
-          course_content: Json | null;
           created_at: string;
           description: string | null;
           duration: string | null;
@@ -180,7 +179,6 @@ export type Database = {
         };
         Insert: {
           author?: string | null;
-          course_content?: Json | null;
           created_at?: string;
           description?: string | null;
           duration?: string | null;
@@ -195,7 +193,6 @@ export type Database = {
         };
         Update: {
           author?: string | null;
-          course_content?: Json | null;
           created_at?: string;
           description?: string | null;
           duration?: string | null;

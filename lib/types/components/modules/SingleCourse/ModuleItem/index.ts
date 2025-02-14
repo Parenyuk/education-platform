@@ -1,8 +1,8 @@
-import { Tables } from '@/database.types';
+import { CourseLessonsT, CourseModulesT } from '@/lib/types/common/tables';
 
 export type ModuleItemProps = {
-  item: Tables<'course_modules'> & {
-    course_lessons: Tables<'course_lessons'>[];
-  }
+  item: CourseModulesT & {
+    course_lessons: CourseLessonsT[];
+  };
   order: number;
-}
+};

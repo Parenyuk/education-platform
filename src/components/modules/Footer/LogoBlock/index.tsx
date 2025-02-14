@@ -7,7 +7,7 @@ import PhoneIcon from '@/public/svg/phone.svg';
 import LogoComponent from '@/src/components/elements/LogoComponent';
 import ContactLink from '@/src/components/modules/Footer/ContactLink';
 
-const LogoBlock = ({}) => {
+const LogoBlock = () => {
   return (
     <div>
       <LogoComponent />

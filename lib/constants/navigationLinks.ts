@@ -1,7 +1,7 @@
 import { ROUTES } from '@/lib/constants/routes';
-import { NavigationLinksType } from '@/lib/types/utils/mockData/navigationLinks';
+import { NavigationLinksT } from '@/lib/types/lib/constants/navigationLinks';
 
-export const navigationLinks: NavigationLinksType = {
+export const navigationLinks: NavigationLinksT = {
   header: [
     {
       id: 0,

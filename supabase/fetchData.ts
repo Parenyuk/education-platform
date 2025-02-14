@@ -1,16 +1,17 @@
 // @ts-nocheck
-import { ResourceType, TableNamesT } from '@/lib/types/common/tableNames';
+import { ResourceT } from '@/lib/types/common/tables';
 import { FetchDataMethods, GetAllParams, SupabaseResponse } from '@/lib/types/supabase';
 import { createClient } from '@/utils/supabase/server';
 
 export const fetchData = (): FetchDataMethods => {
   const getAll = async <T>(
-    resource: ResourceType,
-    { filters = [], pagination = {} }: GetAllParams = {}
+    resource: ResourceT,
+    { filters = [], pagination = {} }: GetAllParams = {},
+    select = '*'
   ): Promise<SupabaseResponse<T>> => {
     const supabase = await createClient();
 
-    let query = supabase.from(resource as TableNamesT).select('*', { count: 'exact' });
+    let query = supabase.from(resource as ResourceT).select(select, { count: 'exact' });
 
     if (filters.length > 0) {
       filters.forEach(({ column, operator, value }) => {

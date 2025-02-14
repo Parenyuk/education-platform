@@ -2,7 +2,7 @@ import { Link } from '@heroui/link';
 
 import { navigationLinks } from '@/lib/constants/navigationLinks';
 
-const LinksBlock = ({}) => {
+const LinksBlock = () => {
   return (
     <div className='flex'>
       {navigationLinks.footer.map((link) => (

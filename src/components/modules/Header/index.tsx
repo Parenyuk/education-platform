@@ -3,7 +3,7 @@ import NavigationLinks from '@/src/components/modules/Header/NavigationLinks';
 import TopLine from '@/src/components/modules/Header/TopLine';
 import UserInfoWrapper from '@/src/components/modules/Header/UserInfoWrapper';
 
-const Header = async () => {
+const Header = () => {
   return (
     <header>
       <TopLine />

@@ -11,7 +11,7 @@ const CardContent = ({ item }: CardContentProps) => {
       </div>
       <div className='flex justify-between rounded-xl bg-white-99 p-5 md:p-8 2xl:p-10'>
         <div className='flex gap-2.5 2xl:gap-3'>
-          <Image src={item.author_image} className='rounded-lg' />
+          {item.author_image && <Image src={item.author_image} className='rounded-lg' />}
           <p className='self-center text-base font-semibold 2xl:text-lg'>{item.author}</p>
         </div>
         <LinkAsButton type='primary' href='/'>

@@ -1,4 +1,4 @@
-import { Tables } from '@/database.types';
+import { AchievementT, OurGoalsT } from '@/lib/types/common/tables';
 
 export type InfoCardsBlockProps = {
   title: string;
@@ -6,7 +6,3 @@ export type InfoCardsBlockProps = {
   data: AchievementT[] | OurGoalsT[] | null;
   classNames?: string;
 };
-
-export type AchievementT = Tables<'achievements'>;
-
-export type OurGoalsT = Tables<'our_goals'>;

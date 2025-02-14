@@ -1,5 +1,5 @@
 import { achievementsDescription } from '@/lib/constants/achievements';
-import { AchievementT } from '@/lib/types/components/units/InfoCardsUnit';
+import { AchievementT } from '@/lib/types/common/tables';
 import InfoCardsBlock from '@/src/components/units/InfoCardsBlock';
 import { fetchData } from '@/supabase/fetchData';
 

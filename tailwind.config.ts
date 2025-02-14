@@ -22,7 +22,7 @@ export default {
     },
     extend: {
       backgroundImage: {
-        'abstract-design': 'url(\'/png/abstract_design.png\')',
+        'abstract-design': "url('/png/abstract-design.png')",
       },
       backgroundSize: {
         'custom-size-mobile': 'auto 50%',

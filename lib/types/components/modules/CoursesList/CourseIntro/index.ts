@@ -1,5 +1,5 @@
-import { CourseContentType } from '@/lib/types/components/modules/OurCoursesCardModule';
+import { CourseModulesT } from '@/lib/types/common/tables';
 
 export type CourseIntroProps = {
-  item: CourseContentType[];
+  item: CourseModulesT[];
 };

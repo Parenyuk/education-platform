@@ -1,14 +1,9 @@
 import { ReactNode } from 'react';
 
-import { MetadataI } from '@/lib/types/common/metadata';
-import { TableNamesT } from '@/lib/types/common/tableNames';
+import { ResourceT } from '@/lib/types/common/tables';
 
 export interface CardsBlockProps {
   children: ReactNode;
   itemContainerStyles?: string;
-  tableName: TableNamesT;
-}
-
-export interface CardsCommonI<T> extends Partial<MetadataI> {
-  data: T[];
+  tableName: ResourceT;
 }

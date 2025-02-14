@@ -1,5 +1,5 @@
 import { ourGoalsDescription } from '@/lib/constants/ourGoals';
-import { OurGoalsT } from '@/lib/types/components/units/InfoCardsUnit';
+import { OurGoalsT } from '@/lib/types/common/tables';
 import InfoCardsBlock from '@/src/components/units/InfoCardsBlock';
 import { fetchData } from '@/supabase/fetchData';
 
