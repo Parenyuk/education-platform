@@ -27,8 +27,10 @@ export interface CourseAndModulesI extends Tables<'courses'> {
   course_modules: CourseModulesT[];
 }
 
+export interface ModulesAndLessonsI extends Tables<'course_modules'> {
+  course_lessons: Tables<'course_lessons'>[];
+}
+
 export interface SingleCourseI extends Tables<'courses'> {
-  course_modules: (Tables<'course_modules'> & {
-    course_lessons: Tables<'course_lessons'>[];
-  })[];
+  course_modules: ModulesAndLessonsI[];
 }
