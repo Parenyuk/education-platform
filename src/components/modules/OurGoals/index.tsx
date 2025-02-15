@@ -6,7 +6,7 @@ import { fetchData } from '@/supabase/fetchData';
 const OurGoals = async () => {
   const { data: ourGoals, error } = await fetchData().getAll<OurGoalsT[]>('our_goals');
 
-  if (error || ourGoals?.length === 0) return null;
+  if (error || !ourGoals?.length) return null;
 
   return <InfoCardsBlock title='Our Goals' description={ourGoalsDescription} data={ourGoals} />;
 };

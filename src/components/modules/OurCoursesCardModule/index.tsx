@@ -6,7 +6,7 @@ import { fetchData } from '@/supabase/fetchData';
 const OurCoursesCardModule = async () => {
   const { data: courses, error } = await fetchData().getAll<CourseT[]>('courses');
 
-  if (error || courses?.length === 0) return null;
+  if (error || !courses?.length) return null;
 
   return (
     <CardsBlock tableName='courses' itemContainerStyles='md:grid-cols-2'>

@@ -2,7 +2,7 @@ import { DataBlockProps } from '@/lib/types/components/modules/OurPricing/DataBl
 import CardPrice from 'src/components/units/cards/СardPrice';
 
 const DataBlock = ({ data, timePlanType }: DataBlockProps) => {
-  if (data.length === 0 || !timePlanType) return null;
+  if (!data?.length || !timePlanType) return null;
 
   return (
     <div className='grid gap-8 rounded-xl bg-white p-5 md:grid-cols-2 md:p-12 2xl:p-20'>

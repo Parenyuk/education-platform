@@ -7,7 +7,7 @@ import PricingClientComponent from 'src/components/modules/OurPricing/PricingCli
 const OurPricing = async ({ mode = 'right' }: OurPricingProps) => {
   const { data: pricing, error } = await fetchData().getAll<PricingI[]>('pricing');
 
-  if (error || !pricing) return null;
+  if (error || !pricing?.length) return null;
 
   return (
     <PricingClientComponent data={pricing} mode={mode}>
