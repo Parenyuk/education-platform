@@ -6,6 +6,8 @@ import { Button } from '@heroui/button';
 
 import useOnClickOutside from '@/lib/hooks/useOnClickOutside';
 import Cross from '@/src/components/elements/svgElements/Cross';
+import CardComponent from '@/src/components/units/cards/СardPrice/PaymentModal/CardComponent';
+import { isFormValid } from '@/utils/helpers/isFormValid';
 
 type PaymentModalProps = {
   isOpen: boolean;
@@ -23,18 +25,8 @@ const PaymentModal = ({ isOpen, onClose, amount, planType }: PaymentModalProps) 
   const modalRef = useRef<HTMLDivElement | null>(null);
   useOnClickOutside(modalRef, onClose);
 
-  const isFormValid = cardNumber.length === 19 && cvv.length === 3;
-
-  const formatCardNumber = (value: string) => {
-    return value
-      .replace(/\D/g, '')
-      .replace(/(.{4})/g, '$1 ')
-      .trim()
-      .slice(0, 19);
-  };
-
   const handlePayment = async () => {
-    if (!isFormValid) return;
+    if (!isFormValid(cardNumber, cvv)) return;
 
     setIsLoading(true);
     setMessage(null);
@@ -73,28 +65,7 @@ const PaymentModal = ({ isOpen, onClose, amount, planType }: PaymentModalProps) 
           Amount: <strong>${amount}</strong>
         </p>
 
-        <div className='relative mb-4 rounded-lg bg-gray-100 p-4 shadow-md'>
-          <p className='mb-1 text-sm text-gray-600'>Card Number</p>
-          <input
-            type='text'
-            placeholder='XXXX XXXX XXXX XXXX'
-            className='w-full rounded border border-gray-300 bg-white p-3 font-mono text-lg tracking-wide'
-            value={cardNumber}
-            onChange={(e) => setCardNumber(formatCardNumber(e.target.value))}
-          />
-        </div>
-
-        <div className='relative mb-4 w-32 rounded-lg bg-gray-100 p-4 shadow-md'>
-          <p className='mb-1 text-sm text-gray-600'>CVV</p>
-          <input
-            type='text'
-            placeholder='XXX'
-            maxLength={3}
-            className='w-full rounded border border-gray-300 bg-white p-3 font-mono text-lg tracking-wide'
-            value={cvv}
-            onChange={(e) => setCvv(e.target.value.replace(/\D/g, ''))}
-          />
-        </div>
+        <CardComponent cardNumber={cardNumber} setCardNumber={setCardNumber} cvv={cvv} setCvv={setCvv} />
 
         {message ? (
           <p className={`text-center ${message.includes('successful') ? 'text-green-600' : 'text-red-600'}`}>
