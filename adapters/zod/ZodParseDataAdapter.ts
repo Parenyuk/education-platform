@@ -2,6 +2,7 @@
 
 import { redirect } from 'next/navigation';
 
+import { ROUTES } from '@/lib/constants/routes';
 import { TErrors, TZodParseData } from '@/lib/types/adapters/zod';
 
 export default function ZodParseDataAdapter<T>(zodSchema: any, data: any): TZodParseData<T> {
@@ -13,7 +14,7 @@ export default function ZodParseDataAdapter<T>(zodSchema: any, data: any): TZodP
     result.error.issues.forEach((issue: any) => {
       errors[issue.path[0]] = issue.message;
     });
-    redirect('/error');
+    redirect(ROUTES.ERROR());
   }
 
   return {

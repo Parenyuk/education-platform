@@ -12,6 +12,7 @@ export const AppRoutes = {
   COURSES: 'COURSES',
   COURSE_PAGE: 'COURSE_PAGE',
   PRICING: 'PRICING',
+  ERROR: 'ERROR',
   HOME: 'HOME',
 } as const;
 
@@ -34,5 +35,6 @@ export const ROUTES: Record<keyof typeof AppRoutes, DynamicRoute> = {
     `/courses${options?.page ? `?page=${options.page}` : '?page=1'}${options?.level ? `?level=${options.level.join('-')}` : ''}`,
   [AppRoutes.COURSE_PAGE]: (options) => `/courses/${options?.slug}`,
   [AppRoutes.PRICING]: () => '/pricing',
+  [AppRoutes.ERROR]: () => '/error',
   [AppRoutes.HOME]: () => `/`,
 };

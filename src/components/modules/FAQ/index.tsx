@@ -1,12 +1,12 @@
-import { FAQI } from '@/lib/types/components/modules/FAQ';
+import { FAQT } from '@/lib/types/common/tables';
 import DataSide from '@/src/components/modules/FAQ/DataSide';
 import HeadSide from '@/src/components/modules/FAQ/HeadSide';
 import { fetchData } from '@/supabase/fetchData';
 
 const FAQ = async () => {
-  const { data: faqData, error } = await fetchData().getAll<FAQI[]>('faq');
+  const { data: faqData, error } = await fetchData().getAll<FAQT[]>('faq');
 
-  if (error || !faqData) return null;
+  if (error || !faqData?.length) return null;
 
   return (
     <div

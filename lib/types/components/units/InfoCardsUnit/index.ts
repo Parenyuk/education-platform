@@ -1,8 +1,8 @@
-import { InfoCardType } from '@/lib/types/components/units/InfoCardsUnit/InfoCard';
+import { AchievementT, OurGoalsT } from '@/lib/types/common/tables';
 
 export type InfoCardsBlockProps = {
   title: string;
   description: string;
-  data: InfoCardType[];
+  data: AchievementT[] | OurGoalsT[] | null;
   classNames?: string;
 };

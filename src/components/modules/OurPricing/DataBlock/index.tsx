@@ -1,7 +1,9 @@
 import { DataBlockProps } from '@/lib/types/components/modules/OurPricing/DataBlock';
-import CardPrice from '@/src/components/units/cards/cardPrice';
+import CardPrice from 'src/components/units/cards/СardPrice';
 
 const DataBlock = ({ data, timePlanType }: DataBlockProps) => {
+  if (!data?.length || !timePlanType) return null;
+
   return (
     <div className='grid gap-8 rounded-xl bg-white p-5 md:grid-cols-2 md:p-12 2xl:p-20'>
       {data?.map((item) => {

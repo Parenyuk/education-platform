@@ -1,4 +1,4 @@
-const RightArrow = ({}) => {
+const RightArrow = () => {
   return (
     <svg
       width='28'
@@ -12,7 +12,7 @@ const RightArrow = ({}) => {
       <path
         d='M6.99967 14H21.583M21.583 14L14.583 7M21.583 14L14.583 21'
         stroke='#4C4C4C'
-        stroke-width='2'
+        strokeWidth='2'
         stroke-linecap='round'
         stroke-linejoin='round'
       />

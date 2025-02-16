@@ -1,6 +1,6 @@
-import { BenefitI } from '@/lib/types/components/modules/BenefitsCardModule';
+import { BenefitT } from '@/lib/types/common/tables';
 
 export type CardNumericProps = {
-  item: BenefitI;
+  item: BenefitT;
   index: number;
 };

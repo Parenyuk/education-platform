@@ -1,6 +1,5 @@
-import { Tables } from '@/database.types';
-
+import { CourseLessonsT } from '@/lib/types/common/tables';
 
 export type LessonItemProps = {
-  lesson: Tables<'course_lessons'>
-}
+  lesson: CourseLessonsT;
+};

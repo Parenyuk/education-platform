@@ -1,10 +1,10 @@
 'use server';
 
 import { UserDataAdapter } from '@/adapters/supabase/UserDataAdapter';
-import { UserAuthStateActionType } from '@/lib/types/adapters/auth';
+import { UserAuthStateActionT } from '@/lib/types/adapters/auth';
 import { createClient } from '@/utils/supabase/server';
 
-export const userAuthStateAction = async (): Promise<UserAuthStateActionType> => {
+export const userAuthStateAction = async (): Promise<UserAuthStateActionT> => {
   const supabase = await createClient();
 
   const user = await supabase.auth.getUser();

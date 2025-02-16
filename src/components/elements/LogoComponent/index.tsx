@@ -2,7 +2,7 @@
 
 import { useMediaQuery } from 'usehooks-ts';
 
-const LogoComponent = ({}) => {
+const LogoComponent = () => {
   const desktop = useMediaQuery('(min-width: 1920px)');
 
   return desktop ? (

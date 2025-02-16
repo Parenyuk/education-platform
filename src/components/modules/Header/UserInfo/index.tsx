@@ -3,12 +3,12 @@
 import { Link } from '@heroui/link';
 
 import { ROUTES } from '@/lib/constants/routes';
-import { UserInfoPropsType } from '@/lib/types/components/modules/Header/UserInfo';
+import { UserInfoPropsT } from '@/lib/types/components/modules/Header/UserInfo';
 import MenuIcon from '@/public/svg/mobile-menu.svg';
 import LinkAsButton from '@/src/components/elements/LinkAsButton';
 import LogOutButton from '@/src/components/units/LogoutButton';
 
-const UserInfo = ({ isLoggedIn, user }: UserInfoPropsType) => {
+const UserInfo = ({ isLoggedIn, user }: UserInfoPropsT) => {
   return (
     <div className='flex items-center justify-center space-x-5'>
       {isLoggedIn ? (

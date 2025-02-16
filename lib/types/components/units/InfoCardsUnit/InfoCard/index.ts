@@ -1,8 +1,5 @@
-import { ComponentType, SVGProps } from 'react';
+import { AchievementT } from '@/lib/types/common/tables';
 
-export type InfoCardType = {
-  id: number;
-  icon: ComponentType<SVGProps<SVGSVGElement>>;
-  title: string;
-  text: string;
+export type InfoCardProps = {
+  item: AchievementT;
 };

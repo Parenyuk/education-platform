@@ -1,6 +1,6 @@
 import { Link } from '@heroui/link';
 
-import { socialProfiles } from '@/utils/mockData/footerIcons';
+import { socialProfiles } from '@/lib/constants/socialProfiles';
 
 const SocialProfiles = () => {
   return (

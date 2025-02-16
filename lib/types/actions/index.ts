@@ -1,4 +1,4 @@
-export type LoginResponse = {
+export type LoginResponseT = {
   success: boolean;
   message: string;
 };
